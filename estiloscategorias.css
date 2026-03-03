@@ -1,0 +1,469 @@
+:root {
+ --azul-principal: #1D4A7A;
+--azul-claro: #F5F7FA;
+--blanco: #FFFFFF;
+ --gris-texto: #6C757D;
+ --gris-fuerte: #4A4A4A;
+ --verde-activo: #28A745;
+ --logo-azul: #0D3B66;
+--logo-verde: #54C1A9;
+ --logo-naranja: #F4A443;
+ --verde-barra: #0b7a32;
+ --negro: black;
+}
+
+body {
+background: var(--blanco);
+ margin: 0;
+font-family: "Montserrat", sans-serif;;
+}
+
+
+.topbar {
+ background: var(--logo-azul);
+height: 80px;
+ display: flex;
+ align-items: center;
+ padding: 0 30px;
+justify-content: space-between;
+border-bottom: 8px solid var(--logo-verde);
+position: relative;
+z-index: 1000;
+}
+
+.logo-area {
+ display: flex;
+align-items: center;
+gap: 10px;
+}
+
+.logo-area img {
+height: 55px;
+}
+
+.logo-area .titulo {
+color: white;
+font-size: 26px;
+font-weight: bold;
+}
+
+.nav-links {
+display: flex;
+align-items: center;
+gap: 25px;
+
+}
+
+.nav-links a {
+color: white;
+text-decoration: none;
+font-size: 16px;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+color: var(--logo-verde);
+}
+.titulo-principal {
+text-align: center;
+font-size: 30px;
+margin-bottom: 25px;
+color: var(--logo-azul);
+}
+
+
+.buscador {
+display: flex;
+align-items: center;
+ gap: 8px;
+ margin-bottom: 20px;
+}
+
+.buscador .icono {
+font-size: 22px;
+}
+
+.buscador input {
+flex: 1;
+padding: 10px;
+border: 2px solid var(--azul-principal);
+border-radius: 5px;
+font-size: 15px;
+}
+
+.btn-buscar {
+padding: 10px 15px;
+background: var(--azul-principal);
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+}
+
+.btn-buscar:hover {
+background: var(--logo-azul);
+}
+
+
+.tabla-equipos {
+ width: 100%;
+ border-collapse: collapse;
+ background: var(--blanco);
+border: 2px solid var(--logo-azul);
+}
+
+.tabla-equipos th {
+background: var(--logo-azul);
+color: white;
+padding: 12px;
+ text-align: left;
+ font-size: 18px;
+}
+
+.tabla-equipos td {
+ padding: 12px;
+border-bottom: 1px solid #ddd;
+color: var(--gris-fuerte);
+font-size: 16px;
+}
+
+.acciones {
+text-align: center;
+}
+
+.icon {
+ background: none;
+ border: none;
+ cursor: pointer;
+font-size: 20px;
+}
+
+.btn-agregar {
+ margin-top: 20px;
+ padding: 12px 25px;
+font-size: 17px;
+ background: var(--logo-verde);
+ color: white;
+ border: none;
+   border-radius: 6px;
+cursor: pointer;
+}
+.list {
+    margin-top: 10px;
+    padding: 10px 10px;
+    font-size: 15px;
+    background: var(--logo-verde);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-agregar:hover {
+    background: #3aa58b;
+}
+
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    min-width: 170px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    /* clave para que quede encima del contenido */
+    z-index: 2000;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    display: block;
+    text-decoration: none;
+}
+
+/* Botón editar */
+.btn-editar {
+    margin-top: 20px;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+    background: var(--logo-azul);
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-editar:hover {
+    background: var(--logo-verde);
+    color: black;
+}
+
+.dropdown button.icon img:hover {
+    transform: scale(1.05);
+    transition: 0.2s;
+}
+
+/* ===== EDITAR PERFIL OVERLAY ===== */
+
+.editar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0,0,0,0.65);
+    backdrop-filter: blur(6px);
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 10000;
+}
+
+.editar-box {
+    width: 420px;
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.4);
+
+    font-family: "Inter", sans-serif;
+    position: relative;
+}
+
+.editar-box h2 {
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--logo-azul);
+    margin-bottom: 20px;
+}
+
+.editar-box label {
+    font-weight: bold;
+    font-size: 14px;
+    color: var(--logo-azul);
+    display: block;
+    margin-top: 12px;
+}
+
+.editar-box input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+    font-size: 15px;
+}
+
+.editar-box button {
+    margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+
+    background: var(--logo-azul);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.editar-box button:hover {
+    background: var(--logo-verde);
+    color: black;
+}
+.icon img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+    cursor: pointer;
+}
+
+.dropdown button.icon img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+}
+
+#perfilNavbar {
+    display: none;
+}
+
+.btn-cerrar {
+    margin-top: 12px;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+
+    background: crimson;
+    color: white;
+    font-weight: bold;
+}
+
+.btn-cerrar:hover {
+    background: darkred;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    color: var(--logo-verde);
+}
+
+
+.accesibilidad > button {
+    background: #1f3b57;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* MENÚ */
+.menu-accesibilidad {
+    display: none;
+    flex-direction: column;
+    margin-top: 10px;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.menu-accesibilidad button {
+    margin: 5px 0;
+    padding: 6px;
+    border: none;
+    cursor: pointer;
+    background:#eee;
+    color:black;
+    border-radius:6px;
+}
+
+/* MODOS */
+.dark-mode {
+    background: black !important;
+    color: var(--blanco);
+}
+.dark-mode h1{
+    color: var(--blanco);
+}
+
+.mayusculas{
+    text-transform: uppercase;
+}
+grid-container > * { 
+    font-family: "Montserrat", sans-serif;
+}
+    .grid-container{
+        
+        
+        background: var(--blanco);
+        margin: 0;
+        font-family: "Montserrat", sans-serif;
+        display: grid;
+        gap: 30px;
+        grid-template: 
+        "topbar"50px
+        "contenedor"auto
+        "boton"auto
+        "footer"auto;
+    .topbar {
+        grid-area: topbar;
+    background: var(--logo-azul);
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    border-bottom: 8px solid var(--logo-verde);
+}
+
+.contenedor {
+    grid-area: contenedor;
+    
+width: 85%;
+margin: 30px auto;
+position: relative;
+z-index: 1;
+}
+.accesibilidad {
+    grid-area: boton;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 2000;
+}
+footer {
+    grid-area: footer;
+    text-align: center;
+    display: block;
+    padding: 20px;
+    background: var(--azul-principal);
+    color: var(--blanco);
+    font-size: 16px;
+    margin-top: 40px;
+    border-top: 3px solid var(--logo-verde);
+}
+.icon{
+    background:none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+@media(min-width: 768px){
+        grid-template: 
+        "topbar topbar"auto
+        "contenedor contenedor"auto
+        "boton boton"auto
+        "footer footer"auto
+        /auto auto;
+}
+@media(min-width: 992px){
+        gap: 50px;
+        grid-template: 
+             "topbar topbar"auto
+        "contenedor contenedor"800px
+        "boton boton"auto
+        "footer footer"auto
+        /auto auto;
+    }
+}

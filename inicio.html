@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INICIO - SMAQMINA</title>
+    <link rel="stylesheet" href="estilos.css">
+
+</head>
+
+<body class="grid-container">
+
+<header class="topbar">
+    <div class="logo-area">
+        <img src="imagenes/logo SMAQMINA.png" alt="Logo">
+        <span class="titulo">SMAQMINA (SISTEMA DE MANTENIMIENTO E INVENTARIO)</span>
+    </div>
+
+    <nav class="nav-links">
+        <a href="antsr.html">Acerca de Nosotros</a>
+        <a href="index.html" id="linkLogin">Inicio sesión</a>
+        <a href="ayuda.html">Ayuda</a>
+
+ <div class="dropdown" id="perfilNavbar">
+  <button class="icon" onclick="abrirPerfil()">
+    <img id="iconoNavbar" src="imagenes/Usuario.webp" alt="Usuario">
+  </button>
+</div>
+
+    </nav>
+</header>
+
+<section class="bienvenida">
+    <h1>¡Bienvenido!</h1>
+    <div class="linea-verde"></div>
+    <h2 class="categoria-titulo">Este sistema le permitirá gestionar máquinas, Equipos y herramientas</h2>
+      <h3 id="reloj"></h3>
+</section>
+
+<section class="categorias-container">
+
+   
+    <a href="herramientas.html" class="categoria-card">
+        <div class="carousel">
+            <div class="carousel-track">
+                <img src="imagenes/herramientas-sujecion.jpeg" alt="Imagen 1">
+                <img src="imagenes/herramientas-corte.jpg" alt="Imagen 2">
+                <img src="imagenes/herramientas-impacto.jpeg" alt="Imagen 3">
+                <img src="imagenes/herramientas-edicion.jpeg" alt="Imagen 4">
+            </div>
+        </div>
+
+        <h3>HERRAMIENTAS</h3>
+        <p>
+            Son objetos, dispositivos o instrumentos creados para facilitar la realización de tareas específicas.
+        </p>
+    </a>
+
+  
+    <a href="maquinas.html" class="categoria-card">
+        <div class="carousel">
+            <div class="carousel-track">
+                <img src="imagenes/bandatrasportadora.jpeg" alt="Imagen 1">
+                <img src="imagenes/ventiladoraxial.jpg" alt="Imagen 2">
+                <img src="imagenes/electrobomba.jpeg" alt="Imagen 3">
+            </div>
+        </div>
+
+        <h3>MÁQUINAS</h3>
+        <p>
+            Dispositivo creado para transformar energía en trabajo útil y ayudar en tareas de la vida diaria.
+        </p>
+    </a>
+
+   
+    <a href="equipos.html" class="categoria-card">
+        <div class="carousel">
+            <div class="carousel-track">
+                <img src="imagenes/malacatereal.jpg" alt="Imagen 1">
+                <img src="imagenes/pulmon.jpg" alt="Imagen 2">
+                <img src="imagenes/vagoneta.jpg" alt="Imagen 3">
+            </div>
+        </div>
+
+        <h3>EQUIPOS</h3>
+        <p>
+            Conjunto organizado de elementos materiales.
+        </p>
+    </a>
+
+</section>
+    <div class="accesibilidad">
+    <button id="botonAccesibilidad">⚙️</button>
+
+    <div id="menuAccesibilidad" class="menu-accesibilidad">
+        <button onclick="toggleOscuro()"> Modo oscuro</button>
+        <button onclick="mayusculas()"> Mayúsculas</button>
+        <button onclick="resetEstilos()"> Restaurar</button>     
+        <button onclick="leerPagina()"> Leer Pagina</button>
+        <button onclick="detenerLectura()"> Detener Lectura</button>
+    </div>
+    </div>
+<footer>
+    2026 SMAQMINA. - Sistema de Mantenimiento de Maquinas Mineras <br>
+    Derechos Reservados. <br>
+    contacto: 3009650139 <br>
+    correo: smaqmina23@gmail.com
+</footer>
+<!-- PERFIL OVERLAY -->
+<div class="perfil-overlay" id="perfilOverlay">
+
+    <div class="perfil-box">
+
+        <!-- Botón cerrar -->
+        <span class="cerrar-perfil" onclick="cerrarPerfil()">✖</span>
+
+        <div class="perfil-contenido">
+
+            <!-- FOTO -->
+            <div class="perfil-foto">
+                <img id="fotoPerfil" src="imagenes/Usuario.webp" alt="Usuario">
+
+              <h3 id="nombrePerfil"></h3>
+                <p id="rolPerfil">Administrador</p>
+
+                <button class="btn-editar" onclick="abrirEditarPerfil()">
+                    Editar perfil
+                </button>
+            </div>
+
+            <!-- INFORMACIÓN -->
+            <div class="perfil-info">
+                <h4>Información de contacto</h4>
+
+                <p><b>Correo:</b> <span id="correoPerfil"></span></p>
+                <p><b>Extensión:</b> <span id="extensionPerfil"></span></p>
+                <p><b>Departamento:</b> <span id="deptoPerfil"></span></p>
+                <p><b>Último acceso:</b> <span id="accesoPerfil"></span></p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- EDITAR PERFIL OVERLAY -->
+<div class="editar-overlay" id="editarOverlay">
+
+    <div class="editar-box">
+
+        <span class="cerrar-perfil" onclick="cerrarEditar()">✖</span>
+
+       <button class="btn-editar" onclick="abrirEditarPerfil()">
+    Eliminar perfil
+   </button>
+
+   <button class="btn-cerrar-sesion" onclick="cerrarSesion()">
+    Cerrar sesión
+  </button>
+        <!-- Cambiar foto -->
+        <label>Foto de perfil</label>
+        <input type="file" id="inputFoto" accept="image/*">
+
+        <button type="button" onclick="borrarFoto()">Eliminar foto</button>
+
+        <!-- Campos -->
+        <label>Nombre</label>
+        <input type="text" id="inputNombre">
+
+        <label>Rol</label>
+        <input type="text" id="inputRol">
+
+        <label>Correo</label>
+        <input type="email" id="inputCorreo">
+
+        <label>Extensión</label>
+        <input type="text" id="inputExtension">
+
+        <label>Departamento</label>
+        <input type="text" id="inputDepto">
+
+        <!-- Botón guardar -->
+        <button onclick="guardarPerfil()">Guardar cambios</button>
+
+    </div>
+
+</div>
+
+<script src="scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head> 
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <link rel="stylesheet" href="estilos-elementos.css"> 
+        <script src="modificarHj.js" defer></script>
+        <title>EQUIPOS</title> 
+    </head> 
+
+    <body class="grid-container"> 
+        <header class="topbar">
+             <div class="logo-area">
+                  <img  src="imagenes/logo SMAQMINA.png" alt="LOGO SMAQMINA">
+                 <span class="titulo">SMAQMINA</span>
+            </div>
+
+             <nav class="nav-links">
+                 <a href="inicio.html">Inicio</a>
+                 <div class="dropdown">
+            <a href="#" class="dropbtn">Categorías</a>
+            <div class="dropdown-content">
+               <a href="herramientas.html">Herramientas</a>
+               <a href="equipos.html">Equipos</a>
+               <a href="maquinas.html">Máquinas</a>
+            </div>
+        </div>
+                 <a href="ayuda.html">Ayuda</a>
+         
+             </nav>
+        </header>
+
+        <div class="img">
+            <img src="imagenes/vagoneta.jpg" alt="VAGONETA">
+        </div> 
+        <main class="hj1">
+            
+           <h1>VAGONETA</h1>
+    <button class="icon">✏️</button>
+
+    <ul class="lista-dos-columnas">
+        <li><strong>Nombre:</strong> <span id="nombreVagoneta">Vagoneta</span></li>
+        <li><strong>Ubicación:</strong> <span id="ubicacionVagoneta">Patio mina didáctica</span></li>
+        <li><strong>Operado por:</strong> <span id="operadorVagoneta">Técnicos mina</span></li>
+    </ul>
+
+</main>
+
+
+       <main class="hj2">
+
+    <button class="icon">✏️</button>
+
+    <ul class="lista-dos-columnas">
+        <li><strong>EMPRESA:</strong> <span id="empresaVagoneta">Sena Centro Minero</span></li>
+        <li><strong>PROCESO:</strong> <span id="procesoVagoneta">Mantenimiento</span></li>
+        <li><strong>LUGAR DE TRABAJO:</strong> <span id="lugarVagoneta">Mina didáctica</span></li>
+        <li><strong>UBICACIÓN:</strong> <span id="ubicacionGeneralVagoneta">Sena Centro Minero - Morca</span></li>
+        <li><strong>CIUDAD:</strong> <span id="ciudadVagoneta">Sogamoso</span></li>
+        <li><strong>FECHA:</strong> <span id="fechaVagoneta">06/09/2021</span></li>
+        <li><strong>UBICACIÓN DEL EQUIPO:</strong> <span id="ubicacionEquipoVagoneta">Patio Mina</span></li>
+        <li><strong>EQUIPO EN OPERACIÓN:</strong> <span id="equipoOperacionVagoneta">Sí</span></li>
+        <li><strong>TIPO DE OPERACIÓN:</strong> <span id="tipoOperacionVagoneta">Transporte</span></li>
+        <li><strong>RESPONSABLE:</strong> <span id="responsableVagoneta">Jefe de mina</span></li>
+        <li><strong>CÓDIGO PROGRAMA:</strong> <span id="codigoVagoneta">S666S</span></li>
+        <li><strong>EMPRESA (Secundaria):</strong> <span id="empresaSecundariaVagoneta">Mina didáctica - Centro Minero</span></li>
+    </ul>
+
+</main>
+
+       <main class="caracteristicas">
+
+    <button class="icon">✏️</button>
+
+    <ul>
+        <li>
+            <strong>Capacidad:</strong>
+            <span id="capacidadVagoneta">
+                30HP - KV:22 - Motor RPM:71 - Cos:0.84 - V:220/440 - A:75/37.5 - HZ:60 - KG:330 - NM:2960 - F.S:1.45
+            </span>
+        </li>
+    </ul>
+
+    <ul class="lista-dos-columnas">
+        <li><strong>Fuente de alimentación:</strong> <span id="fuenteVagoneta">Eléctrica con cable</span></li>
+        <li><strong>Tensión:</strong> <span id="tensionVagoneta">Potencia máxima</span></li>
+    </ul>
+                <h1>
+                    Estado:
+                <select>
+                    <option>Bueno</option>
+                    <option>Regular</option>
+                    <option>Muerte</option>
+                </select>
+                </h1>
+        </main>
+          <main class="boton-volver">
+         <a href="equipos.html"> <button>VOLVER</button></a>
+        </main>
+        <main class="boton-mantenimientos">
+          <a href="Mantenimiento-vagoneta.html"><button>MANTENIMIENTOS</button></a>
+         </main>
+        
+        
+           <div class="accesibilidad">
+    <button id="botonAccesibilidad">⚙️</button>
+
+    <div id="menuAccesibilidad" class="menu-accesibilidad">
+        <button onclick="toggleOscuro()"> Modo oscuro</button>
+        <button onclick="mayusculas()"> Mayúsculas</button>
+        <button onclick="resetEstilos()"> Restaurar</button>     
+        <button onclick="leerPagina()"> Leer Pagina</button>
+        <button onclick="detenerLectura()"> Detener Lectura</button>
+    </div>
+    </div>
+    <footer>
+    2026 SMAQMINA - Sistema de Mantenimiento de Maquinas Mineras
+    <br>
+    Derechos Reservados.
+    <br>
+    contacto: 3009650139
+    correo: smaqmina23@gmail.com
+    </footer> 
+    </body> 
+</html>

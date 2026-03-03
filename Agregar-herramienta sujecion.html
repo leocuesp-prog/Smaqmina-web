@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Herramienta</title>
+    <link rel="stylesheet" href="estilosagregar3.css">
+</head>
+<body class="grid-container">
+     <header class="topbar">
+    <div class="logo-area">
+        <img src="imagenes/Logo.png" alt="Logo">
+        <span class="titulo">SMAQMINA </span>
+    </div>
+    <nav class="nav-links">
+        <a href="inicio.html">Inicio</a>
+        <a href=>Acerca de</a>
+    
+        <div class="dropdown">
+            <a href="#" class="dropbtn">Categorías</a>
+                <div class="dropdown-content">
+                    <a href="herramientas.html">Herramientas</a>
+                    <a href="equipos.html">Equipos</a>
+                    <a href="maquinas.html">Máquinas</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <h1 class="titulo-principal">AGREGAR HERRAMIENTA</h1>
+    <div class="formulario-container">
+        <form class="formulario-agregar"> 
+                <h3>Nombre: </h3>
+                <input style="color: gray;" type="text"id="Nombre" required placeholder="Nombre"> 
+                <h3>Cantidad buena: </h3> 
+                <input type="number"id="Cantidad_buena" required placeholder="Cantidad buena">
+                <h3>Cantidad Regular: </h3> 
+                <input type="number"id="Cantidad_regular" required placeholder="Cantidad regular">
+                <h3>Cantidad Mala: </h3> 
+                <input type="number"id="Cantidad_mala" required placeholder="Cantidad mala">
+            </form>
+        </div>
+        <main class="boton-volver">
+        <a href="herramientas-Sujecion.html"><button style="font-size: 18px;" class="btn-agregar">Volver</button></a>
+    </main>
+    <main class="boton-agregar">
+        <button style="font-size: 18px;" class="btn-agregar" onclick="guardar()">Agregar</button>
+    </main>
+    <div class="accesibilidad">
+    <button id="botonAccesibilidad">⚙️</button>
+
+    <div id="menuAccesibilidad" class="menu-accesibilidad">
+        <button onclick="toggleOscuro()"> Modo oscuro</button>
+        <button onclick="mayusculas()"> Mayúsculas</button>
+        <button onclick="resetEstilos()"> Restaurar</button>     
+        <button onclick="leerPagina()"> Leer Pagina</button>
+        <button onclick="detenerLectura()"> Detener Lectura</button>
+    </div>
+    </div>
+    <footer>
+        2026 SMAQMINA - Sistema de Mantenimiento de Maquinas Mineras
+    <br>
+        Derechos Reservados.
+    <br>
+        contacto: 3009650139
+        correo: smaqmina23@gmail.com
+    </footer>
+    <script src="agregar_herramienta-sujecion.js"></script>
+    <script src="accesibilidad.js"></script>
+</body>
+</html>

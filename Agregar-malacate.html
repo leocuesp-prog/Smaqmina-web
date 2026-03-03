@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MANTENIMIENTO</title>
+    <link rel="stylesheet" href="estilosagregar.css">
+</head>
+<body class="grid-container">
+     <header class="topbar">
+    <div class="logo-area">
+        <img src="imagenes/Logo.png" alt="Logo">
+        <span class="titulo">SMAQMINA  (SISTEMA DE MANTENIMIENTO E INVENTARIO)</span>
+    </div>
+    <nav class="nav-links">
+        <a href="inicio.html">Inicio</a>
+        <a href=>Acerca de</a>
+      
+        <div class="dropdown">
+            <a href="#" class="dropbtn">Categorías</a>
+                <div class="dropdown-content">
+                    <a href="herramientas.html">Herramientas</a>
+                    <a href="equipos.html">Equipos</a>
+                    <a href="maquinas.html">Máquinas</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <h1 class="titulo-principal">REGISTRO MALACATE</h1>
+    <div class="formulario-container">
+        <form class="formulario-agregar">
+                <h3>Tipo Mantenimiento: </h3>
+                <select id="tipo_mantenimiento" name="tipo_mantenimiento">
+                    <option value="TM" disabled selected>Tipo Mantenimiento</option>
+                    <option value="pr">Preventivo</option>
+                    <option value="co">Correctivo</option>
+                    <option value="pre">Predictivo</option>
+                </select>  
+                <h3>Fecha Mantenimiento: </h3>
+                <input style="color: gray;" type="date"id="Fecha mantenimiento" required placeholder="Fecha Mantenimiento"> 
+                <h3>Observacion: </h3> 
+                <input type="text"id="Observacion" required placeholder="Observacion">
+                <h3>Equipo apto: </h3>
+                <select id="Equipo apto" name="eq apto">
+                    <option value="EA" disabled selected>Equipo apto</option>
+                    <option >SI</option>
+                    <option >NO</option>
+                </select>
+                <h3>Realizo Mantenimiento:</h3>
+                <input type="text"id="Realizo mantenimiento" required placeholder="Realizo mantenimiento">
+                <h3>Reviso Mantenimiento:</h3>
+                <input type="text"id="Reviso Mantenimiento" required placeholder="Reviso Mantenimiento">
+                <h3>Novedad:</h3>
+                <input type="text"id="Novedad" required placeholder="Novedad">
+  
+            </form>
+        </div>
+        <main class="boton-volver">
+        <a href="Mantenimiento-malacate.html"><button style="font-size: 18px;" class="btn-agregar">Volver</button></a>
+    </main>
+    <main class="boton-agregar">
+        <button style="font-size: 18px;" onclick="guardar4()" class="btn-agregar">Agregar</button>
+    </main>
+    <div class="accesibilidad">
+    <button id="botonAccesibilidad">⚙️</button>
+
+    <div id="menuAccesibilidad" class="menu-accesibilidad">
+        <button onclick="toggleOscuro()"> Modo oscuro</button>
+        <button onclick="mayusculas()"> Mayúsculas</button>
+        <button onclick="resetEstilos()"> Restaurar</button>     
+        <button onclick="leerPagina()"> Leer Pagina</button>
+        <button onclick="detenerLectura()"> Detener Lectura</button>
+    </div>
+    </div>
+    <footer>
+        2026 SMAQMINA - Sistema de Mantenimiento de Maquinas Mineras
+    <br>
+        Derechos Reservados.
+    <br>
+        contacto: 3009650139
+        correo: smaqmina23@gmail.com
+    </footer>
+    <script src="agregar_mantenimiento-malacate.js"></script>
+</body>
+</html>

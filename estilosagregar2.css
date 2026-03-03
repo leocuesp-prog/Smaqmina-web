@@ -1,0 +1,328 @@
+:root {
+ --azul-principal: #1D4A7A;
+--azul-claro: #F5F7FA;
+--blanco: #FFFFFF;
+ --gris-texto: #6C757D;
+ --gris-fuerte: #4A4A4A;
+ --verde-activo: #28A745;
+ --logo-azul: #0D3B66;
+--logo-verde: #54C1A9;
+ --logo-naranja: #F4A443;
+ --verde-barra: #0b7a32;
+ --negro: black;
+ --blanco2: rgb(206, 206, 206);
+}
+body {
+background: var(--blanco);
+margin: 0;
+font-family: "Montserrat", sans-serif;;
+}
+table {
+    width: 50%;
+    border-collapse: collapse; 
+    border: 6px;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+}
+.btn-agregar:hover {
+    background-color: var(--blanco);
+    transform: translateY(-2px);
+    box-shadow: 0 7px 20px rgba(0,0,0,0.4);
+    color: var(--negro);
+}
+.logo-area img {
+height: 55px;
+}
+.logo-area .titulo {
+color: white;
+font-size: 26px;
+font-weight: bold;
+}
+.nav-links a {
+color: white;
+text-decoration: none;
+font-size: 16px;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+color: var(--logo-verde);
+}
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    display: block;
+    text-decoration: none;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    color: var(--logo-verde);
+}
+.formulario-agregar input {
+    width: 95%;
+    padding: 10px;
+    margin-top: 6px;
+    border-radius: 7px;
+    border: 2px solid var(--azul-principal);
+    background:var(--blanco);
+    font-size: 18px;
+    outline: none;
+    transition: 0.3s ease;
+    font-family: "Inter", sans-serif; 
+}
+.formulario-agregar div{
+    color: var(--negro);
+    width: 92%;
+    padding: 4px;
+    margin-top: 6px;
+    border-radius: 7px;
+    border: 2px solid var(--negro);
+    background: rgb(255, 255, 255);
+    outline: none;
+    font-family: "Inter", sans-serif; 
+}
+.formulario-agregar select{
+    color: gray;
+    width: 97%;
+    padding: 10px;
+    margin-top: 6px;
+    border-radius: 7px;
+    border: 2px solid var(--azul-principal);
+    background:var(--blanco);
+    font-size: 18px;
+    outline: none;
+    transition: 0.3s ease;
+    font-family: "Inter", sans-serif; 
+}
+.formulario-agregar textarea{
+    background-color: var(--blanco);
+    color: var(--negro);
+    padding: 8px;
+    border-radius: 6px;
+    border: 2px solid var(--azul-principal);
+    font-family: "Inter", sans-serif; 
+    font-size: 20px;
+    width: 510px;
+    height: 380px;
+    resize: none;
+}
+.centrado{
+    text-align: center;
+}
+.logo-area {
+ display: flex;
+align-items: center;
+gap: 10px;
+}
+
+.titulo-principal {
+text-align: center;
+font-size: 30px;
+margin-bottom: 25px;
+color: var(--logo-azul);
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: transparent;
+    border: none;
+    color: var(--blanco);
+    font-size: 16px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    min-width: 170px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 2000;
+}
+.nav-links {
+display: flex;
+align-items: center;
+gap: 25px;
+}
+.btn-agregar {
+ margin-top: 20px;
+ padding: 12px 25px;
+font-size: 17px;
+ background: var(--logo-verde);
+ color: white;
+ border: none;
+border-radius: 6px;
+cursor: pointer;
+}
+.accesibilidad > button {
+    background: #1f3b57;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* MENÚ */
+.menu-accesibilidad {
+    display: none;
+    flex-direction: column;
+    margin-top: 10px;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.menu-accesibilidad button {
+    margin: 5px 0;
+    padding: 6px;
+    border: none;
+    cursor: pointer;
+    background:#eee;
+    color:black;
+    border-radius:6px;
+}
+
+/* MODOS */
+
+
+
+grid-container > * { 
+    text-align: center
+    ;
+}
+    .grid-container{
+        display: grid;
+        gap: 20px;
+        grid-template: 
+        "topbar"auto
+        "titulo-principal" auto
+        "formulario-container1"auto
+        "formulario-container2"auto
+        "boton-volver"auto
+        "boton-agregar"auto
+        "boton"auto
+        "footer"auto;
+        .topbar {
+        grid-area: topbar;
+background: var(--logo-azul);
+height: 80px;
+display: flex;
+align-items: center;
+padding: 0 30px;
+justify-content: space-between;
+border-bottom: 8px solid var(--logo-verde);
+position: relative;
+z-index: 1000;
+}
+.titulo-principal {
+    grid-area:titulo-principal ;
+text-align: center;
+font-size: 30px;
+margin-bottom: 25px;
+color: var(--logo-azul);
+}
+.formulario-container1 {
+    grid-area: formulario-container1;
+    width: 70%;
+    margin: 50px auto;
+    background-color: var(--blanco2);
+    padding: 30px ;
+    border-radius: 20px;
+    border:3px solid var(--azul-principal);
+}
+.formulario-container2 {
+    grid-area: formulario-container2;
+    width: 70%;
+    margin: 50px auto;
+    background-color: var(--blanco2);
+    padding: 30px ;
+    border-radius: 20px;
+    border:3px solid var(--azul-principal);
+}
+.boton-volver{
+    grid-area: boton-volver;
+    text-align: center;
+}
+.boton-agregar{
+      grid-area: boton-agregar;
+    text-align: center;  
+}
+.accesibilidad {
+    grid-area: boton;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 2000;
+}
+
+footer { 
+    grid-area: footer;
+    text-align: center;
+    padding: 20px 10px;
+    background: var(--azul-principal);
+    color: var(--blanco);
+    font-size: 16px;
+    border-top: 3px solid var(--logo-verde);
+    border-bottom: 8px solid var(--azul-principal);
+}
+@media(min-width: 768px){
+        grid-template: 
+        "topbar topbar"auto
+        "titulo-principal titulo-principal"auto
+        "formulario-container1 formulario-container1"auto
+        "formulario-container2 formulario-container2"auto
+        "boton-volver boton-agregar"70PX
+        "boton boton"auto
+        "footer footer"auto
+        /auto auto;
+}
+@media(min-width: 992px){
+        grid-template: 
+        "topbar topbar"auto
+        "titulo-principal titulo-principal"auto
+        "formulario-container1 formulario-container2"auto
+        "boton-volver boton-agregar"auto
+        "boton boton"auto
+        "footer footer"auto
+        /auto 50%;
+    }
+}
+.dark-mode {
+    background: black !important;
+    color: var(--blanco);
+}
+.dark-mode h1 {
+    color: var(--blanco);
+}
+.dark-mode .formulario-container1,
+.dark-mode .formulario-container2{
+    color: var(--negro);
+}
+
+
+.mayusculas{
+    text-transform: uppercase;
+}

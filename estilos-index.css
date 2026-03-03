@@ -1,0 +1,304 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.topbar {
+    background: #1f3b57;
+    color: white;
+    padding: 15px 40px;
+    font-weight: bold;
+}
+.btn-volver {
+    position: fixed;
+    top: 90px;   
+    left: 20px;
+    background: rgba(255,255,255,0.9);
+    color: #1f3b57;
+    padding: 8px 14px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: 0.3s;
+    z-index: 1000;
+}
+
+
+.btn-volver:hover {
+    background: #1f3b57;
+    color: white;
+}
+
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.logo-area img {
+    height: 55px;
+}
+
+.logo-area .titulo {
+    color: white;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.logo small {
+    font-weight: normal;
+    margin-left: 10px;
+}
+
+
+.fondo {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url("imagenes/fondo2.jpg") no-repeat center center/cover;
+    filter: blur(6px);
+    z-index: -1;
+}
+
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 60px);
+}
+
+
+.login-box {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    width: 400px;
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+    text-align: center;
+}
+
+.login-box h1 {
+    color: #1f3b57;
+    margin-bottom: 10px;
+}
+
+.login-box p {
+    margin-bottom: 25px;
+    color: #555;
+}
+
+
+.input-group {
+    display: flex;
+    align-items: center;
+    background: #f0f0f0;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+}
+
+.input-group .icon {
+    margin-right: 10px;
+}
+
+.input-group input {
+    border: none;
+    background: none;
+    outline: none;
+    width: 100%;
+    font-size: 14px;
+}
+
+
+.opciones {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.opciones a {
+    text-decoration: none;
+    color: #1f3b57;
+}
+
+
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(to right, #1f3b57, #2e8b8b);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-login:hover {
+    opacity: 0.9;
+}
+
+
+.ayuda {
+    margin-top: 20px;
+    font-size: 13px;
+}
+
+.ayuda a {
+    color: #1f3b57;
+    text-decoration: none;
+}
+
+
+.footer-box {
+    margin-top: 25px;
+    font-size: 12px;
+    color: #666;
+}
+
+
+.footer-bottom {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    color: white;
+    font-size: 13px;
+}
+
+.footer-bottom a {
+    color: #2e8b8b;
+    text-decoration: none;
+}
+/* =============================== */
+/* BOTÓN ENVIAR CÓDIGO AL CORREO   */
+/* =============================== */
+
+.btn-codigo {
+    width: 100%; /* ocupa todo el ancho */
+    padding: 12px;
+    margin-top: 10px;
+
+    background: #f1f5f9; /* gris suave */
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+
+    font-size: 15px;
+    font-weight: 600;
+    color: #0f172a;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Efecto cuando el mouse pasa encima */
+.btn-codigo:hover {
+    background: #e2e8f0;
+    border-color: #94a3b8;
+}
+
+/* Cuando se presiona */
+.btn-codigo:active {
+    transform: scale(0.97);
+}
+
+/* Para que no se vea feo al hacer click */
+.btn-codigo:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
+}
+
+#perfilNavbar {
+    display: none;
+}
+.accesibilidad {
+    grid-area: boton;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 2000;
+}
+.accesibilidad > button {
+    background: #1f3b57;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* MENÚ */
+.menu-accesibilidad {
+    display: none;
+    flex-direction: column;
+    margin-top: 10px;
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.menu-accesibilidad button {
+    margin: 5px 0;
+    padding: 6px;
+    border: none;
+    cursor: pointer;
+    background:#eee;
+    color:black;
+    border-radius:6px;
+}
+
+/* MODOS */
+.dark-mode {
+    background: black !important;
+    color: var(--blanco);
+}
+.dark-mode h1{
+    color: var(--blanco);
+}
+.dark-mode .btn-volver{
+    background: black;
+    color: white;
+}
+.dark-mode .login-box{
+    background: black;
+    color: white;
+}
+
+.mayusculas{
+    text-transform: uppercase;
+}
+.alert-error {
+    display: none;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 14px;
+    }
+.input-group { position: relative; }
+.btn-ver {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px;
+    }

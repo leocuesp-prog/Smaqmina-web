@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Cuenta - SMAQMINA</title>
+    <link rel="stylesheet" href="estilos-index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+<a href="index.html" class="btn-volver">← Volver</a>
+
+<header class="topbar">
+    <div class="logo-area">
+        <img src="imagenes/logo SMAQMINA.png" alt="Logo">
+        <span class="titulo">
+            SMAQMINA (SISTEMA DE MANTENIMIENTO E INVENTARIO)
+        </span>
+    </div>
+</header>
+
+<div class="fondo"></div>
+
+<main class="login-container">
+    <div class="login-box">
+
+        <h1>Crear cuenta</h1>
+        <p>Complete los datos para registrarse</p>
+        
+        
+        <div id="globalAlert" class="alert"></div>
+
+        <form id="loginForm">
+
+            <div class="input-group">
+                <input type="text" id="usuario" placeholder="Nombre completo">
+                <div id="errUsuario" class="error-msg"></div>
+            </div>
+
+            <div class="input-group">
+                <input type="email" id="correo" placeholder="Correo electrónico">
+            </div>
+
+            <div class="input-group">
+                <input type="text" id="telefono" placeholder="Teléfono">
+            </div>
+
+            <div class="input-group" style="position: relative;">
+                <input type="password" id="contrasena" placeholder="Contraseña">
+                <span id="togglePass" style="position: absolute; right: 10px; top: 10px; cursor: pointer;">👁</span>
+                <div id="errContrasena" class="error-msg"></div>
+            </div>
+
+            <div class="input-group">
+                <input type="password" id="confirmarContrasena" placeholder="Confirmar contraseña">
+            </div>
+
+            <label style="display:none;"><input type="checkbox" id="recordarme"> Recordarme</label>
+
+            <button type="submit" id="btnLogin" class="btn-login">
+                Registrarse
+            </button>
+
+        </form>
+
+        <p class="ayuda">
+            ¿Ya tienes cuenta? <a href="index.html">Iniciar sesión</a>
+        </p>
+
+        <footer class="footer-box">
+            © 2026 SMAQMINA. Todos los derechos reservados.
+        </footer>
+
+    </div>
+    
+
+<div class="accesibilidad">
+    <button id="botonAccesibilidad">⚙️</button>
+
+    <div id="menuAccesibilidad" class="menu-accesibilidad">
+        <button onclick="toggleOscuro()">Modo oscuro</button>
+        <button onclick="mayusculas()">Mayúsculas</button>
+        <button onclick="resetEstilos()">Restaurar</button>     
+        <button onclick="leerPagina()">Leer Página</button>
+        <button onclick="detenerLectura()">Detener Lectura</button>
+    </div>
+</div>
+</main>
+
+<script src="srcip_crear.js"></script>
+</body>
+</html>
+

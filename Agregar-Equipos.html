@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Equipo</title>
+    <link rel="stylesheet" href="estilosagregar2.css">
+</head>
+<body class="grid-container">
+    <header class="topbar">
+    <div class="logo-area">
+        <img src="imagenes/Logo.png" alt="Logo">
+        <span class="titulo">SMAQMINA</span>
+    </div>
+    <nav class="nav-links">
+        <a href="inicio.html">Inicio</a>
+        <a href=>Acerca de</a>
+      
+        <div class="dropdown">
+            <a href="#" class="dropbtn">Categorías</a>
+                <div class="dropdown-content">
+                    <a href="herramientas.html">Herramientas</a>
+                    <a href="equipos.html">Equipos</a>
+                    <a href="maquinas.html">Máquinas</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <h1 class="titulo-principal">AGREGAR EQUIPO</h1>
+    <div class="formulario-container1">
+        <form class="formulario-agregar">
+                <h3>Empresa: </h3>
+                <input type="text"name="Empresa" required placeholder="Empresa">
+                <h3>Proceso:</h3>
+                <input type="text"name="Proceso" required placeholder="Proceso">
+                <h3>Lugar De Trabajo: </h3> 
+                <input type="text"name="Lugar De Trabajo" required placeholder="Lugar De Trabajo">
+                <h3>Ubicacion:</h3>
+                <input type="text"name="Ubicacion" required placeholder="Ubicacion">
+                <h3>Fecha : </h3>
+                <input style="color: gray;" type="date"name="Fecha " required > 
+                <h3>Ciudad: </h3>
+                <input type="text"name="Ciudad" required placeholder="Ciudad">
+                <h3>Ubicacion Del Equipo:</h3>
+                <input type="text"name="Ubicacion Del Equipo" required placeholder="Ubicacion Del Equipo">
+                <h3>Equipo En Operacion: </h3>
+                <select id="Equipo apto" name="eq apto">
+                    <option value="EA" disabled selected>Equipo En operacion</option>
+                    <option value="s">SI</option>
+                    <option value="n">NO</option>
+                </select>
+                <h3>Tipo De Operacion Del Equipo:</h3>
+                <input type="text"name="Tipo De Operacion" required placeholder="Tipo De Operacion">
+                <h3>Responsable:</h3>
+                <input type="text"name="Responsable" required placeholder="Responsable">
+                <h3>Codigo Programa Del Mantenimiento:</h3>
+                <input type="text"name="Codigo" required placeholder="Codigo">
+            </form>
+        </div>
+            <div class="formulario-container2">
+        <form class="formulario-agregar">
+                <h3>Nombre: </h3>
+                <input style="color: gray;" type="text"name="Nombre" required placeholder="Nombre"> 
+                <h3>Marca: </h3> 
+                <input type="text"name="Marca" required placeholder="Marca">
+                <h3>Ubicacion:</h3>
+                <input type="text"name="Ubicacion" required placeholder="Ubicacion">
+                <h3>Garantia:</h3>
+                <input type="text"name="Garantia" required placeholder="Garantia">
+                <h3>Uso:</h3>
+                <input type="text"name="Uso" required placeholder="Uso">
+                <h3>Operado Por:</h3>
+                <input type="text"name="Operado Por" required placeholder="Operado Por">
+                <h3 for="texto">Caracteristicas:</h3>
+                <textarea id="Caracteristicas" name="Caracteristicas"required placeholder="Caracteristicas"></textarea>
+                <h3 for="imagen">Imagen:</h3>
+                <input type="file" id="imagen" name="imagen" accept="image/*">
+            </form>
+        </div>
+        <main class="boton-volver">
+        <a href="equipos.html"><button style="font-size: 18px;" class="btn-agregar">Volver</button></a>
+    </main>
+    <main class="boton-agregar">
+        <button style="font-size: 18px;" class="btn-agregar">Agregar</button>
+    </main>
+                    <div class="accesibilidad">
+    <button id="botonAccesibilidad">⚙️</button>
+
+    <div id="menuAccesibilidad" class="menu-accesibilidad">
+        <button onclick="toggleOscuro()"> Modo oscuro</button>
+        <button onclick="mayusculas()"> Mayúsculas</button>
+        <button onclick="resetEstilos()"> Restaurar</button>     
+        <button onclick="leerPagina()"> Leer Pagina</button>
+        <button onclick="detenerLectura()"> Detener Lectura</button>
+    </div>
+    </div>
+    <footer>
+        2026 SMAQMINA - Sistema de Mantenimiento de Maquinas Mineras
+    <br>
+        Derechos Reservados.
+    <br>
+        contacto: 3009650139
+        correo: smaqmina23@gmail.com
+    </footer>
+        <script src="agregar_herramienta-corte.js"></script>
+
+</body>
+</html>

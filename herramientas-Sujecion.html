@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilos-herramientas.css">
+    <title>Sujecion</title>
+</head>
+<body class="grid-container">
+    <header class="topbar">
+        <div class="logo-area">
+             <img  src="imagenes/logo SMAQMINA.png" alt="LOGO SMAQMINA">
+             <span class="titulo">SMAQMINA</span>
+        </div>
+
+         <nav class="nav-links">
+            <a href="inicio.html">Inicio</a>
+
+         <div class="dropdown">
+            <a href="#" class="dropbtn">Categorías</a>
+            <div class="dropdown-content">
+               <a href="herramientas.html">Herramientas</a>
+               <a href="equipos.html">Equipos</a>
+               <a href="maquinas.html">Máquinas</a>
+            </div>
+        </div>
+
+            <a href="ayuda.html">Ayuda</a>
+        </nav>
+    </header>
+       
+    
+         
+     <h2>HERRAMIENTAS DE SUJECION</h2>
+    <table class="tabla">
+       
+    <thead>
+        <tr>
+            <th>Código</th>
+            <th>Nombre</th>
+            <th>Cantidad</th>
+            <th>Estado</th>
+            <th id="accion">Accion</th>
+        </tr>
+    </thead>
+    <tbody id="tabladatos">
+        </tbody>
+    </table>
+    </main>
+    <main class="boton-volver">
+        <a href="Herramientas.html"><button style="font-size: 18px;" class="btn-agregar">Volver</button></a>
+    </main>
+    <main class="boton-agregar">
+        <a href="Agregar-herramienta sujecion.html"><button style="font-size: 18px;" class="btn-agregar">Agregar</button></a>
+    </main>
+                <div class="accesibilidad">
+    <button id="botonAccesibilidad">⚙️</button>
+
+    <div id="menuAccesibilidad" class="menu-accesibilidad">
+        <button onclick="toggleOscuro()"> Modo oscuro</button>
+        <button onclick="mayusculas()"> Mayúsculas</button>
+        <button onclick="resetEstilos()"> Restaurar</button>     
+        <button onclick="leerPagina()"> Leer Pagina</button>
+        <button onclick="detenerLectura()"> Detener Lectura</button>
+    </div>
+    </div>
+    <footer>
+    2026 SMAQMINA - Sistema de Mantenimiento de Maquinas Mineras
+    <br>
+    Derechos Reservados.
+    <br>
+    contacto: 3009650139
+    correo: smaqmina23@gmail.com
+    </footer> 
+    <script src="tablas-herramientas-sujecion.js"></script>
+
+</body>
+</html>
