@@ -290,7 +290,7 @@ padding: 12px;
 
     @media (min-width: 992px) {
     /* definir ancho a diferentes dispositivos, en este caso desktop */
-        gap: 50px;  
+        gap: 80px;  
         grid-template:
         
             /* crear columnas */

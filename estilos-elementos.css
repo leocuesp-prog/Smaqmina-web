@@ -1,11 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
-
-*{
-    box-sizing: border-box; 
-    margin:0; 
-    padding: 0;
- }
-
 :root {
  --azul-principal: #1D4A7A;
  --blanco-secundario: #d1d9e6dd;
@@ -19,12 +12,54 @@
  --verde-barra: #0b7a32;
  --negro: black;
 }
+/*Selectores de etiquetas*/
+*{
+    box-sizing: border-box; 
+    margin:0; 
+    padding: 0;
+ }
+
+
 
 body{ font-family: "Montserrat", sans-serif; padding: 0px; background-color: var(--blanco-secundario); }
 
 
+/* .hj1 h1{ background:var(--azul-principal); color:white; padding:10px; border-radius:6px; text-align:center; }/*  */
+
+h1 {
+    background:var(--azul-principal); color:white; padding:10px; border-radius:6px; text-align: center; margin-top: auto; width: 100%; 
+}
+
+select, option{
+    color: var(--negro); border-radius: 15px;font-size: 15px; background-color:var(--blanco); padding: 14px; font-family: "Montserrat", sans-serif ; font-weight: bold; font-size: 15px;
+}
+
+ li{
+    padding: 5px;  font-size: 15px; list-style-type: none;
+}
+
+button{
+    padding: 12px 25px;
+    font-size: 17px;
+    background: var(--logo-verde);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+
+}
+
+button:hover {
+    background-color: var(--blanco);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 40px rgba(29, 74, 122, 0.6);
+    color: var(--negro);
+    
+}
 
 
+
+/*SELECTORES CON CLASESSSSSSSSSSSSSSS*/
  .grid-container > * { 
     text-align: justify;
     align-items: center;
@@ -78,19 +113,6 @@ gap: 25px;
  
 
 
-/* .hj1 h1{ background:var(--azul-principal); color:white; padding:10px; border-radius:6px; text-align:center; }/*  */
-
-h1 {
-    background:var(--azul-principal); color:white; padding:10px; border-radius:6px; text-align: center; margin-top: auto; width: 100%;
-}
-
-select, option{
-    color: var(--negro); border-radius: 15px;font-size: 15px; background-color:var(--blanco); padding: 14px; font-family: "Montserrat", sans-serif ; font-weight: bold; font-size: 15px;
-}
-
- li{
-    padding: 5px;  font-size: 15px; list-style-type: none;
-}
 .img img{
     height: 200px;
     width: 400px;
@@ -108,26 +130,7 @@ select, option{
 }
 
 
-button{
-    padding: 12px 25px;
-    font-size: 17px;
-    background: var(--logo-verde);
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-
-}
-
-button:hover {
-    background-color: var(--blanco);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 40px rgba(29, 74, 122, 0.6);
-    color: var(--negro);
-    
-}
-
-/* BOTÓN FLOTANTE */
+/* BOTÓN FLOTANTE ACCESIBILIDAD */
 .accesibilidad > button {
     background: #1f3b57;
     color: white;
@@ -181,7 +184,7 @@ button:hover {
 .dark-mode .img,
 .dark-mode .hj1,
 .dark-mode .hj2,
-.dark-mode .caracteristicas,
+.dark-mode .descripcion,
 .dark-mode .menu-accesibilidad {
     background-color: #1e1e1e !important;
     color: white !important;
@@ -207,10 +210,12 @@ button:hover {
     background-color: #555 !important;
     color: white !important;
 }
-
+.dark-mode .menu-accesibilidad{
+    background-color: var(--negro);
+}
 /* ========================= */
 /* ALTO CONTRASTE MEJORADO */
-/* ========================= */
+/* ========================= 
 
 .alto-contraste {
     background-color: black !important;
@@ -228,7 +233,10 @@ button:hover {
 .alto-contraste a {
     color: cyan !important;
 }
+*/
 
+
+/* estructura central*/
 
 .grid-container { /* mobile */
     display: grid; 
@@ -239,14 +247,14 @@ button:hover {
         "img" auto
         "hj1" auto
         "hj2" auto
-        "caracteristicas" auto
+        "descripcion" auto
         "boton-volver" auto
         "boton-mantenimientos"  auto
         "boton"auto
         "footer" auto;
         
 
-    .topbar {
+.topbar {
     grid-area:topbar;
     background: var(--logo-azul);
     height: 80px;
@@ -278,7 +286,6 @@ button:hover {
 }
 
 .hj2 { 
-    
     grid-area: hj2;
     background-color: #F5F7FA;
     border-radius: 20px;
@@ -286,14 +293,13 @@ button:hover {
     padding: 10px;
 }
 
-.caracteristicas { 
-    grid-area: caracteristicas;
+.descripcion { 
+    grid-area: descripcion;
     background-color: #F5F7FA;
     box-shadow: 0 8px 40px rgba(29, 74, 122, 0.6);
     border-radius: 20px;
     padding: 10px;
-    display: flex;
-    flex-direction: column;
+    display: flex;flex-direction: column;
 }
 
 .boton-volver{
@@ -306,7 +312,7 @@ button:hover {
 
 }
 
-   .dropdown {
+.dropdown {
     position: relative;
     display: inline-block;
 }
@@ -352,19 +358,13 @@ button:hover {
 .dropdown:hover .dropbtn {
     color: var(--logo-verde);
 }
+
 .accesibilidad {
     grid-area: boton;
     position: fixed;
     bottom: 20px;
     right: 20px;
     z-index: 2000;
-}
-
-.icon {
- background: none;
- border: none;
- cursor: pointer;
-font-size: 20px;
 }
 
 footer { 
@@ -376,7 +376,14 @@ footer {
     font-size: 16px;
     border-top: 3px solid var(--logo-verde);
     border-bottom: 8px solid var(--azul-principal);
+    
 }
+
+
+
+
+
+/*DEFINICION DE PUNTOS DE QUIEBRE*/
 
      @media (min-width: 768px) {
     /* definir ancho a diferentes dispositivos, en este caso tablet */
@@ -385,7 +392,7 @@ footer {
             "topbar topbar" auto
             "topbar topbar" auto
             "img hj1" auto
-            "hj2 caracteristicas" auto
+            "hj2 descripcion" auto
             "boton-volver boton-mantenimientos" auto
             "boton boton"auto
             "footer footer" auto
@@ -393,14 +400,14 @@ footer {
     }
 
         @media (min-width: 992px) {
+          gap:60px;
         /* definir ancho a diferentes dispositivos, en este caso desktop */
-        
         grid-template:
         
             /* crear columnas */
             "topbar topbar" auto
             "img hj1" auto
-            "hj2 caracteristicas" auto
+            "hj2 descripcion" auto
             "boton-volver boton-mantenimientos" auto
             "boton boton"auto
             "footer footer" auto
@@ -408,12 +415,3 @@ footer {
             / auto 50%; /* definir ancho de columnas */
     }
 }
-
-
-
-
-
-
-
-
-

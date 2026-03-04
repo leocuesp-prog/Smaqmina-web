@@ -458,7 +458,7 @@ footer {
         /auto auto;
 }
 @media(min-width: 992px){
-        gap: 50px;
+        gap: 60px;
         grid-template: 
              "topbar topbar"auto
         "contenedor contenedor"800px
