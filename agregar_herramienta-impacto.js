@@ -15,6 +15,20 @@ async function guardar(){
         alert("Los valores no pueden ser negativos");
         return;
     }
+    try {
+        const listadoResp = await fetch("http://localhost:3000/herramientas/impacto");
+        if (listadoResp.ok) {
+            const lista = await listadoResp.json();
+            const duplicado = lista.some(h => h.nombre_herramienta_impacto.toLowerCase() === nombre.toLowerCase());
+            if (duplicado) {
+                alert("El nombre ya existe");
+                return;
+            }
+        }
+    } catch (e) {
+        // si falla la consulta, dejamos que el servidor haga la validación
+        console.warn("No se pudo comprobar duplicados en cliente", e);
+    }
 
     try {
 

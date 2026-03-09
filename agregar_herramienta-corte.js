@@ -16,6 +16,22 @@ async function guardar() {
         return;
     }
 
+    // comprobación opcional en el cliente para evitar nombres repetidos
+    try {
+        const listadoResp = await fetch("http://localhost:3000/herramientas/corte");
+        if (listadoResp.ok) {
+            const lista = await listadoResp.json();
+            const duplicado = lista.some(h => h.nombre_herramienta_corte.toLowerCase() === nombre.toLowerCase());
+            if (duplicado) {
+                alert("El nombre ya existe");
+                return;
+            }
+        }
+    } catch (e) {
+        // si falla la consulta, dejamos que el servidor haga la validación
+        console.warn("No se pudo comprobar duplicados en cliente", e);
+    }
+
     try {
 
         const respuestaServidor = await fetch("http://localhost:3000/herramientas/corte", {
