@@ -1,6 +1,5 @@
 let tabla = document.getElementById("tabladatos");
 const usuarioActivo = localStorage.getItem("usuarioActivo");
-let accion = document.getElementById("accion");
 
 function cargarTabla() {
 
@@ -57,18 +56,23 @@ function cargarTabla() {
                     botonEliminar.innerText = "🗑️";
 
                     botonEliminar.addEventListener("click", function () {
-
-                        fetch(`http://localhost:3000/eliminar-herramienta/${herramienta.id_herramienta_corte}`, {
-                            method: "DELETE"
-                        })
-                            .then(res => res.json())
-                            .then(() => cargarTabla());
+                        if (confirm("¿Estás seguro de que deseas eliminar esta herramienta?")) {
+                            fetch(`http://localhost:3000/herramientas/corte/${herramienta.id_herramienta_corte}`, {
+                                method: "DELETE"
+                            })
+                                .then(res => res.json())
+                                .then(datos => {
+                                    alert(datos.mensaje);
+                                    cargarTabla();
+                                })
+                                .catch(error => {
+                                    console.error("Error:", error);
+                                    alert("Error al eliminar la herramienta");
+                                });
+                        }
                     });
 
                     celdaAccion.appendChild(botonEliminar);
-
-                } else {
-                    accion.style.display = "none";
                 }
 
             });

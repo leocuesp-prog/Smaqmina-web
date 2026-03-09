@@ -209,6 +209,59 @@ app.get("/herramientas/medicion", (req, res) => {
         res.json(results);
     });
 });
+
+// 🗑️ DELETE para corte
+app.delete("/herramientas/corte/:id", (req, res) => {
+    const { id } = req.params;
+    const sql = "DELETE FROM herramienta_corte WHERE id_herramienta_corte = ?";
+    
+    db.query(sql, [id], (err, result) => {
+        if (err) {
+            return res.status(500).json({ mensaje: "Error al eliminar herramienta de corte" });
+        }
+        res.json({ mensaje: "Herramienta de corte eliminada correctamente" });
+    });
+});
+
+// 🗑️ DELETE para sujeción
+app.delete("/herramientas/sujecion/:id", (req, res) => {
+    const { id } = req.params;
+    const sql = "DELETE FROM herramienta_sujecion WHERE id_herramienta_sujecion = ?";
+    
+    db.query(sql, [id], (err, result) => {
+        if (err) {
+            return res.status(500).json({ mensaje: "Error al eliminar herramienta de sujeción" });
+        }
+        res.json({ mensaje: "Herramienta de sujeción eliminada correctamente" });
+    });
+});
+
+// 🗑️ DELETE para impacto
+app.delete("/herramientas/impacto/:id", (req, res) => {
+    const { id } = req.params;
+    const sql = "DELETE FROM herramienta_impacto WHERE id_herramienta_impacto = ?";
+    
+    db.query(sql, [id], (err, result) => {
+        if (err) {
+            return res.status(500).json({ mensaje: "Error al eliminar herramienta de impacto" });
+        }
+        res.json({ mensaje: "Herramienta de impacto eliminada correctamente" });
+    });
+});
+
+// 🗑️ DELETE para medición
+app.delete("/herramientas/medicion/:id", (req, res) => {
+    const { id } = req.params;
+    const sql = "DELETE FROM herramienta_medicion WHERE id_herramienta_medicion = ?";
+    
+    db.query(sql, [id], (err, result) => {
+        if (err) {
+            return res.status(500).json({ mensaje: "Error al eliminar herramienta de medición" });
+        }
+        res.json({ mensaje: "Herramienta de medición eliminada correctamente" });
+    });
+});
+
 app.listen(3000, () => {
     console.log("Servidor corriendo en puerto 3000");
 });
