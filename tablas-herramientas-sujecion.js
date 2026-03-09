@@ -1,85 +1,82 @@
-let herramientas4 = JSON.parse(localStorage.getItem("herramientas4")) || [];
 let tabla = document.getElementById("tabladatos");
 const usuarioActivo = localStorage.getItem("usuarioActivo");
-let accion=document.getElementById("accion")
-function guardar(){
-    localStorage.setItem("herramientas4", JSON.stringify(herramientas4));
+let accion = document.getElementById("accion");
+
+function cargarTabla() {
+
+    fetch("http://localhost:3000/herramientas/sujecion")
+        .then(res => res.json())
+        .then(herramientas => {
+
+            tabla.innerHTML = "";
+
+            herramientas.forEach((herramienta, i) => {
+
+                let fila = tabla.insertRow();
+
+                fila.insertCell(0).innerText = i + 1;
+
+                let nombreCell = fila.insertCell(1);
+                nombreCell.innerText = herramienta.nombre_herramienta_sujecion;
+
+                let cantidadCell = fila.insertCell(2);
+                cantidadCell.innerText = herramienta.cantidad_buena_sujecion;
+
+                let celdaEstado = fila.insertCell(3);
+
+                let select = document.createElement("select");
+                let estados = ["Bueno", "Regular", "Malo"];
+
+                estados.forEach(function (estado) {
+                    let option = document.createElement("option");
+                    option.text = estado;
+                    select.add(option);
+                });
+
+                select.addEventListener("change", function () {
+
+                    if (select.value === "Bueno") {
+                        cantidadCell.innerText = herramienta.cantidad_buena_sujecion;
+                    }
+                    if (select.value === "Regular") {
+                        cantidadCell.innerText = herramienta.cantidad_regular_sujecion;
+                    }
+                    if (select.value === "Malo") {
+                        cantidadCell.innerText = herramienta.cantidad_mala_sujecion;
+                    }
+                });
+
+                celdaEstado.appendChild(select);
+
+                // ACCIONES SOLO SI HAY USUARIO
+                if (usuarioActivo) {
+
+                    let celdaAccion = fila.insertCell(4);
+
+                    let botonEliminar = document.createElement("button");
+                    botonEliminar.innerText = "🗑️";
+
+                    botonEliminar.addEventListener("click", function () {
+
+                        fetch(`http://localhost:3000/eliminar-herramienta/${herramienta.id_herramienta_sujecion}`, {
+                            method: "DELETE"
+                        })
+                            .then(res => res.json())
+                            .then(() => cargarTabla());
+                    });
+
+                    celdaAccion.appendChild(botonEliminar);
+
+                } else {
+                    accion.style.display = "none";
+                }
+
+            });
+
+        })
+        .catch(error => console.error("Error:", error));
 }
-function cargarTabla(){
 
-    tabla.innerHTML = "";
-
-    for(let i = 0; i < herramientas4.length; i++){
-
-        let fila = tabla.insertRow();
-
-        fila.insertCell(0).innerText = i + 1;
-
-        let nombreCell = fila.insertCell(1);
-        nombreCell.innerText = herramientas4[i].nombre;
-
-        let cantidadCell = fila.insertCell(2);
-        cantidadCell.innerText = herramientas4[i].bueno;
-
-        let celdaEstado = fila.insertCell(3);
-
-        let select = document.createElement("select");
-        let estados = ["Bueno", "Regular", "Malo"];
-
-        estados.forEach(function(estado){// la variable estados se va ahora almacenar en la funcion donde dice estado y se puede verificar la opcion que en el formato se selcciono
-            let option = document.createElement("option");
-            option.text = estado;
-            select.add(option);
-        });
-
-        select.addEventListener("change", function(){
-
-            if(select.value === "Bueno"){
-                cantidadCell.innerText = herramientas4[i].bueno;
-            }
-            if(select.value === "Regular"){
-                cantidadCell.innerText = herramientas4[i].regular;
-            }
-            if(select.value === "Malo"){
-                cantidadCell.innerText = herramientas4[i].malo;
-            }
-        });
-        celdaEstado.appendChild(select);
-        if(usuarioActivo){
-        let celdaAccion = fila.insertCell(4);
-        let botonModificar = document.createElement("button");
-        botonModificar.innerText = "✏️";
-        botonModificar.style.backgroundColor="white";
-        botonModificar.addEventListener("click", function(){
-            let nuevoNombre = prompt("Nuevo nombre:", herramientas4[i].nombre);
-            let nuevoBueno = prompt("Cantidad Bueno:", herramientas4[i].bueno);
-            let nuevoRegular = prompt("Cantidad Regular:", herramientas4[i].regular);
-            let nuevoMalo = prompt("Cantidad Malo:", herramientas4[i].malo);
-            if(nuevoNombre !== null){
-                herramientas4[i].nombre = nuevoNombre;
-                herramientas4[i].bueno = parseInt(nuevoBueno) || 0;
-                herramientas4[i].regular = parseInt(nuevoRegular) || 0;
-                herramientas4[i].malo = parseInt(nuevoMalo) || 0;
-            }
-            guardar();
-            cargarTabla();
-        });
-        celdaAccion.appendChild(botonModificar); 
-        let botonEliminar = document.createElement("button");
-        botonEliminar.innerText = "🗑️";
-        botonEliminar.style.backgroundColor = "white";
-        botonEliminar.addEventListener("click", function(){
-            herramientas4.splice(i, 1);
-            guardar();
-            cargarTabla();
-        });
-        celdaAccion.appendChild(botonEliminar);
-    }
-    else{
-        accion.style.display="none"
-    }
-    }
-}
 cargarTabla();
 let menu = document.getElementById("menuAccesibilidad");
 let boton = document.getElementById("botonAccesibilidad");

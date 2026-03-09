@@ -1,5 +1,3 @@
-
-
 // Selecciona el elemento de entrada (input) del buscador por su ID
 const buscador = document.getElementById("buscador");
 
@@ -124,7 +122,7 @@ window.addEventListener("load", function () {
 
     if (!usuarioGuardado) {
         // Si no hay sesión, lo mandamos al login
-        window.location.href = "index.html";
+        window.location.href = "inicio.html";
         return;
     }
 

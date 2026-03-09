@@ -1,138 +1,83 @@
-// ===============================
-// OBTENER DATOS
-// ===============================
-
-
-let herramientas = JSON.parse(localStorage.getItem("herramientas")) || [];
 let tabla = document.getElementById("tabladatos");
-let encabezadoAccion = document.getElementById("accion");
 const usuarioActivo = localStorage.getItem("usuarioActivo");
-
-// ===============================
-// GUARDAR EN LOCALSTORAGE
-// ===============================
-
-function guardar() {
-    localStorage.setItem("herramientas", JSON.stringify(herramientas));
-}
-
-// ===============================
-// CARGAR TABLA
-// ===============================
+let accion = document.getElementById("accion");
 
 function cargarTabla() {
 
-    tabla.innerHTML = "";
+    fetch("http://localhost:3000/herramientas/corte")
+        .then(res => res.json())
+        .then(herramientas => {
 
-    // Ocultar columna acción si NO hay usuario activo
-    if (!usuarioActivo && encabezadoAccion) {
-        encabezadoAccion.style.display = "none";
-    }
+            tabla.innerHTML = "";
 
-    for (let i = 0; i < herramientas.length; i++) {
+            herramientas.forEach((herramienta, i) => {
 
-        let fila = tabla.insertRow();
+                let fila = tabla.insertRow();
 
-        // Código
-        fila.insertCell(0).innerText = i + 1;
+                fila.insertCell(0).innerText = i + 1;
 
-        // Nombre
-        fila.insertCell(1).innerText = herramientas[i].nombre;
+                let nombreCell = fila.insertCell(1);
+                nombreCell.innerText = herramienta.nombre_herramienta_corte;
 
-        // Cantidad (por defecto BUENO)
-        let cantidadCell = fila.insertCell(2);
-        cantidadCell.innerText = herramientas[i].bueno;
+                let cantidadCell = fila.insertCell(2);
+                cantidadCell.innerText = herramienta.cantidad_buena_corte;
 
-        // ===============================
-        // SELECT ESTADO
-        // ===============================
+                let celdaEstado = fila.insertCell(3);
 
-        let celdaEstado = fila.insertCell(3);
+                let select = document.createElement("select");
+                let estados = ["Bueno", "Regular", "Malo"];
 
-        let select = document.createElement("select");
-        let estados = ["Bueno", "Regular", "Malo"];
+                estados.forEach(function (estado) {
+                    let option = document.createElement("option");
+                    option.text = estado;
+                    select.add(option);
+                });
 
-        estados.forEach(function (estado) {
-            let option = document.createElement("option");
-            option.value = estado;
-            option.text = estado;
-            select.appendChild(option);
-        });
+                select.addEventListener("change", function () {
 
-        select.addEventListener("change", function () {
+                    if (select.value === "Bueno") {
+                        cantidadCell.innerText = herramienta.cantidad_buena_corte;
+                    }
+                    if (select.value === "Regular") {
+                        cantidadCell.innerText = herramienta.cantidad_regular_corte;
+                    }
+                    if (select.value === "Malo") {
+                        cantidadCell.innerText = herramienta.cantidad_mala_corte;
+                    }
+                });
 
-            if (select.value === "Bueno") {
-                cantidadCell.innerText = herramientas[i].bueno;
-            }
-            if (select.value === "Regular") {
-                cantidadCell.innerText = herramientas[i].regular;
-            }
-            if (select.value === "Malo") {
-                cantidadCell.innerText = herramientas[i].malo;
-            }
-        });
+                celdaEstado.appendChild(select);
 
-        celdaEstado.appendChild(select);
+                // ACCIONES SOLO SI HAY USUARIO
+                if (usuarioActivo) {
 
-        // ===============================
-        // BOTONES (SOLO SI HAY USUARIO)
-        // ===============================
+                    let celdaAccion = fila.insertCell(4);
 
-        if (usuarioActivo) {
+                    let botonEliminar = document.createElement("button");
+                    botonEliminar.innerText = "🗑️";
 
-            let celdaAccion = fila.insertCell(4);
+                    botonEliminar.addEventListener("click", function () {
 
-            // -------- MODIFICAR --------
+                        fetch(`http://localhost:3000/eliminar-herramienta/${herramienta.id_herramienta_corte}`, {
+                            method: "DELETE"
+                        })
+                            .then(res => res.json())
+                            .then(() => cargarTabla());
+                    });
 
-            let botonModificar = document.createElement("button");
-            botonModificar.innerText = "✏️";
-            botonModificar.style.backgroundColor = "white";
+                    celdaAccion.appendChild(botonEliminar);
 
-            botonModificar.addEventListener("click", function () {
-
-                let nuevoNombre = prompt("Nuevo nombre:", herramientas[i].nombre);
-                let nuevoBueno = prompt("Cantidad Bueno:", herramientas[i].bueno);
-                let nuevoRegular = prompt("Cantidad Regular:", herramientas[i].regular);
-                let nuevoMalo = prompt("Cantidad Malo:", herramientas[i].malo);
-
-                if (nuevoNombre !== null) {
-
-                    herramientas[i].nombre = nuevoNombre;
-                    herramientas[i].bueno = parseInt(nuevoBueno) || 0;
-                    herramientas[i].regular = parseInt(nuevoRegular) || 0;
-                    herramientas[i].malo = parseInt(nuevoMalo) || 0;
-
-                    guardar();
-                    cargarTabla();
+                } else {
+                    accion.style.display = "none";
                 }
+
             });
 
-            celdaAccion.appendChild(botonModificar);
-
-            // -------- ELIMINAR --------
-
-            let botonEliminar = document.createElement("button");
-            botonEliminar.innerText = "🗑️";
-            botonEliminar.style.backgroundColor = "white";
-
-            botonEliminar.addEventListener("click", function () {
-
-                if (confirm("¿Seguro que deseas eliminar esta herramienta?")) {
-                    herramientas.splice(i, 1);
-                    guardar();
-                    cargarTabla();
-                }
-            });
-
-            celdaAccion.appendChild(botonEliminar);
-        }
-    }
+        })
+        .catch(error => console.error("Error:", error));
 }
 
-// Ejecutar al cargar
-document.addEventListener("DOMContentLoaded", function () {
-    cargarTabla();
-});
+cargarTabla();
 // ===============================
 // MENÚ ACCESIBILIDAD
 // ===============================

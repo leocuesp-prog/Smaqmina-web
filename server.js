@@ -12,7 +12,7 @@ app.use(express.json());
 const db = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "1234567", // pon tu contraseña si tienes
+    password: "123456", // pon tu contraseña si tienes
     database: "smaqmina1"
 });
 
@@ -99,16 +99,20 @@ app.post("/herramientas/sujecion", (req, res) => {
          cantidad_mala_sujecion)
         VALUES (?, ?, ?, ?)
     `;
+    app.get("/herramientas/sujecion", (req, res) => {
 
-    db.query(sql, [nombre, buena, regular, mala], (err, result) => {
+    const sql = "SELECT * FROM herramienta_sujecion";
+
+    db.query(sql, (err, results) => {
 
         if (err) {
             console.log(err);
             return res.status(500).json({ mensaje: "Error al guardar sujeción" });
         }
 
-        res.json({ mensaje: "Herramienta de sujeción guardada correctamente" });
+        res.json(results);
     });
+});
 });
 app.post("/herramientas/corte", (req, res) => {
 
@@ -161,15 +165,19 @@ app.post("/herramientas/impacto", (req, res) => {
          cantidad_mala_impacto)
         VALUES (?, ?, ?, ?)
     `;
+    app.get("/herramientas/impacto", (req, res) => {
 
-    db.query(sql, [nombre, buena, regular, mala], (err, result) => {
+    const sql = "SELECT * FROM herramienta_impacto";
+
+    db.query(sql, (err, results) => {
 
         if (err) {
-            return res.status(500).json({ mensaje: "Error al guardar impacto" });
+            return res.status(500).json({ mensaje: "Error al obtener herramientas de impacto" });
         }
 
-        res.json({ mensaje: "Herramienta de impacto guardada correctamente" });
+        res.json(results);
     });
+});
 });
 
 
@@ -185,13 +193,17 @@ app.post("/herramientas/medicion", (req, res) => {
          cantidad_mala_medicion)
         VALUES (?, ?, ?, ?)
     `;
+    app.get("/herramientas/medicion", (req, res) => {
 
-    db.query(sql, [nombre, buena, regular, mala], (err, result) => {
+    const sql = "SELECT * FROM herramienta_medicion";
+
+  db.query(sql, (err, results) => {
 
         if (err) {
-            return res.status(500).json({ mensaje: "Error al guardar medición" });
+            return res.status(500).json({ mensaje: "Error al obtener herramientas de impacto" });
         }
 
-        res.json({ mensaje: "Herramienta de medición guardada correctamente" });
+        res.json(results);
     });
+});
 });

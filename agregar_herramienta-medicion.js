@@ -1,47 +1,57 @@
-function guardar(){
+async function guardar(){
 
-    let nombre = document.getElementById("Nombre").value;
+    let nombre = document.getElementById("Nombre").value.trim();
 
-    let bueno = parseInt(document.getElementById("Cantidad_buena").value) || 0;
-    let regular = parseInt(document.getElementById("Cantidad_regular").value) || 0;
-    let malo = parseInt(document.getElementById("Cantidad_mala").value) || 0;
+    let cantidadBuena = parseInt(document.getElementById("Cantidad_buena").value) || 0;
+    let cantidadRegular = parseInt(document.getElementById("Cantidad_regular").value) || 0;
+    let cantidadMala = parseInt(document.getElementById("Cantidad_mala").value) || 0;
 
-    let herramientas3 = JSON.parse(localStorage.getItem("herramientas3")) || [];
-    let existe = herramientas3.some(function(herramienta){
-        return herramienta.nombre.toLowerCase() === nombre.toLowerCase();
-    });
-
-    if(existe){
-        alert("❌ Esa herramienta ya está registrada");
-        return; // Detiene la ejecución aquí
+    if (nombre === "") {
+        alert("Ingrese el nombre de la herramienta");
+        return;
     }
-    if(bueno<0||malo<0||regular<0){
-        alert("datos incorrectos")
-        return
+
+    if (cantidadBuena < 0 || cantidadRegular < 0 || cantidadMala < 0) {
+        alert("Los valores no pueden ser negativos");
+        return;
     }
-        if  (nombre===""){
-        alert ("Ingrese los datos")
-        return
 
+    try {
+
+        const respuestaServidor = await fetch("http://localhost:3000/herramientas/medicion", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                nombre: nombre,
+                buena: cantidadBuena,
+                regular: cantidadRegular,
+                mala: cantidadMala
+            })
+        });
+
+        const datos = await respuestaServidor.json();
+
+        if (respuestaServidor.ok) {
+            alert("✅ Herramienta guardada correctamente");
+
+            // Limpiar campos
+            document.getElementById("Nombre").value = "";
+            document.getElementById("Cantidad_buena").value = "";
+            document.getElementById("Cantidad_regular").value = "";
+            document.getElementById("Cantidad_mala").value = "";
+
+        } else {
+            alert(datos.mensaje);
+        }
+
+    } catch (error) {
+        console.error(error);
+        alert("Error conectando con el servidor");
     }
-    let nueva = {
-        nombre: nombre,
-        bueno: bueno,
-        regular: regular,
-        malo: malo,
-        estado: "Bueno" // estado inicial
-    };
-
-    herramientas3.push(nueva);
-
-    localStorage.setItem("herramientas3", JSON.stringify(herramientas3));
-
-    alert("Guardado correctamente");
-    document.getElementById("Nombre").value = "";
-    document.getElementById("Cantidad_buena").value = "";
-    document.getElementById("Cantidad_regular").value = "";
-    document.getElementById("Cantidad_mala").value = "";
 }
+
 let menu = document.getElementById("menuAccesibilidad");
 let boton = document.getElementById("botonAccesibilidad");
 
