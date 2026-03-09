@@ -12,7 +12,7 @@ app.use(express.json());
 const db = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "123456", // pon tu contraseña si tienes
+    password: "1055313199", // pon tu contraseña si tienes
     database: "smaqmina1"
 });
 
@@ -83,23 +83,27 @@ app.post("/login", (req, res) => {
 
 });
 
-app.listen(3000, () => {
-    console.log("Servidor corriendo en puerto 3000");
-});
 
+
+
+// POST y GET para sujecion
 app.post("/herramientas/sujecion", (req, res) => {
 
     const { nombre, buena, regular, mala } = req.body;
 
-    const sql = `
-        INSERT INTO herramienta_sujecion
-        (nombre_herramienta_sujecion,
-         cantidad_buena_sujecion,
-         cantidad_regular_sujecion,
-         cantidad_mala_sujecion)
-        VALUES (?, ?, ?, ?)
-    `;
-    app.get("/herramientas/sujecion", (req, res) => {
+    const sql = `INSERT INTO herramienta_sujecion (nombre_herramienta_sujecion, cantidad_buena_sujecion, cantidad_regular_sujecion, cantidad_mala_sujecion) VALUES (?, ?, ?, ?)`;
+
+    db.query(sql, [nombre, buena, regular, mala], (err, result) => {
+
+        if (err) {
+            console.log(err);
+            return res.status(500).json({ mensaje: "Error al guardar sujeción" });
+        }
+        res.json({ mensaje: "Herramienta de sujeción guardada correctamente" });
+    });
+});
+
+app.get("/herramientas/sujecion", (req, res) => {
 
     const sql = "SELECT * FROM herramienta_sujecion";
 
@@ -107,41 +111,20 @@ app.post("/herramientas/sujecion", (req, res) => {
 
         if (err) {
             console.log(err);
-            return res.status(500).json({ mensaje: "Error al guardar sujeción" });
+            return res.status(500).json({ mensaje: "Error al obtener sujeción" });
         }
 
         res.json(results);
     });
+
 });
-});
+
+// POST y GET para corte
 app.post("/herramientas/corte", (req, res) => {
 
     const { nombre, buena, regular, mala } = req.body;
 
-    const sql = `
-        INSERT INTO herramienta_corte
-        (nombre_herramienta_corte,
-         cantidad_buena_corte,
-         cantidad_regular_corte,
-         cantidad_mala_corte)
-        VALUES (?, ?, ?, ?)
-    `;
-
-    app.get("/herramientas/corte", (req, res) => {
-
-    const sql = "SELECT * FROM herramienta_corte";
-
-    db.query(sql, (err, results) => {
-
-        if (err) {
-            return res.status(500).json({
-                mensaje: "Error al obtener herramientas"
-            });
-        }
-
-        res.json(results);
-    });
-});
+    const sql = `INSERT INTO herramienta_corte (nombre_herramienta_corte, cantidad_buena_corte, cantidad_regular_corte, cantidad_mala_corte) VALUES (?, ?, ?, ?)`;
 
     db.query(sql, [nombre, buena, regular, mala], (err, result) => {
 
@@ -153,19 +136,37 @@ app.post("/herramientas/corte", (req, res) => {
     });
 });
 
+app.get("/herramientas/corte", (req, res) => {
+
+    const sql = "SELECT * FROM herramienta_corte";
+
+    db.query(sql, (err, results) => {
+
+        if (err) {
+            return res.status(500).json({ mensaje: "Error al obtener herramientas de corte" });
+        }
+
+        res.json(results);
+    });
+});
+
+// POST y GET para impacto
 app.post("/herramientas/impacto", (req, res) => {
 
     const { nombre, buena, regular, mala } = req.body;
 
-    const sql = `
-        INSERT INTO herramienta_impacto
-        (nombre_herramienta_impacto,
-         cantidad_buena_impacto,
-         cantidad_regular_impacto,
-         cantidad_mala_impacto)
-        VALUES (?, ?, ?, ?)
-    `;
-    app.get("/herramientas/impacto", (req, res) => {
+    const sql = `INSERT INTO herramienta_impacto (nombre_herramienta_impacto, cantidad_buena_impacto, cantidad_regular_impacto, cantidad_mala_impacto) VALUES (?, ?, ?, ?)`;
+
+    db.query(sql, [nombre, buena, regular, mala], (err, result) => {
+
+        if (err) {
+            return res.status(500).json({ mensaje: "Error al guardar impacto" });
+        }
+        res.json({ mensaje: "Herramienta de impacto guardada correctamente" });
+    });
+});
+
+app.get("/herramientas/impacto", (req, res) => {
 
     const sql = "SELECT * FROM herramienta_impacto";
 
@@ -178,32 +179,36 @@ app.post("/herramientas/impacto", (req, res) => {
         res.json(results);
     });
 });
-});
 
-
+// POST y GET para medicion
 app.post("/herramientas/medicion", (req, res) => {
 
     const { nombre, buena, regular, mala } = req.body;
 
-    const sql = `
-        INSERT INTO herramienta_medicion
-        (nombre_herramienta_medicion,
-         cantidad_buena_medicion,
-         cantidad_regular_medicion,
-         cantidad_mala_medicion)
-        VALUES (?, ?, ?, ?)
-    `;
-    app.get("/herramientas/medicion", (req, res) => {
+    const sql = `INSERT INTO herramienta_medicion (nombre_herramienta_medicion, cantidad_buena_medicion, cantidad_regular_medicion, cantidad_mala_medicion) VALUES (?, ?, ?, ?)`;
+
+    db.query(sql, [nombre, buena, regular, mala], (err, result) => {
+
+        if (err) {
+            return res.status(500).json({ mensaje: "Error al guardar medición" });
+        }
+        res.json({ mensaje: "Herramienta de medición guardada correctamente" });
+    });
+});
+
+app.get("/herramientas/medicion", (req, res) => {
 
     const sql = "SELECT * FROM herramienta_medicion";
 
-  db.query(sql, (err, results) => {
+    db.query(sql, (err, results) => {
 
         if (err) {
-            return res.status(500).json({ mensaje: "Error al obtener herramientas de impacto" });
+            return res.status(500).json({ mensaje: "Error al obtener herramientas de medición" });
         }
 
         res.json(results);
     });
 });
+app.listen(3000, () => {
+    console.log("Servidor corriendo en puerto 3000");
 });

@@ -122,7 +122,7 @@ window.addEventListener("load", function () {
 
     if (!usuarioGuardado) {
         // Si no hay sesión, lo mandamos al login
-        window.location.href = "inicio.html";
+        window.location.href = "index.html";
         return;
     }
 

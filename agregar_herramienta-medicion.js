@@ -1,7 +1,6 @@
 async function guardar(){
 
     let nombre = document.getElementById("Nombre").value.trim();
-
     let cantidadBuena = parseInt(document.getElementById("Cantidad_buena").value) || 0;
     let cantidadRegular = parseInt(document.getElementById("Cantidad_regular").value) || 0;
     let cantidadMala = parseInt(document.getElementById("Cantidad_mala").value) || 0;
