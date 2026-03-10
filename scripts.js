@@ -1,5 +1,3 @@
-
-
 // Selecciona el elemento de entrada (input) del buscador por su ID
 const buscador = document.getElementById("buscador");
 

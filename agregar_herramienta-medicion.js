@@ -1,11 +1,10 @@
-async function guardar() {
+async function guardar(){
 
     let nombre = document.getElementById("Nombre").value.trim();
     let cantidadBuena = parseInt(document.getElementById("Cantidad_buena").value) || 0;
     let cantidadRegular = parseInt(document.getElementById("Cantidad_regular").value) || 0;
     let cantidadMala = parseInt(document.getElementById("Cantidad_mala").value) || 0;
 
-    // VALIDACIONES
     if (nombre === "") {
         alert("Ingrese el nombre de la herramienta");
         return;
@@ -15,10 +14,24 @@ async function guardar() {
         alert("Los valores no pueden ser negativos");
         return;
     }
+    try {
+        const listadoResp = await fetch("http://localhost:3000/herramientas/medicion");
+        if (listadoResp.ok) {
+            const lista = await listadoResp.json();
+            const duplicado = lista.some(h => h.nombre_herramienta_medicion.toLowerCase() === nombre.toLowerCase());
+            if (duplicado) {
+                alert("El nombre ya existe");
+                return;
+            }
+        }
+    } catch (e) {
+        // si falla la consulta, dejamos que el servidor haga la validación
+        console.warn("No se pudo comprobar duplicados en cliente", e);
+    }
 
     try {
 
-        const respuestaServidor = await fetch("http://localhost:3000/herramientas/corte", {
+        const respuestaServidor = await fetch("http://localhost:3000/herramientas/medicion", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -51,6 +64,7 @@ async function guardar() {
         alert("Error conectando con el servidor");
     }
 }
+
 let menu = document.getElementById("menuAccesibilidad");
 let boton = document.getElementById("botonAccesibilidad");
 
