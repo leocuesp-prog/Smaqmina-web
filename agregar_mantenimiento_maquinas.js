@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function cargarMaquinas() {
-    fetch('http://localhost:3000/equipo')
+    fetch('http://localhost:3000/maquina')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Error en la respuesta del servidor: ' + response.status);
