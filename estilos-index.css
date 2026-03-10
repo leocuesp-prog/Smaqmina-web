@@ -151,7 +151,24 @@ body {
     opacity: 0.9;
 }
 
+.boton-inicio{
+    
+    padding: 12px 25px;
+    font-size: 17px;
+    background: var(--logo-verde);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
 
+}
+
+.boton-inicio:hover {
+    background-color: var(--blanco);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 40px rgba(29, 74, 122, 0.6);
+    color: var(--negro);
+}
 .ayuda {
     margin-top: 20px;
     font-size: 13px;

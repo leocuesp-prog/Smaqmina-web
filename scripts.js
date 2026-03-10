@@ -122,7 +122,7 @@ window.addEventListener("load", function () {
 
     if (!usuarioGuardado) {
         // Si no hay sesión, lo mandamos al login
-        window.location.href = "index.html";
+        window.location.href = "inicio.html";
         return;
     }
 
@@ -234,7 +234,7 @@ function cerrarSesion() {
     alert("Sesión cerrada correctamente 👋");
 
     // Redirige al usuario a la página de inicio (Login)
-    window.location.href = "index.html";
+    window.location.href = "inicio.html";
 }
 let menu = document.getElementById("menuAccesibilidad");
 let boton = document.getElementById("botonAccesibilidad");
