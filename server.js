@@ -209,7 +209,24 @@ app.get("/herramientas/medicion", (req, res) => {
         res.json(results);
     });
 });
-
+app.get("/equipo", (req, res) => {
+    const sql = "SELECT * FROM equipo";
+    db.query(sql, (err, results) => {
+        if (err) {
+            return res.status(500).json({ mensaje: "Error al obtener equipos" });
+        }
+        res.json(results);
+    });
+});
+app.get("/maquina", (req, res) => {
+    const sql = "SELECT * FROM maquina";
+    db.query(sql, (err, results) => {
+        if (err) {
+            return res.status(500).json({ mensaje: "Error al obtener máquinas" });
+        }
+        res.json(results);
+    });
+});
 // 🗑️ DELETE para corte
 app.delete("/herramientas/corte/:id", (req, res) => {
     const { id } = req.params;
