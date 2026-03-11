@@ -400,7 +400,7 @@ footer {
     }
 
         @media (min-width: 992px) {
-          gap:60px;
+          gap:10px;
         /* definir ancho a diferentes dispositivos, en este caso desktop */
         grid-template:
         

@@ -118,6 +118,7 @@ window.addEventListener("load", function () {
 
     const usuarioGuardado = localStorage.getItem("usuarioActivo");
 
+<<<<<<< HEAD
     if (usuarioGuardado) {
 
         const usuario = JSON.parse(usuarioGuardado);
@@ -135,6 +136,12 @@ window.addEventListener("load", function () {
 
         if (linkLogin) linkLogin.style.display = "none";
         if (perfilNavbar) perfilNavbar.style.display = "block";
+=======
+    if (!usuarioGuardado) {
+        // Si no hay sesión, lo mandamos al login
+        window.location.href = "inicio.html";
+        return;
+>>>>>>> a6a461f002a4e568d93d36bf5106e74ec3c79413
     }
 
     // accesibilidad
@@ -196,8 +203,13 @@ function cerrarSesion() {
 
     alert("Sesión cerrada correctamente 👋");
 
+<<<<<<< HEAD
     window.location.href = "index.html";
 
+=======
+    // Redirige al usuario a la página de inicio (Login)
+    window.location.href = "inicio.html";
+>>>>>>> a6a461f002a4e568d93d36bf5106e74ec3c79413
 }
 
 
