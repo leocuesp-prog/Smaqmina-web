@@ -7,7 +7,7 @@ function cargetable(){
             tabla.innerHTML = ""; // Limpia la tabla antes de cargar nuevos datos
             let contador = 1; // Contador para numerar las filas
                 mantenimientos.forEach((mantenimiento, index) => { // Por cada mantenimiento, crea una fila en la tabla
-                    if (mantenimiento.id_maquina === 'PT2-ELO1') { // Filtra por el ID del equipo específico
+                    if (mantenimiento.id_maquina === 'PT2-EL01') { // Filtra por el ID del equipo específico
                         let fila = tabla.insertRow(); // Inserta una nueva fila en la tabla
                         fila.insertCell(0).innerText = contador; // Agrega el número de fila
                         contador++;//aumeta el contador para la siguiente fila
