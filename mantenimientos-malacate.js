@@ -36,7 +36,7 @@ function cargetable3() {
 
                         botoneliminar.addEventListener("click", function () {
 
-                            fetch(`http://localhost:3000/mantenimiento/equipo/${mantenimiento.id_mantenimiento_equipo}`, {
+                            fetch(`http://localhost:3000/mantenimiento/equipos/${mantenimiento.codigo_mantenimiento_equipo}`, {
                                 method: "DELETE"
                             })
                             .then(response => {

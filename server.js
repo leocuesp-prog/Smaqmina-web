@@ -253,9 +253,9 @@ app.get("/mantenimiento/equipos", (req, res) => {
         res.json(results);
     });
 });
-app.delete("/mantenimiento/equipo/:id", (req, res) => {
+app.delete("/mantenimiento/equipos/:id", (req, res) => {
     const { id } = req.params;
-    const sql = "DELETE FROM mantenimiento_equipo WHERE id_mantenimiento_equipo = ?";
+    const sql = "DELETE FROM mantenimiento_equipo WHERE codigo_mantenimiento_equipo = ?";
     
     db.query(sql, [id], (err, result) => {
         if (err) {
@@ -303,9 +303,9 @@ app.delete("/herramientas/corte/:id", (req, res) => {
         res.json({ mensaje: "Herramienta de corte eliminada correctamente" });
     });
 });
-app.delete("/mantenimiento/maquina/:id", (req, res) => {
+app.delete("/mantenimiento/maquinas/:id", (req, res) => {
     const { id } = req.params;
-    const sql = "DELETE FROM mantenimiento_maquina WHERE id_mantenimiento_maquina = ?";
+    const sql = "DELETE FROM mantenimiento_maquina WHERE codigo_mantenimiento_maquina = ?";
     
     db.query(sql, [id], (err, result) => {
         if (err) {

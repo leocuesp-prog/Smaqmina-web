@@ -1,6 +1,6 @@
 let tabla=document.getElementById("tableman") // Obtiene la tabla donde se mostrarán los datos
 const usuarioActivo = localStorage.getItem("usuarioActivo"); // Verifica si hay un usuario activo (sesión iniciada)
-function cargetable(){
+function cargetable(){// Función para cargar la tabla con los datos de mantenimiento de máquinas
     fetch("http://localhost:3000/mantenimiento/maquinas") 
         .then(response => response.json()) // Convierte la respuesta a JSON
         .then(mantenimientos => { // Itera sobre los mantenimientos obtenidos
@@ -13,7 +13,7 @@ function cargetable(){
                         contador++;//aumeta el contador para la siguiente fila
                         fila.insertCell(1).innerText = mantenimiento.tipo_mantenimiento_maquina; // Agrega el tipo de mantenimiento
                         fila.insertCell(2).innerText = mantenimiento.fecha_mantenimiento_maquina; // Agrega la fecha del mantenimiento
-                        fila.insertCell(3).innerText = mantenimiento.observacion_maquina;
+                        fila.insertCell(3).innerText = mantenimiento.observacion_maquina;// Agrega las observaciones del mantenimiento
                         fila.insertCell(4).innerText = mantenimiento.equipo_apto_maquina; // Agrega si el equipo está apto
                         fila.insertCell(5).innerText = mantenimiento.realizo_mantenimiento_maquina;
                         fila.insertCell(6).innerText = mantenimiento.reviso_mantenimiento_maquina;
@@ -25,7 +25,7 @@ function cargetable(){
                             botoneliminar.innerText = "🗑️";
                             botoneliminar.style.backgroundColor = "white";
                             botoneliminar.addEventListener("click", function () {
-                                fetch(`http://localhost:3000/mantenimiento/maquina/${mantenimiento.id_mantenimiento_maquina}`, {
+                                fetch(`http://localhost:3000/mantenimiento/maquinas/${mantenimiento.codigo_mantenimiento_maquina}`, {
                                     method: "DELETE"
                                 })
                                 .then(response => {
@@ -37,7 +37,9 @@ function cargetable(){
                                 });
                             });
                             celdaAccion.appendChild(botoneliminar);
+                            
                         }
+
                     }
                 });
         });
