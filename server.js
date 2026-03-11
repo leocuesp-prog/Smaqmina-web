@@ -12,7 +12,7 @@ app.use(express.json());
 const db = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "1234567", // pon tu contraseña si tienes
+    password: "1055313199", // pon tu contraseña si tienes
     database: "smaqmina1"
 });
 
@@ -244,6 +244,27 @@ app.post("/mantenimiento/equipo", (req, res) => {
         res.json({ mensaje: "Mantenimiento de equipo guardado correctamente" });
     });
 });
+app.get("/mantenimiento/equipos", (req, res) => {
+    const sql = "SELECT * FROM mantenimiento_equipo";
+    db.query(sql, (err, results) => {
+        if (err) {
+            return res.status(500).json({ mensaje: "Error al obtener mantenimientos de equipos" });
+        }
+        res.json(results);
+    });
+});
+app.delete("/mantenimiento/equipo/:id", (req, res) => {
+    const { id } = req.params;
+    const sql = "DELETE FROM mantenimiento_equipo WHERE id_mantenimiento_equipo = ?";
+    
+    db.query(sql, [id], (err, result) => {
+        if (err) {
+            return res.status(500).json({ mensaje: "Error al eliminar mantenimiento de equipo" });
+        }
+        res.json({ mensaje: "Mantenimiento de equipo eliminado correctamente" });
+    });
+});
+
 app.post("/mantenimiento/maquina", (req, res) => {
     const { tipo_mantenimiento_maquina, fecha_mantenimiento_maquina, observacion_maquina, equipo_apto_maquina, realizo_mantenimiento_maquina, reviso_mantenimiento_maquina, novedad_maquina, id_maquina } = req.body;
     
@@ -261,6 +282,15 @@ app.post("/mantenimiento/maquina", (req, res) => {
         res.json({ mensaje: "Mantenimiento de máquina guardado correctamente" });
     });
 });
+app.get("/mantenimiento/maquinas", (req, res) => {
+    const sql = "SELECT * FROM mantenimiento_maquina";
+    db.query(sql, (err, results) => {
+        if (err) {
+            return res.status(500).json({ mensaje: "Error al obtener mantenimientos de máquinas" });
+        }
+        res.json(results);
+    });
+});
 // 🗑️ DELETE para corte
 app.delete("/herramientas/corte/:id", (req, res) => {
     const { id } = req.params;
@@ -271,6 +301,17 @@ app.delete("/herramientas/corte/:id", (req, res) => {
             return res.status(500).json({ mensaje: "Error al eliminar herramienta de corte" });
         }
         res.json({ mensaje: "Herramienta de corte eliminada correctamente" });
+    });
+});
+app.delete("/mantenimiento/maquina/:id", (req, res) => {
+    const { id } = req.params;
+    const sql = "DELETE FROM mantenimiento_maquina WHERE id_mantenimiento_maquina = ?";
+    
+    db.query(sql, [id], (err, result) => {
+        if (err) {
+            return res.status(500).json({ mensaje: "Error al eliminar mantenimiento de máquina" });
+        }
+        res.json({ mensaje: "Mantenimiento de máquina eliminado correctamente" });
     });
 });
 
