@@ -227,6 +227,40 @@ app.get("/maquina", (req, res) => {
         res.json(results);
     });
 });
+app.post("/mantenimiento/equipo", (req, res) => {
+    const { tipo_mantenimiento_equipo, fecha_mantenimiento_equipo, observacion_equipo, equipo_apto_equipo, realizo_mantenimiento_equipo, reviso_mantenimiento_equipo, novedad_equipo, id_equipo } = req.body;
+    
+    // Verificar si los datos llegaron correctamente
+    if (!tipo_mantenimiento_equipo || !fecha_mantenimiento_equipo || !observacion_equipo || !equipo_apto_equipo || !realizo_mantenimiento_equipo || !reviso_mantenimiento_equipo || !novedad_equipo || !id_equipo) {
+        return res.status(400).json({ mensaje: "Faltan datos: " + JSON.stringify(req.body) });
+    }
+    
+    const sql = `INSERT INTO mantenimiento_equipo (tipo_mantenimiento_equipo, fecha_mantenimiento_equipo, observacion_equipo, equipo_apto_equipo, realizo_mantenimiento_equipo, reviso_mantenimiento_equipo, novedad_equipo, id_equipo) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
+    db.query(sql, [tipo_mantenimiento_equipo, fecha_mantenimiento_equipo, observacion_equipo, equipo_apto_equipo, realizo_mantenimiento_equipo, reviso_mantenimiento_equipo, novedad_equipo, id_equipo], (err, result) => {
+        if (err) {
+            console.error("Error en BD:", err);
+            return res.status(500).json({ mensaje: "Error al guardar mantenimiento de equipo: " + err.message });
+        }
+        res.json({ mensaje: "Mantenimiento de equipo guardado correctamente" });
+    });
+});
+app.post("/mantenimiento/maquina", (req, res) => {
+    const { tipo_mantenimiento_maquina, fecha_mantenimiento_maquina, observacion_maquina, equipo_apto_maquina, realizo_mantenimiento_maquina, reviso_mantenimiento_maquina, novedad_maquina, id_maquina } = req.body;
+    
+    // Verificar si los datos llegaron correctamente
+    if (!tipo_mantenimiento_maquina || !fecha_mantenimiento_maquina || !observacion_maquina || !equipo_apto_maquina || !realizo_mantenimiento_maquina || !reviso_mantenimiento_maquina || !novedad_maquina || !id_maquina) {
+        return res.status(400).json({ mensaje: "Faltan datos: " + JSON.stringify(req.body) });
+    }
+    
+    const sql = `INSERT INTO mantenimiento_maquina (tipo_mantenimiento_maquina, fecha_mantenimiento_maquina, observacion_maquina, equipo_apto_maquina, realizo_mantenimiento_maquina, reviso_mantenimiento_maquina, novedad_maquina, id_maquina) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`;
+    db.query(sql, [tipo_mantenimiento_maquina, fecha_mantenimiento_maquina, observacion_maquina, equipo_apto_maquina, realizo_mantenimiento_maquina, reviso_mantenimiento_maquina, novedad_maquina, id_maquina], (err, result) => {
+        if (err) {
+            console.error("Error en BD:", err);
+            return res.status(500).json({ mensaje: "Error al guardar mantenimiento de máquina: " + err.message });
+        }
+        res.json({ mensaje: "Mantenimiento de máquina guardado correctamente" });
+    });
+});
 // 🗑️ DELETE para corte
 app.delete("/herramientas/corte/:id", (req, res) => {
     const { id } = req.params;
