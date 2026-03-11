@@ -12,7 +12,7 @@ app.use(express.json());
 const db = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "1055313199", // pon tu contraseña si tienes
+    password: "1234567", // pon tu contraseña si tienes
     database: "smaqmina1"
 });
 
@@ -24,7 +24,7 @@ db.connect(err => {
     }
 });
 
-// 🔵 REGISTRO
+//  REGISTRO
 app.post("/register", async (req, res) => {
 
     const { nombre, correo, telefono, password } = req.body;
@@ -47,7 +47,7 @@ app.post("/register", async (req, res) => {
 
 });
 
-// 🔵 LOGIN
+//  LOGIN
 app.post("/login", (req, res) => {
 
     const { correo, password } = req.body;
