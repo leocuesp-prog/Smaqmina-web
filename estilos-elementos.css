@@ -63,7 +63,7 @@ button:hover {
  .grid-container > * { 
     text-align: justify;
     align-items: center;
-    box-shadow: 10px 6px 37px -13px rgba(5, 68, 227, 0.18);
+  
     
  } 
 
@@ -162,57 +162,7 @@ gap: 25px;
     border-radius:6px;
 }
 
-/* MODOS */
-.dark-mode {
-    background: #121212 !important;
-}
 
-.alto-contraste {
-    background: black !important;
-    color: var(--azul-principal) !important;
-}
-
-.mayusculas{
-    text-transform: uppercase;
-}
-.dark-mode {
-    background-color: #121212 !important;
-    color: #ffffff !important;
-}
-
-/* Cambiar todas las cajas internas */
-.dark-mode .img,
-.dark-mode .hj1,
-.dark-mode .hj2,
-.dark-mode .descripcion,
-.dark-mode .menu-accesibilidad {
-    background-color: #1e1e1e !important;
-    color: white !important;
-}
-
-/* Navbar */
-.dark-mode .topbar {
-    background: #0a2236 !important;
-}
-
-/* Footer */
-.dark-mode footer {
-    background: #0a2236 !important;
-}
-
-/* Botones */
-.dark-mode button {
-    background-color: #333 !important;
-    color: white !important;
-}
-
-.dark-mode button:hover {
-    background-color: #555 !important;
-    color: white !important;
-}
-.dark-mode .menu-accesibilidad{
-    background-color: var(--negro);
-}
 /* ========================= */
 /* ALTO CONTRASTE MEJORADO */
 /* ========================= 
@@ -414,4 +364,53 @@ footer {
 
             / auto 50%; /* definir ancho de columnas */
     }
+}
+/* MODOS */
+.dark-mode {
+    background: #121212 !important;
+}
+
+/* .alto-contraste {
+    background: black !important;
+    color: var(--azul-principal) !important;
+} */
+
+.mayusculas{
+    text-transform: uppercase;
+}
+.dark-mode {
+    background-color: #121212 !important;
+    color: #ffffff !important;
+}
+
+/* Cambiar todas las cajas internas */
+.dark-mode .img,
+.dark-mode .hj1,
+.dark-mode .hj2,
+.dark-mode .descripcion,
+.dark-mode .menu-accesibilidad {
+    background-color: #1e1e1e !important;
+    color: white !important;
+     border: 2px solid #0a2236  !important
+}
+
+/* Navbar */
+.dark-mode .topbar {
+    background: #0a2236 !important;
+}
+
+/* Footer */
+.dark-mode footer {
+    background: #0a2236 !important;
+}
+
+/* Botones */
+.dark-mode button {
+    background-color: #333 !important;
+    color: white !important;
+}
+
+.dark-mode button:hover {
+    background-color: #555 !important;
+    color: white !important;
 }
