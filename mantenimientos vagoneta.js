@@ -1,72 +1,52 @@
 
-let mantenimiento5=JSON.parse(localStorage.getItem("mantenimiento5"))||[]
 let tabla5=document.getElementById("tableman5")
 const usuarioActivo = localStorage.getItem("usuarioActivo");
-let accion=document.getElementById("accion")
-function guardar6(){
-    localStorage.setItem("mantenimiento5",JSON.stringify(mantenimiento5))
-}
-function cargetable5(){
-    tabla5.innerHTML = "";
-    for( let a=0; a<mantenimiento5.length;a++){
-        let fila=tabla5.insertRow()
-        fila.insertCell(0).innerText = a + 1;
-        let tipo_manCell = fila.insertCell(1);
-        tipo_manCell.innerText = mantenimiento5[a].tipo_mantenimiento;
-        let fechaCell = fila.insertCell(2);
-        fechaCell.innerText = mantenimiento5[a].fecha;
-        let observacionCell = fila.insertCell(3);
-        observacionCell.innerText = mantenimiento5[a].observacion;
-        let eq_apCell = fila.insertCell(4);
-        eq_apCell.innerText = mantenimiento5[a].equipo_apto;
-        let realizoCell = fila.insertCell(5);
-        realizoCell.innerText = mantenimiento5[a].realizo_mantenimiento;
-        let revisoCell = fila.insertCell(6);
-        revisoCell.innerText = mantenimiento5[a].reviso_Mantenimiento;
-        let novedadCell = fila.insertCell(7);
-        novedadCell.innerText = mantenimiento5[a].novedad;
-        if(usuarioActivo){
-        let celdaAccion = fila.insertCell(8);
-        let botonModificar = document.createElement("button");
-        botonModificar.innerText = "✏️";
-        botonModificar.style.backgroundColor="white";
-        botonModificar.addEventListener("click", function(){
-            let nuevotipo = prompt("Nuevo tipo mantenimiento:", mantenimiento5[a].tipo_mantenimiento);
-            let nuevafecha = prompt("Nueva fecha:", mantenimiento5[a].fecha);
-            let nuevoobservacion = prompt("Nueva observacion:", mantenimiento5[a].observacion);
-            let nuevoeq = prompt("equipo apto:", mantenimiento5[a].equipo_apto);
-            let nuevorealizo = prompt("Realizo mantenimiento:", mantenimiento5[a].realizo_mantenimiento);
-            let nuevoreviso = prompt("Reviso mantenimiento:", mantenimiento5[a].reviso_Mantenimiento);
-            let nuevonovedad = prompt("Nueva novedad:", mantenimiento5[a].novedad);
-            if(nuevotipo !== null){
-                mantenimiento5[a].tipo_mantenimiento = nuevotipo;
-                mantenimiento5[a].fecha = nuevafecha;
-                mantenimiento5[a].observacion = nuevoobservacion;
-                mantenimiento5[a].equipo_apto = nuevoeq;
-                mantenimiento5[a].realizo_mantenimiento=nuevorealizo
-                mantenimiento5[a].reviso_Mantenimiento=nuevoreviso
-                mantenimiento5[a].novedad=nuevonovedad
+function cargetable(){
+    fetch("http://localhost:3000/mantenimiento/equipos")
+    .then(res => res.json())
+    .then(mantenimiento => {
+        tabla5.innerHTML = "";
+        let contador = 1;
+        mantenimiento.forEach((mantenimiento, a) => {
+            if(mantenimiento.id_equipo === 'S666S'){
+                let fila = tabla5.insertRow();
+                fila.insertCell(0).innerText = contador;
+                contador++;
+                fila.insertCell(1).innerText = mantenimiento.tipo_mantenimiento_equipo;
+                fila.insertCell(2).innerText = mantenimiento.fecha_mantenimiento_equipo;
+                fila.insertCell(3).innerText = mantenimiento.observacion_equipo;
+                fila.insertCell(4).innerText = mantenimiento.equipo_apto_equipo;
+                fila.insertCell(5).innerText = mantenimiento.realizo_mantenimiento_equipo;
+                fila.insertCell(6).innerText = mantenimiento.reviso_mantenimiento_equipo;
+                fila.insertCell(7).innerText = mantenimiento.novedad_equipo;
+                if (usuarioActivo) {
+
+                    let celdaAccion = fila.insertCell(8);
+                    let botoneliminar = document.createElement("button");
+                    botoneliminar.innerText = "🗑️";
+                    botoneliminar.style.backgroundColor = "white";
+                    botoneliminar.addEventListener("click", function () {
+                        fetch(`http://localhost:3000/mantenimiento/equipos/${mantenimiento.codigo_mantenimiento_equipo}`, {
+                            method: "DELETE"
+                        })
+                        .then(response => {
+                            if (response.ok) {
+                                fila.remove();
+                            } else {
+                                console.error("Error al eliminar el mantenimiento");
+                            }
+                        });
+                    });
+                    celdaAccion.appendChild(botoneliminar);
+                }
+
             }
-            guardar6();
-            cargetable5();
         });
-        celdaAccion.appendChild(botonModificar);
-        let botonEliminar = document.createElement("button");
-        botonEliminar.innerText = "🗑️";
-        botonEliminar.style.backgroundColor = "white";
-        botonEliminar.addEventListener("click", function(){
-            mantenimiento5.splice(a, 1);
-            guardar6();
-            cargetable5();
-        });
-        celdaAccion.appendChild(botonEliminar);
-    }
-    else{
-        accion.style.display="none"
-    }
-    }
+    });
+
 }
-cargetable5()
+
+cargetable()
 let menu = document.getElementById("menuAccesibilidad");
 let boton = document.getElementById("botonAccesibilidad");
 
