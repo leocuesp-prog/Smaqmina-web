@@ -139,19 +139,6 @@
     border-radius:6px;
 }
 
-/* MODOS */
-.dark-mode {
-    background: black !important;
-    color: var(--blanco);
-}
-.dark-mode h1,
-.dark-mode h2,
-.dark-mode h3,
-.dark-mode p,
-.dark-mode a {
-    color: var(--blanco);
-}
-
 
 
 .mayusculas{
@@ -586,5 +573,39 @@ footer {
         "footer footer"auto
         /auto auto;
     }
+}
+/* MODOS */
+
+.dark-mode 
+{
+    background: #121212 !important;
+    color: var(--blanco);
+}
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode p,
+.dark-mode a {
+    color: var(--blanco);
+}
+.dark-mode footer,
+.dark-mode th,
+.dark-mode .topbar {
+    background: #0a2236 !important;
+}
+.dark-mode button {
+    background-color: #333 !important;
+    color: white !important;
+}
+
+.dark-mode button:hover {
+    background-color: #555 !important;
+    color: white !important;
+}
+
+.dark-mode .menu-accesibilidad {
+    background-color: #1e1e1e !important;
+    color: white !important;
+    border: 2px solid #0a2236  !important
 }
 

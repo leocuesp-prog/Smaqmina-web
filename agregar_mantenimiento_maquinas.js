@@ -29,48 +29,96 @@ function cargarMaquinas() {
         });
 }
 
-function guardar3() {
-    const tipo_mantenimiento = document.getElementById('tipo_mantenimiento').value;
-    const fecha_mantenimiento = document.getElementById('Fecha mantenimiento').value;
-    const observacion = document.getElementById('Observacion').value;
-    const maquina_apto = document.getElementById('Maquina apta').value;
-    const realizo_mantenimiento = document.getElementById('Realizo mantenimiento').value;
-    const reviso_mantenimiento = document.getElementById('Reviso Mantenimiento').value;
-    const novedad = document.getElementById('Novedad').value;
-    const id_maquina = document.getElementById('Maquina').value;
+async function guardar3() {
+    // Obtener valores de los campos
+    let tipo_mantenimiento = document.getElementById('tipo_mantenimiento').value.trim();
+    let fecha_mantenimiento = document.getElementById('Fecha mantenimiento').value.trim();
+    let observacion = document.getElementById('Observacion').value.trim();
+    let maquina_apta = document.getElementById('Maquina apta').value.trim();
+    let realizo_mantenimiento = document.getElementById('Realizo mantenimiento').value.trim();
+    let reviso_mantenimiento = document.getElementById('Reviso Mantenimiento').value.trim();
+    let novedad = document.getElementById('Novedad').value.trim();
+    let id_maquina = document.getElementById('Maquina').value.trim();
 
-    if (!tipo_mantenimiento || tipo_mantenimiento === 'TM' || !fecha_mantenimiento || !observacion || !maquina_apto || maquina_apto === 'Maquina apta' || !realizo_mantenimiento || !reviso_mantenimiento || !novedad || !id_maquina || id_maquina === 'Seleccione una máquina') {
-        alert('Por favor, complete todos los campos correctamente.');
+    // Validar campos vacíos
+    if (!tipo_mantenimiento || tipo_mantenimiento === 'TM') {
+        alert('❌ Tipo de mantenimiento es requerido.');
+        return;
+    }
+    if (!fecha_mantenimiento) {
+        alert('❌ Fecha de mantenimiento es requerida.');
+        return;
+    }
+    if (!observacion) {
+        alert('❌ Observación es requerida.');
+        return;
+    }
+    if (!maquina_apta || maquina_apta === 'Maquina apta') {
+        alert('❌ Selecciona si la máquina está apta o no.');
+        return;
+    }
+    if (!realizo_mantenimiento) {
+        alert('❌ Nombre de quien realizó es requerido.');
+        return;
+    }
+    if (!reviso_mantenimiento) {
+        alert('❌ Nombre de quien revisó es requerido.');
+        return;
+    }
+    if (!novedad) {
+        alert('❌ Novedad es requerida.');
+        return;
+    }
+    if (!id_maquina || id_maquina === 'Seleccione una máquina') {
+        alert('❌ Debes seleccionar una máquina.');
         return;
     }
 
-    fetch('http://localhost:3000/mantenimiento/maquina', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            tipo_mantenimiento,
-            fecha_mantenimiento,
-            observacion,
-            maquina_apto,
-            realizo_mantenimiento,
-            reviso_mantenimiento,
-            novedad,
-            id_maquina
-        })
-    })
+    // Preparar datos para enviar
+    const datosEnvio = {
+        tipo_mantenimiento_maquina: tipo_mantenimiento,
+        fecha_mantenimiento_maquina: fecha_mantenimiento,
+        observacion_maquina: observacion,
+        equipo_apto_maquina: maquina_apta,
+        realizo_mantenimiento_maquina: realizo_mantenimiento,
+        reviso_mantenimiento_maquina: reviso_mantenimiento,
+        novedad_maquina: novedad,
+        id_maquina: id_maquina
+    };
 
-    .then(response => response.json())
-    .then(data => {
-        alert(data.mensaje);// Opcional: limpiar formulario
+    console.log('📤 Enviando datos:', datosEnvio);
+
+    try {
+        // Enviar datos al servidor
+        const response = await fetch('http://localhost:3000/mantenimiento/maquina', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(datosEnvio)
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error HTTP: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log('✅ Respuesta del servidor:', data);
+        alert('✅ ' + data.mensaje);
+        
+        // Limpiar el formulario
         document.querySelector('form').reset();
         document.getElementById('tipo_mantenimiento').value = 'TM';
-        document.getElementById('Maquina apto').value = 'Maquina apto';
+        document.getElementById('Maquina apta').value = 'Maquina apta';
         document.getElementById('Maquina').innerHTML = '<option disabled selected>Seleccione una máquina</option>';
-        cargarMaquinas(); // Recargar máquinas si es necesario
-    })
-    .catch(error => console.error('Error:', error));
+        
+        // Recargar máquinas
+        cargarMaquinas();
+
+    } catch (error) {
+        console.error('❌ Error:', error);
+        alert('❌ Error al guardar: ' + error.message);
+    }
 }
 let menu = document.getElementById("menuAccesibilidad");
 let boton = document.getElementById("botonAccesibilidad");

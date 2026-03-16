@@ -18,8 +18,8 @@ async function guardar(){
     try {
         const listadoResp = await fetch("http://localhost:3000/herramientas/impacto");
         if (listadoResp.ok) {
-            const lista = await listadoResp.json();
-            const duplicado = lista.some(h => h.nombre_herramienta_impacto.toLowerCase() === nombre.toLowerCase());
+            let lista = await listadoResp.json();
+            let duplicado = lista.some(h => h.nombre_herramienta_impacto.toLowerCase() === nombre.toLowerCase());
             if (duplicado) {
                 alert("El nombre ya existe");
                 return;

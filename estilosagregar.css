@@ -289,17 +289,42 @@ footer {
         /auto 50%;
     }
 }
+/* MODOS */
 .dark-mode {
-    background: black;
-    color: white;
+background: #121212 !important;
 }
+
+.dark-mode footer,
+.dark-mode .topbar {
+    background: #0a2236 !important;
+}
+
+.dark-mode .menu-accesibilidad,
+.dark-mode .formulario-container{
+    background-color: #1e1e1e !important;
+    color: white !important;
+    border: 2px solid #0a2236  !important
+}
+
+.dark-mode input,
+.dark-mode button,
+.dark-mode select,
+.dark-mode option{
+     background-color: #333 !important;
+     color: white !important;
+   
+}
+
+.dark-mode button:hover {
+    background-color: #555 !important;
+    color: white !important;
+}
+
+
 .dark-mode .titulo-principal{
     color: white;
 }
 
-.dark-mode .formulario-container{
-    color: black;  /* <-- aquí estaba el error */
-}
 .mayusculas{
     text-transform: uppercase;
 }

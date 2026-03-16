@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MANTENIMIENTO EQUIPOS</title>
     <link rel="stylesheet" href="estilosagregar.css">
+
 </head>
 <body class="grid-container">
      <header class="topbar">
@@ -32,32 +33,33 @@
                 <h3>Tipo Mantenimiento: </h3>
                 <select id="tipo_mantenimiento" name="tipo_mantenimiento">
                     <option value="TM" disabled selected>Tipo Mantenimiento</option>
-                    <option value="pr">Preventivo</option>
-                    <option value="co">Correctivo</option>
-                    <option value="pre">Predictivo</option>
+                    <option value="predictivo">Preventivo</option>
+                    <option value="correctivo">Correctivo</option>
+                    <option value="predictivo">Predictivo</option>
                 </select>  
                 <h3>Fecha Mantenimiento: </h3>
-                <input style="color: gray;" type="date"id="Fecha mantenimiento" required placeholder="Fecha Mantenimiento"> 
+                <input style="color: gray;" type="date"id="Fecha mantenimiento"  placeholder="Fecha Mantenimiento"> 
                 <h3>Observacion: </h3> 
-                <input type="text"id="Observacion" required placeholder="Observacion">
+                <input type="text"id="Observacion"  placeholder="Observacion">
                 <h3>Equipo apto: </h3>
                 <select id="Equipo apto" name="eq apto">
-                    <option  disabled selected>Equipo apto</option>
-                    <option >SI</option>
-                    <option >NO</option>
+                    <option value="" disabled selected>Equipo apto</option>
+                    <option value="SI">SI</option>
+                    <option value="NO">NO</option>
                 </select>
                 <h3>Realizo Mantenimiento:</h3>
-                <input type="text"id="Realizo mantenimiento" required placeholder="Realizo mantenimiento">
+                <input type="text"id="Realizo mantenimiento"  placeholder="Realizo mantenimiento">
                 <h3>Reviso Mantenimiento:</h3>
-                <input type="text"id="Reviso Mantenimiento" required placeholder="Reviso Mantenimiento">
+                <input type="text"id="Reviso Mantenimiento"  placeholder="Reviso Mantenimiento">
                 <h3>Novedad:</h3>
-                <input type="text"id="Novedad" required placeholder="Novedad">
+                <input type="text"id="Novedad"  placeholder="Novedad">
                 <h3>Equipo:</h3>
                 <select id="Equipo" name="equipo">
                     <option disabled selected>Seleccione un equipo</option>
                 </select>
+            </form> <!-- cierre del formulario -->
         </div>
-        <main class="boton-volver">
+    <main class="boton-volver">
         <a href="equipos.html"><button style="font-size: 18px;" class="btn-agregar">Volver</button></a>
     </main>
     <main class="boton-agregar">

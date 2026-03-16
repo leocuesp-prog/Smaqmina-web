@@ -2,75 +2,124 @@ document.addEventListener('DOMContentLoaded', function() {
     cargarEquipos();
 });
 
-function cargarEquipos() {
-    fetch('http://localhost:3000/equipo')
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Error en la respuesta del servidor: ' + response.status);
-            }
-            return response.json();
-        })
-        .then(data => {
-            const select = document.getElementById('Equipo');
-            if (data.length === 0) {
-                alert('No hay equipos registrados en la base de datos.');
-                return;
-            }
-            data.forEach(equipo => {
-                const option = document.createElement('option');
-                option.value = equipo.id_equipo;
-                option.textContent = equipo.nombre_equipo;
-                select.appendChild(option);
-            });
-        })
-        .catch(error => {
-            console.error('Error cargando equipos:', error);
-            alert('Error al cargar equipos: ' + error.message + '. Asegúrate de que el servidor esté corriendo.');
+async function cargarEquipos() {
+    try {
+        const response = await fetch('http://localhost:3000/equipo');
+        
+        if (!response.ok) {
+            throw new Error('Error en la respuesta del servidor: ' + response.status);
+        }
+        
+        const data = await response.json();
+        const select = document.getElementById('Equipo');
+        
+        if (data.length === 0) {
+            alert('No hay equipos registrados en la base de datos.');
+            return;
+        }
+        
+        data.forEach(equipo => {
+            const option = document.createElement('option');
+            option.value = equipo.id_equipo;
+            option.textContent = equipo.nombre_equipo;
+            select.appendChild(option);
         });
+    } catch (error) {
+        console.error('Error cargando equipos:', error);
+        alert('Error al cargar equipos: ' + error.message + '. Asegúrate de que el servidor esté corriendo.');
+    }
 }
 
-function guardar3() {
-    const tipo_mantenimiento = document.getElementById('tipo_mantenimiento').value;
-    const fecha_mantenimiento = document.getElementById('Fecha mantenimiento').value;
-    const observacion = document.getElementById('Observacion').value;
-    const equipo_apto = document.getElementById('Equipo apto').value;
-    const realizo_mantenimiento = document.getElementById('Realizo mantenimiento').value;
-    const reviso_mantenimiento = document.getElementById('Reviso Mantenimiento').value;
-    const novedad = document.getElementById('Novedad').value;
-    const id_equipo = document.getElementById('Equipo').value;
+async function guardar3() {
+    // Obtener valores de los campos
+    let tipo_mantenimiento = document.getElementById('tipo_mantenimiento').value.trim();
+    let fecha_mantenimiento = document.getElementById('Fecha mantenimiento').value.trim();
+    let observacion = document.getElementById('Observacion').value.trim();
+    let equipo_apto = document.getElementById('Equipo apto').value.trim();
+    let realizo_mantenimiento = document.getElementById('Realizo mantenimiento').value.trim();
+    let reviso_mantenimiento = document.getElementById('Reviso Mantenimiento').value.trim();
+    let novedad = document.getElementById('Novedad').value.trim();
+    let id_equipo = document.getElementById('Equipo').value.trim();
 
-    if (!tipo_mantenimiento || tipo_mantenimiento === 'TM' || !fecha_mantenimiento || !observacion || !equipo_apto || equipo_apto === 'Equipo apto' || !realizo_mantenimiento || !reviso_mantenimiento || !novedad || !id_equipo || id_equipo === 'Seleccione un equipo') {
-        alert('Por favor, complete todos los campos correctamente.');
+    // Validar campos vacíos
+    if (!tipo_mantenimiento || tipo_mantenimiento === 'TM') {
+        alert('❌ Tipo de mantenimiento es requerido.');
+        return;
+    }
+    if (!fecha_mantenimiento) {
+        alert('❌ Fecha de mantenimiento es requerida.');
+        return;
+    }
+    if (!observacion) {
+        alert('❌ Observación es requerida.');
+        return;
+    }
+    if (!equipo_apto || equipo_apto === 'Equipo apto') {
+        alert('❌ Selecciona si el equipo está apto o no.');
+        return;
+    }
+    if (!realizo_mantenimiento) {
+        alert('❌ Nombre de quien realizó es requerido.');
+        return;
+    }
+    if (!reviso_mantenimiento) {
+        alert('❌ Nombre de quien revisó es requerido.');
+        return;
+    }
+    if (!novedad) {
+        alert('❌ Novedad es requerida.');
+        return;
+    }
+    if (!id_equipo || id_equipo === 'Seleccione un equipo') {
+        alert('❌ Debes seleccionar un equipo.');
         return;
     }
 
-    fetch('http://localhost:3000/mantenimiento/equipo', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            tipo_mantenimiento,
-            fecha_mantenimiento,
-            observacion,
-            equipo_apto,
-            realizo_mantenimiento,
-            reviso_mantenimiento,
-            novedad,
-            id_equipo
-        })
-    })
-    .then(response => response.json())
-    .then(data => {
-        alert(data.mensaje);
-        // Opcional: limpiar formulario
+    // Preparar datos para enviar
+    const datosEnvio = {
+        tipo_mantenimiento_equipo: tipo_mantenimiento,
+        fecha_mantenimiento_equipo: fecha_mantenimiento,
+        observacion_equipo: observacion,
+        equipo_apto_equipo: equipo_apto,
+        realizo_mantenimiento_equipo: realizo_mantenimiento,
+        reviso_mantenimiento_equipo: reviso_mantenimiento,
+        novedad_equipo: novedad,
+        id_equipo: id_equipo
+    };
+
+    console.log('📤 Enviando datos:', datosEnvio);
+
+    try {
+        // Enviar datos al servidor
+        const response = await fetch('http://localhost:3000/mantenimiento/equipo', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(datosEnvio)
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error HTTP: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log('✅ Respuesta del servidor:', data);
+        alert('✅ ' + data.mensaje);
+        
+        // Limpiar el formulario
         document.querySelector('form').reset();
         document.getElementById('tipo_mantenimiento').value = 'TM';
         document.getElementById('Equipo apto').value = 'Equipo apto';
         document.getElementById('Equipo').innerHTML = '<option disabled selected>Seleccione un equipo</option>';
-        cargarEquipos(); // Recargar equipos si es necesario
-    })
-    .catch(error => console.error('Error:', error));
+        
+        // Recargar equipos
+        cargarEquipos();
+
+    } catch (error) {
+        console.error('❌ Error:', error);
+        alert('❌ Error al guardar: ' + error.message);
+    }
 }
 let menu = document.getElementById("menuAccesibilidad");
 let boton = document.getElementById("botonAccesibilidad");

@@ -14,7 +14,7 @@
     </div>
     <nav class="nav-links">
         <a href="inicio.html">Inicio</a>
-        <a href=>Acerca de</a>
+        <a href="Acerca-nosotros.html">Acerca de</a>
        
         <div class="dropdown">
             <a href="#" class="dropbtn">Categorías</a>
@@ -32,30 +32,31 @@
                 <h3>Tipo Mantenimiento: </h3>
                 <select id="tipo_mantenimiento" name="tipo_mantenimiento">
                     <option value="TM" disabled selected>Tipo Mantenimiento</option>
-                    <option value="pr">Preventivo</option>
-                    <option value="co">Correctivo</option>
-                    <option value="pre">Predictivo</option>
+                    <option value="preventivo">Preventivo</option>
+                    <option value="correctivo">Correctivo</option>
+                    <option value="predictivo">Predictivo</option>
                 </select>  
                 <h3>Fecha Mantenimiento: </h3>
-                <input style="color: gray;" type="date"id="Fecha mantenimiento" required placeholder="Fecha Mantenimiento"> 
+                <input style="color: gray;" type="date"id="Fecha mantenimiento"  placeholder="Fecha Mantenimiento"> 
                 <h3>Observacion: </h3> 
-                <input type="text"id="Observacion" required placeholder="Observacion">
+                <input type="text"id="Observacion"  placeholder="Observacion">
                 <h3>Maquina apta: </h3>
                 <select id="Maquina apta" name="maq apta">
-                    <option  disabled selected>Maquina apta</option>
-                    <option >SI</option>
-                    <option >NO</option>
+                    <option value="" disabled selected>Maquina apta</option>
+                    <option value="SI">SI</option>
+                    <option value="NO">NO</option>
                 </select>
                 <h3>Realizo Mantenimiento:</h3>
-                <input type="text"id="Realizo mantenimiento" required placeholder="Realizo mantenimiento">
+                <input type="text"id="Realizo mantenimiento"  placeholder="Realizo mantenimiento">
                 <h3>Reviso Mantenimiento:</h3>
-                <input type="text"id="Reviso Mantenimiento" required placeholder="Reviso Mantenimiento">
+                <input type="text"id="Reviso Mantenimiento"  placeholder="Reviso Mantenimiento">
                 <h3>Novedad:</h3>
-                <input type="text"id="Novedad" required placeholder="Novedad">
+                <input type="text"id="Novedad"  placeholder="Novedad">
                 <h3>Maquina:</h3>
                 <select id="Maquina" name="maquina">
                     <option disabled selected>Seleccione una máquina</option>
                 </select>
+            </form>
         </div>
         <main class="boton-volver">
         <a href="maquinas.html"><button style="font-size: 18px;" class="btn-agregar">Volver</button></a>
