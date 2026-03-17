@@ -64,14 +64,16 @@ background: var(--logo-azul);
 color: white;
 padding: 12px;
  text-align: center;
+     border: 2px solid var(--negro);
 }
 
 .tabla-Mantenimientos td {
 background: var(--blanco);
 color: var(--negro);
 padding: 12px;
- text-align: center;
- width: 1%;
+text-align: center;
+width: 1%;
+border: 1px solid var(--negro);
 }
 .tabla-Mantenimientos .vertical{
 writing-mode: vertical-rl;
@@ -318,7 +320,6 @@ footer {
 .dark-mode td {
     background-color: #1e1e1e !important;
     color: white !important;
-    border: 2px solid #0a2236  !important
 }
 .dark-mode input{
     background-color: var(--blanco) !important;
