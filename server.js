@@ -83,10 +83,6 @@ app.post("/login", (req, res) => {
     });
 
 });
-
-
-
-
 // POST y GET para sujecion
 app.post("/herramientas/sujecion", (req, res) => {
 
