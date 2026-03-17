@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMAQMINA – Medición de Gases</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <link rel="stylesheet" href="estilos_formatos.css">
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo"><img src="imagenes/logo real.png" alt=""></div>
+  <div class="nav-brand">SMAQMINA</div>
+  <div class="nav-links">
+    <a href="inicio.html">Inicio</a>
+    <a href="Acerca-nosotros.html">Acerca de</a>
+    <a href="ayuda.html">Ayuda</a>
+    <a href="formatos.html">formatos</a>
+
+  </div>
+</nav>
+<div class="nav-accent"></div>
+<div class="page-title">Medición de Gases</div>
+<div class="page-subtitle">Mina Didáctica Sena</div>
+
+<main>
+  <div class="actions">
+    <button class="btn btn-clear" onclick="clearForm()">↺ Limpiar</button>
+    <button class="btn btn-excel" onclick="downloadExcel()">⬇ Excel</button>
+    <button class="btn btn-pdf" onclick="downloadPDF()">⬇ PDF</button>
+  </div>
+
+  <!-- META INFO -->
+  <div class="two-col">
+    <div class="card">
+      <div class="card-title">Datos del Registro</div>
+      <div class="field"><label>Lugar</label><input type="text" id="lugar" value="Mina Didáctica Sena" /></div>
+      <div class="field"><label>Día</label><input type="number" id="dia" min="1" max="31" placeholder="DD" /></div>
+      <div class="field"><label>Mes</label><input type="number" id="mes" min="1" max="12" placeholder="MM" /></div>
+      <div class="field"><label>Año</label><input type="number" id="anio" value="2026" /></div>
+    </div>
+    <div class="card">
+      <div class="card-title">Monitoreo</div>
+      <div class="field"><label>Hora de Ingreso a Monitoreo</label><input type="time" id="hora" /></div>
+      <div class="field"><label>Responsable General</label><input type="text" id="respGeneral" placeholder="Nombre del responsable" /></div>
+      <div class="field"><label>Turno</label>
+        <select id="turno">
+          <option value="">Seleccionar...</option>
+          <option>Mañana</option>
+          <option>Tarde</option>
+          <option>Noche</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- TABLE -->
+  <div class="card-full">
+    <div class="card-full-header">
+      <span class="dot"></span>
+      Reporte · Registro y Medición de Gases
+    </div>
+    <div class="table-scroll">
+      <table id="gasTable">
+        <thead>
+          <tr>
+            <th class="th-no" rowspan="2">No</th>
+            <th class="th-labor" rowspan="2">Labor / Hora</th>
+            <th class="th-gas" colspan="6">Medición (marcar con X si supera VLP)</th>
+            <th rowspan="2">Hora</th>
+            <th rowspan="2">Responsable</th>
+            <th rowspan="2" style="min-width:130px">Observaciones</th>
+          </tr>
+          <tr>
+            <th class="th-gas">% O₂</th>
+            <th class="th-gas">% CH₄</th>
+            <th class="th-gas">% CO₂</th>
+            <th class="th-gas">PPM CO</th>
+            <th class="th-gas">PPM H₂S</th>
+            <th class="th-gas">PPM NO₂</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SIGNATURES -->
+  <div class="sig-row">
+    <div class="sig-card">
+      <label>Firma — Jefe de Mina</label>
+      <input type="text" id="firmaJefe" placeholder="Nombre completo" />
+      <div class="sig-area">Espacio para firma</div>
+    </div>
+    <div class="sig-card">
+      <label>Vo. Bo. — Líder SST</label>
+      <input type="text" id="firmaLider" placeholder="Nombre completo" />
+      <div class="sig-area">Espacio para firma</div>
+    </div>
+  </div>
+  <div class="form-code">GOR-F-012 V03 · SMAQMINA · Mina Didáctica Sena</div>
+</main>
+<div class="toast" id="toast"></div>
+
+<div class="accesibilidad">
+    <button id="botonAccesibilidad">⚙️</button>
+    <div id="menuAccesibilidad" class="menu-accesibilidad">
+        <button onclick="toggleOscuro()"> Modo oscuro</button>
+        <button onclick="mayusculas()"> Mayúsculas</button>
+        <button onclick="resetEstilos()"> Restaurar</button>     
+        <button onclick="leerPagina()"> Leer Pagina</button>
+        <button onclick="detenerLectura()"> Detener Lectura</button>
+    </div>
+    </div>
+    <footer>
+    2026 SMAQMINA. - Sistema de Mantenimiento de Maquinas Mineras <br>
+    Derechos Reservados. <br>
+    contacto: 3009650139 <br>
+    correo: smaqmina23@gmail.com
+</footer>
+<script src="scrips_formato.js"></script>
+</body>
+</html>
