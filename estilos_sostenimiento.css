@@ -54,19 +54,54 @@ font-size: 16px;
 .nav-links a:hover {
 color: var(--logo-verde);
 }
+.tabla-Mantenimientos {
+ width: 100%;
+ background: var(--blanco);
+border: 2px solid var(--logo-azul);
+}
 .tabla-Mantenimientos th {
 background: var(--logo-azul);
 color: white;
 padding: 12px;
- text-align: left;
- font-size: 18px;
+ text-align: center;
+     border: 2px solid var(--negro);
 }
 
 .tabla-Mantenimientos td {
- padding: 12px;
-border-bottom: 1px solid #ddd;
-color: var(--gris-fuerte);
-font-size: 16px;
+background: var(--blanco);
+color: var(--negro);
+padding: 12px;
+text-align: center;
+width: 1%;
+border: 1px solid var(--negro);
+}
+.tabla-Mantenimientos .vertical{
+writing-mode: vertical-rl;
+transform: rotate(180deg);
+}
+.tabla-Mantenimientos select{
+    width: 47%;
+    margin-top: 6px;
+    border-radius: 7px;
+    border: 2px solid var(--negro);
+    background:var(--blanco);
+    outline: none;
+    transition: 0.3s ease;
+    font-family: "Inter", sans-serif; 
+}
+.tabla-Mantenimientos input{
+    width: 35%;
+    margin-top: 6px;
+    border-radius: 7px;
+    border: 2px solid var(--negro);
+    background:var(--blanco);
+    font-size: 18px;
+    outline: none;
+    transition: 0.3s ease;
+    font-family: "Inter", sans-serif; 
+}
+.tabla-Mantenimientos .blanco{
+    border: none;
 }
 .dropdown-content a {
     color: black;
@@ -97,14 +132,6 @@ font-size: 16px;
  display: flex;
 align-items: center;
 gap: 10px;
-}
-
-
-.tabla-Mantenimientos {
- width: 100%;
- border-collapse: collapse;
- background: var(--blanco);
-border: 2px solid var(--logo-azul);
 }
 
 .dropdown {
@@ -289,19 +316,20 @@ footer {
     color: white;
 }
 .dark-mode .menu-accesibilidad,
-.dark-mode input,
+
 .dark-mode td {
     background-color: #1e1e1e !important;
     color: white !important;
+}
+.dark-mode input{
+    background-color: var(--blanco) !important;
     border: 2px solid #0a2236  !important
 }
-
 .dark-mode footer,
 .dark-mode th,
 .dark-mode .topbar {
     background: #0a2236 !important;
 }
-
 .dark-mode button {
     background-color: #333 !important;
     color: white !important;

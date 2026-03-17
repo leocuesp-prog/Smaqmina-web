@@ -26,89 +26,8 @@ if (buscador) {
 }
 
 
-// =============================
-// PERFIL
-// =============================
-function abrirPerfil() {
-    const overlay = document.getElementById("perfilOverlay");
-    if (overlay) overlay.style.display = "flex";
-}
 
-function cerrarPerfil() {
-    const overlay = document.getElementById("perfilOverlay");
-    if (overlay) overlay.style.display = "none";
-}
 
-function abrirEditarPerfil() {
-
-    const editarOverlay = document.getElementById("editarOverlay");
-    if (!editarOverlay) return;
-
-    editarOverlay.style.display = "flex";
-
-    const nombre = document.getElementById("nombrePerfil");
-    const rol = document.getElementById("rolPerfil");
-    const correo = document.getElementById("correoPerfil");
-    const extension = document.getElementById("extensionPerfil");
-    const depto = document.getElementById("deptoPerfil");
-
-    if (nombre) document.getElementById("inputNombre").value = nombre.textContent;
-    if (rol) document.getElementById("inputRol").value = rol.textContent;
-    if (correo) document.getElementById("inputCorreo").value = correo.textContent;
-    if (extension) document.getElementById("inputExtension").value = extension.textContent;
-    if (depto) document.getElementById("inputDepto").value = depto.textContent;
-}
-
-function cerrarEditar() {
-    const editarOverlay = document.getElementById("editarOverlay");
-    if (editarOverlay) editarOverlay.style.display = "none";
-}
-
-function guardarPerfil() {
-
-    const nombre = document.getElementById("inputNombre")?.value;
-    const rol = document.getElementById("inputRol")?.value;
-    const correo = document.getElementById("inputCorreo")?.value;
-    const extension = document.getElementById("inputExtension")?.value;
-    const depto = document.getElementById("inputDepto")?.value;
-
-    if (document.getElementById("nombrePerfil")) document.getElementById("nombrePerfil").textContent = nombre;
-    if (document.getElementById("rolPerfil")) document.getElementById("rolPerfil").textContent = rol;
-    if (document.getElementById("correoPerfil")) document.getElementById("correoPerfil").textContent = correo;
-    if (document.getElementById("extensionPerfil")) document.getElementById("extensionPerfil").textContent = extension;
-    if (document.getElementById("deptoPerfil")) document.getElementById("deptoPerfil").textContent = depto;
-
-    const fileInput = document.getElementById("inputFoto");
-
-    if (fileInput && fileInput.files.length > 0) {
-
-        const file = fileInput.files[0];
-        const reader = new FileReader();
-
-        reader.onload = function (e) {
-
-            const foto = document.getElementById("fotoPerfil");
-            const icono = document.getElementById("iconoNavbar");
-
-            if (foto) foto.src = e.target.result;
-            if (icono) icono.src = e.target.result;
-
-            localStorage.setItem("fotoPerfil", e.target.result);
-        };
-
-        reader.readAsDataURL(file);
-    }
-
-    localStorage.setItem("nombrePerfil", nombre);
-    localStorage.setItem("rolPerfil", rol);
-    localStorage.setItem("correoPerfil", correo);
-    localStorage.setItem("extensionPerfil", extension);
-    localStorage.setItem("deptoPerfil", depto);
-
-    alert("Perfil actualizado correctamente ✅");
-
-    cerrarEditar();
-}
 
 
 // =============================
@@ -261,21 +180,3 @@ function guardarConfig() {
 }
 
 
-// =============================
-// FOTO PERFIL
-// =============================
-function borrarFoto() {
-
-    const imagenDefault = "imagenes/Usuario.webp";
-
-    const foto = document.getElementById("fotoPerfil");
-    const icono = document.getElementById("iconoNavbar");
-
-    if (foto) foto.src = imagenDefault;
-    if (icono) icono.src = imagenDefault;
-
-    localStorage.removeItem("fotoPerfil");
-
-    alert("Foto eliminada correctamente 🗑️");
-
-}
