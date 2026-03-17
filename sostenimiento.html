@@ -23,22 +23,23 @@
                     <a href="maquinas.html">Máquinas</a>
                 </div>
             </div>
-        </nav>
-         <a href="index.html" id="linkLogin">Iniciar sesión</a>
-
-    
-        <div class="dropdown" id="perfilNavbar" style="display:none;">
+            <a href="index.html" id="linkLogin">Iniciar sesión</a>
+            <div class="dropdown" id="perfilNavbar" style="display:none;">
             <button class="icon" onclick="abrirPerfil()">
                 <img id="iconoNavbar" src="imagenes/Usuario.webp" alt="Usuario">
             </button>
         </div>
+        </nav>
+
+    
+        
     </header>
     <h2 class="titulo-principal">Tabla Sostenimiento</h2>
     <main class="contenedor">
         <table class="tabla-Mantenimientos" style="border: 1;">
             <tr>
                 <th rowspan="3">TRAMO A EVALUAR</th>
-                <th colspan="11"> CRITERIO DE AVALUACION <br> MARCAR: PRESENTA:✓  NO PRESENTA:X</th>
+                <th colspan="11"> CRITERIO DE EVALUACION <br> MARCAR: PRESENTA:✓  NO PRESENTA:X</th>
             </tr>
             <tr>
                 <th rowspan="2" class="vertical">ELEMENTO<br>A EVALUAR</th>
@@ -165,7 +166,7 @@
         <a href="inicio.html"><button style="font-size: 18px;" class="btn-agregar">Volver</button></a>
     </main>
     <main class="boton-agregar">
-        <button style="font-size: 18px;" onclick="guardarDatos()" class="btn-agregar">Agregar</button>
+        <button style="font-size: 18px;" class="btn-agregar">Agregar</button>
     </main>
     <div class="accesibilidad">
     <button id="botonAccesibilidad">⚙️</button>
@@ -232,6 +233,5 @@
     </footer>
     <script src="perfil.js"></script>
     <script src="sostenimiento.js"></script>
-
 </body>
 </html>
