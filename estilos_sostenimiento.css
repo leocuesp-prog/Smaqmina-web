@@ -58,15 +58,24 @@ color: var(--logo-verde);
 background: var(--logo-azul);
 color: white;
 padding: 12px;
- text-align: left;
+ text-align: center;
  font-size: 18px;
 }
 
 .tabla-Mantenimientos td {
- padding: 12px;
-border-bottom: 1px solid #ddd;
-color: var(--gris-fuerte);
-font-size: 16px;
+background: var(--blanco);
+color: var(--negro);
+padding: 12px;
+ text-align: center;
+ font-size: 18px;
+}
+.tabla-Mantenimientos .vertical{
+writing-mode: vertical-rl;
+transform: rotate(180deg);
+font-size:11px;
+}
+.tabla-Mantenimientos .blanco{
+    border: none;
 }
 .dropdown-content a {
     color: black;
@@ -102,9 +111,14 @@ gap: 10px;
 
 .tabla-Mantenimientos {
  width: 100%;
- border-collapse: collapse;
  background: var(--blanco);
 border: 2px solid var(--logo-azul);
+}
+.tabla-Mantenimientos .titulo1 {
+    text-align: center;
+}
+.tabla-Mantenimientos th{
+    border: 2px solid var(--negro);
 }
 
 .dropdown {
