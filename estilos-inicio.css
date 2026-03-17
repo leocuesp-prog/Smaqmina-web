@@ -588,4 +588,7 @@ footer {
     color: white !important;
     border: 2px solid #0a2236  !important
 }
+.dark-mode .negro{
+    color: var(--negro);
+}
 
