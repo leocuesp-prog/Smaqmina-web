@@ -13,7 +13,7 @@ app.use(express.static("public"));
 const db = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "1234567", // pon tu contraseña si tienes
+    password: "1055313199", // pon tu contraseña si tienes
     database: "smaqmina1"
 });
 

@@ -1,24 +1,28 @@
 function guardarDatos() {
 
-    let datos = [];
+    let wb = XLSX.utils.book_new();
 
-    // 🔥 ENCABEZADOS PRINCIPALES (tabla 1)
-    datos.push([
-        "Elemento",
-        "Roturas",
-        "Astilam",
-        "Desplazamiento",
-        "Hongos",
-        "Moho",
-        "Presencia",
-        "Humedad",
-        "Putrefacción",
-        "Altura <1.8m",
-        "Sección <3m²"
-    ]);
+    // 🔷 Estructura tipo tu tabla real
+    let datos = [
 
-    // 🔹 FILAS DE LA PRIMERA TABLA
-    let filas = document.querySelectorAll(".tabla-Mantenimientos:first-of-type tr");
+        ["TRAMO A EVALUAR", "", "CRITERIO DE AVALUACIÓN", "", "", "", "", "", "", "", ""],
+
+        ["", "ELEMENTO A EVALUAR",
+            "DETERIORO FÍSICO", "", "",
+            "DETERIORO BIOLÓGICO", "", "", "", "",
+            "ALTURA <1.8m", "SECCIÓN <3m²"
+        ],
+
+        ["", "",
+            "Roturas", "Astilam", "Desplazamiento",
+            "Hongos", "Moho", "Presencia", "Humedad", "Putrefacción",
+            "", ""
+        ]
+    ];
+
+    // 🔹 Obtener datos reales
+    let tabla = document.querySelectorAll(".tabla-Mantenimientos")[0];
+    let filas = tabla.querySelectorAll("tr");
 
     filas.forEach(fila => {
         let celdas = fila.querySelectorAll("td");
@@ -29,10 +33,11 @@ function guardarDatos() {
             let selects = fila.querySelectorAll("select");
 
             if (elemento && selects.length > 0) {
-                let filaDatos = [elemento];
+
+                let filaDatos = ["", elemento];
 
                 selects.forEach(sel => {
-                    filaDatos.push(sel.options[sel.selectedIndex].text);
+                    filaDatos.push(sel.value === "Si" ? "SI" : "NO");
                 });
 
                 datos.push(filaDatos);
@@ -40,71 +45,91 @@ function guardarDatos() {
         }
     });
 
-    // 🔥 ESPACIO ENTRE TABLAS
-    datos.push([]);
-    datos.push(["HALLAZGOS DE INSPECCION"]);
+    let ws = XLSX.utils.aoa_to_sheet(datos);
 
-    // 🔥 ENCABEZADOS TABLA 2
-    datos.push(["Zona", "Medida de intervención", "Fecha"]);
+    // 🔥 COMBINACIONES (CLAVE PARA QUE SE VEA COMO TU TABLA)
+    ws["!merges"] = [
 
-    // 🔹 SEGUNDA TABLA
-    let tabla2 = document.querySelectorAll(".tabla-Mantenimientos")[1];
-    let filas2 = tabla2.querySelectorAll("tr");
+        // Título principal
+        { s: { r: 0, c: 2 }, e: { r: 0, c: 10 } },
 
-    filas2.forEach(fila => {
-        let inputs = fila.querySelectorAll("input");
+        // Tramo evaluar
+        { s: { r: 0, c: 0 }, e: { r: 2, c: 0 } },
 
-        if (inputs.length === 3) {
-            let zona = inputs[0].value;
-            let medida = inputs[1].value;
-            let fecha = inputs[2].value;
+        // Elemento evaluar
+        { s: { r: 1, c: 1 }, e: { r: 2, c: 1 } },
 
-            if (zona || medida || fecha) {
-                datos.push([zona, medida, fecha]);
+        // Deterioro físico
+        { s: { r: 1, c: 2 }, e: { r: 1, c: 4 } },
+
+        // Deterioro biológico
+        { s: { r: 1, c: 5 }, e: { r: 1, c: 9 } },
+
+        // Altura
+        { s: { r: 1, c: 10 }, e: { r: 2, c: 10 } },
+
+        // Sección
+        { s: { r: 1, c: 11 }, e: { r: 2, c: 11 } }
+    ];
+
+    // 🔥 Tamaño columnas
+    ws["!cols"] = [
+        { wch: 18 },
+        { wch: 20 },
+        { wch: 10 }, { wch: 10 }, { wch: 15 },
+        { wch: 10 }, { wch: 10 }, { wch: 12 },
+        { wch: 10 }, { wch: 15 },
+        { wch: 15 }, { wch: 15 }
+    ];
+
+    // 🎨 Estilos
+    function estilo(fondo, texto = "FFFFFF", negrita = false) {
+        return {
+            fill: { fgColor: { rgb: fondo } },
+            font: { bold: negrita, color: { rgb: texto } },
+            alignment: { horizontal: "center", vertical: "center", wrapText: true },
+            border: {
+                top: { style: "thin" },
+                bottom: { style: "thin" },
+                left: { style: "thin" },
+                right: { style: "thin" }
             }
-        }
-    });
-
-    // 🔥 RESPONSABLE (última fila)
-    let ultimaFila = tabla2.querySelectorAll("tr")[tabla2.querySelectorAll("tr").length - 1];
-    let inputsFinal = ultimaFila.querySelectorAll("input, select");
-
-    if (inputsFinal.length >= 4) {
-        datos.push([]);
-        datos.push([
-            "Responsable",
-            "Fecha intervención",
-            "Fecha verificación",
-            "Implementado"
-        ]);
-
-        datos.push([
-            inputsFinal[0].value,
-            inputsFinal[1].value,
-            inputsFinal[2].value,
-            inputsFinal[3].value
-        ]);
+        };
     }
 
-    descargarExcel(datos);
+    let rango = XLSX.utils.decode_range(ws["!ref"]);
+
+    for (let R = 0; R <= rango.e.r; ++R) {
+        for (let C = 0; C <= rango.e.c; ++C) {
+
+            let ref = XLSX.utils.encode_cell({ r: R, c: C });
+            if (!ws[ref]) continue;
+
+            let valor = ws[ref].v;
+
+            // 🔷 Encabezados
+            if (R <= 2) {
+                ws[ref].s = estilo("0B2C3D", "FFFFFF", true);
+            }
+
+            // 🔷 Datos
+            else {
+                if (valor === "SI") {
+                    ws[ref].s = estilo("C6EFCE", "006100", true);
+                } else if (valor === "NO") {
+                    ws[ref].s = estilo("FFC7CE", "9C0006", true);
+                } else {
+                    ws[ref].s = estilo("FFFFFF", "000000");
+                }
+            }
+        }
+    }
+
+    XLSX.utils.book_append_sheet(wb, ws, "Sostenimiento");
+
+    XLSX.writeFile(wb, "Sostenimiento_PRO.xlsx");
 }
 
-
-function descargarExcel(datos) {
-
-    let contenido = "\uFEFFsep=;\n"; // 🔥 BOM para UTF-8
-
-    datos.forEach(fila => {
-        contenido += fila.join(";") + "\n";
-    });
-
-    let blob = new Blob([contenido], { type: "text/csv;charset=utf-8;" });
-
-    let link = document.createElement("a");
-    link.href = URL.createObjectURL(blob);
-    link.download = "sostenimiento.csv";
-    link.click();
-}
 let menu = document.getElementById("menuAccesibilidad");
 let boton = document.getElementById("botonAccesibilidad");
 
