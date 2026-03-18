@@ -86,7 +86,7 @@ form.addEventListener('submit', async function(e) {
         return;
     }
 
-    // 🔵 AQUÍ VA EL FETCH 🔵
+    // 🔵 AQUÍ VA EL FETCH 🔵 
     try {
 
         const respuesta = await fetch("http://localhost:3000/register", {
