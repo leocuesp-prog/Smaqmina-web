@@ -128,6 +128,32 @@ gap: 25px;
     border-radius: 20px;
     box-shadow: 0 8px 40px rgba(29, 74, 122, 0.6);
 }
+
+.secFooterPrincipal{
+    display: flex;
+    justify-content: justify;
+    align-items: center;
+    border-bottom: 2px solid var(--blanco);
+    padding: 5px;
+}
+
+.secFooterSecundario{
+ font-size: smaller;
+}
+
+.logoSenaFooter{
+    border-right: 5px solid var(--blanco);
+    height: 70px;
+    width: 70px;
+    padding: 20px;
+    
+} 
+.logoSmaqFooter{
+    height: 70px;
+    width: 75px;
+    padding: 20px;
+}
+
 /* BOTÓN FLOTANTE ACCESIBILIDAD */
 .accesibilidad > button {
     background: #1f3b57;
@@ -292,6 +318,8 @@ gap: 25px;
 
 .descripcion { 
     grid-area: descripcion;
+    display: flex;
+    flex-direction: column;
     background-color: #F5F7FA;
     box-shadow: 0 8px 40px rgba(29, 74, 122, 0.6);
     border-radius: 20px;
@@ -365,16 +393,17 @@ gap: 25px;
 
 footer { 
     grid-area: footer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    padding: 20px 10px;
+    padding: 20px;
     background: var(--azul-principal);
     color: var(--blanco);
     font-size: 16px;
+    margin-top: 40px;
     border-top: 3px solid var(--logo-verde);
-    border-bottom: 8px solid var(--azul-principal);
-    
 }
-
 
 
 

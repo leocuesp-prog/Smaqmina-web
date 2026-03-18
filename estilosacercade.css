@@ -146,6 +146,32 @@ gap: 25px;
 .subtitulo-box div {
     text-align: center;
 }
+
+.secFooterPrincipal{
+    display: flex;
+    justify-content: justify;
+    align-items: center;
+    border-bottom: 2px solid var(--blanco);
+    padding: 5px;
+}
+
+.secFooterSecundario{
+ font-size: smaller;
+}
+
+.logoSenaFooter{
+    border-right: 5px solid var(--blanco);
+    height: 70px;
+    width: 70px;
+    padding: 20px;
+    
+} 
+.logoSmaqFooter{
+    height: 70px;
+    width: 75px;
+    padding: 20px;
+}
+
 .accesibilidad > button {
     background: #1f3b57;
     color: white;
@@ -216,13 +242,16 @@ hgroup {
 }
 footer { 
     grid-area: footer;
+   display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    padding: 20px 10px;
+    padding: 20px;
     background: var(--azul-principal);
     color: var(--blanco);
     font-size: 16px;
+    margin-top: 40px;
     border-top: 3px solid var(--logo-verde);
-    border-bottom: 8px solid var(--azul-principal);
 }
 @media(min-width: 768px){
         grid-template: 

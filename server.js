@@ -8,8 +8,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use(express.static("public"));
-
+// app.use(express.static("public"));
 // 🔌 CONEXIÓN MYSQL
 const db = mysql.createConnection({
     host: "localhost",
@@ -27,21 +26,21 @@ db.connect(err => {
 });
 
 //  REGISTRO
-app.post("/register", async (req, res) => {
+app.post("/register", async (req, res) => {// Usar async para manejar bcrypt con await
 
     const { nombre, correo, telefono, password } = req.body;
 
     if (!nombre || !correo || !telefono || !password) {
-        return res.status(400).json({ mensaje: "Campos incompletos" });
+        return res.status(400).json({ mensaje: "Campos incompletos" });// Validación básica de campos vacíos
     }
 
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const hashedPassword = await bcrypt.hash(password, 10);// Hashear la contraseña con bcrypt y salt rounds de 10
 
-    const sql = "INSERT INTO usuario (nombre, correo, telefono, password) VALUES (?, ?, ?, ?)";
+    const sql = "INSERT INTO usuario (nombre, correo, telefono, password) VALUES (?, ?, ?, ?)";// Ingresa los parametros el sql
 
-    db.query(sql, [nombre, correo, telefono, hashedPassword], (err, result) => {
+    db.query(sql, [nombre, correo, telefono, hashedPassword], (err, result) => {// Manejar la respuesta de la base de datos
         if (err) {
-            return res.status(500).json({ mensaje: "Error al registrar usuario" });
+            return res.status(500).json({ mensaje: "Error al registrar usuario" });// Manejo de error genérico
         }
 
         res.json({ mensaje: "Usuario registrado correctamente" });
@@ -84,16 +83,12 @@ app.post("/login", (req, res) => {
     });
 
 });
-
-
-
-
 // POST y GET para sujecion
 app.post("/herramientas/sujecion", (req, res) => {
 
     const { nombre, buena, regular, mala } = req.body;
 
-    const sql = `INSERT INTO herramienta_sujecion (nombre_herramienta_sujecion, cantidad_buena_sujecion, cantidad_regular_sujecion, cantidad_mala_sujecion) VALUES (?, ?, ?, ?)`;
+    const sql = `INSERT INTO herramienta_sujecion (nombre_herramienta_sujecion, cantidad_buena_sujecion, cantidad_regular_sujecion, cantidad_mala_sujecion) VALUES (?, ?, ?, ?)`;// Usar parámetros para evitar SQL Injection
 
     db.query(sql, [nombre, buena, regular, mala], (err, result) => {
 
