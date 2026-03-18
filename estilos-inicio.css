@@ -156,6 +156,10 @@
 .editar-box {
     position: relative;
 }
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
 
 .secFooterPrincipal{
     display: flex;
@@ -181,7 +185,43 @@
     width: 75px;
     padding: 20px;
 }
+.dropbtn{
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    cursor: pointer;
+}
 
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    min-width: 170px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 2000;
+}
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    display: block;
+    text-decoration: none;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    color: var(--logo-verde);
+}
 grid-container > * { 
     font-family: "Montserrat", sans-serif;
 }
@@ -574,5 +614,8 @@ footer {
     background-color: #1e1e1e !important;
     color: white !important;
     border: 2px solid #0a2236  !important
+}
+.dark-mode .negro{
+    color: var(--negro);
 }
 

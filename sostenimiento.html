@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOSTENIMIENTO</title>
+    <link rel="stylesheet" href="estilos_sostenimiento.css">
+</head>
+<body class="grid-container">
+    <header class="topbar">
+        <div class="logo-area">
+            <img src="imagenes/Logo.png" alt="Logo">
+            <span class="titulo">SMAQMINA  (SISTEMA DE MANTENIMIENTO E INVENTARIO)</span>
+        </div>
+        <nav class="nav-links">
+            <a href="inicio.html">Inicio</a>
+            <a href="Acerca-nosotros.html">Acerca de</a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn">Categorías</a>
+                <div class="dropdown-content">
+                    <a href="herramientas.html">Herramientas</a>
+                    <a href="equipos.html">Equipos</a>
+                    <a href="maquinas.html">Máquinas</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="#" class="dropbtn">Formularios</a>
+            <div class="dropdown-content">
+                <a href="sostenimiento.html">Sostenimiento</a>
+                <!-- <a href="medicion_de_gases.html">Medición de Gases</a> -->
+            </div>
+            </div>
+            <a href="index.html" id="linkLogin">Iniciar sesión</a>
+            <div class="dropdown" id="perfilNavbar" style="display:none;">
+            <button class="icon" onclick="abrirPerfil()">
+                <img id="iconoNavbar" src="imagenes/Usuario.webp" alt="Usuario">
+            </button>
+        </div>
+        </nav>
+
+    
+        
+    </header>
+    <h2 class="titulo-principal">Tabla Sostenimiento</h2>
+    <main class="contenedor">
+        <table class="tabla-Mantenimientos" style="border: 1;">
+            <tr>
+                <th rowspan="3">TRAMO A EVALUAR</th>
+                <th colspan="11"> CRITERIO DE EVALUACION <br> MARCAR: PRESENTA:✓  NO PRESENTA:X</th>
+            </tr>
+            <tr>
+                <th rowspan="2" class="vertical">ELEMENTO<br>A EVALUAR</th>
+               <th colspan="3">DETERIORO FISICO DEL SOSTENIMIENTO</th>
+               <th colspan="5">DETERIORO BIOLOGICO DEL SOSTENIMIENTO</th>
+               <th rowspan="2" class="vertical" >ALTURA<br>Menor a 1.8 m</th>
+               <th rowspan="2" class="vertical">SECCION<br>Menor a 3m²</th>
+            </tr>
+            <tr>
+                <th class="vertical">Roturas</th>
+                <th class="vertical">Astilam</th>
+                <th class="vertical">Desplazamiento</th>
+                <th class="vertical">Hongos</th>
+                <th class="vertical">Moho</th>
+                <th class="vertical">Presencia</th>
+                <th class="vertical">Humed</th>
+                <th class="vertical">Putrefa</th>
+            </tr>
+            <tr>
+            </tr>
+            <tr>
+                <td class="blanco"></td>
+                <td>Capiz</td>
+                <td><select><option value="✓">✓</option><option value="X">X</option></select></td>
+                <td><select><option value="✓">✓</option><option value="X">X</option></select></td>
+                <td><select><option value="✓">✓</option><option value="X">X</option></select></td>
+                <td><select><option value="✓">✓</option><option value="X">X</option></select></td>
+                <td><select><option value="✓">✓</option><option value="X">X</option></select></td>
+                <td><select><option value="✓">✓</option><option value="X">X</option></select></td>
+                <td><select><option value="✓">✓</option><option value="X">X</option></select></td>
+                <td><select><option value="✓">✓</option><option value="X">X</option></select></td>
+                <td><select><option value="✓">✓</option><option value="X">X</option></select></td>
+                <td><select><option value="✓">✓</option><option value="X">X</option></select></td>
+            </tr>
+            <tr>
+                <td class="blanco"></td>
+                <td>Palanca</td>
+                <td><select><option value="✓">✓</option><option value="X">X</option></select></td>
+                <td><select><option value="✓">✓</option><option value="X">X</option></select></td>
+                <td><select><option value="✓">✓</option><option value="X">X</option></select></td>
+                <td><select><option value="✓">✓</option><option value="X">X</option></select></td>
+                <td><select><option value="✓">✓</option><option value="X">X</option></select></td>
+                <td><select><option value="✓">✓</option><option value="X">X</option></select></td>
+                <td><select><option value="✓">✓</option><option value="X">X</option></select></td>
+                <td><select><option value="✓">✓</option><option value="X">X</option></select></td>
+                <td><select><option value="✓">✓</option><option value="X">X</option></select></td>
+                <td><select><option value="✓">✓</option><option value="X">X</option></select></td>
+            </tr>
+            <tr>
+                <td class="blanco"></td>
+                <td>Forro</td>
+                <td><select><option value="✓">✓</option><option value="X">X</option></select></td>
+                <td><select><option value="✓">✓</option><option value="X">X</option></select></td>
+                <td><select><option value="✓">✓</option><option value="X">X</option></select></td>
+                <td><select><option value="✓">✓</option><option value="X">X</option></select></td>
+                <td><select><option value="✓">✓</option><option value="X">X</option></select></td>
+                <td><select><option value="✓">✓</option><option value="X">X</option></select></td>
+                <td><select><option value="✓">✓</option><option value="X">X</option></select></td>
+                <td><select><option value="✓">✓</option><option value="X">X</option></select></td>
+                <td><select><option value="✓">✓</option><option value="X">X</option></select></td>
+                <td><select><option value="✓">✓</option><option value="X">X</option></select></td>
+            </tr>
+            <tr>                
+                <td class="blanco"></td>
+                <td>Tiples</td>
+                <td><select><option value="✓">✓</option><option value="X">X</option></select></td>
+                <td><select><option value="✓">✓</option><option value="X">X</option></select></td>
+                <td><select><option value="✓">✓</option><option value="X">X</option></select></td>
+                <td><select><option value="✓">✓</option><option value="X">X</option></select></td>
+                <td><select><option value="✓">✓</option><option value="X">X</option></select></td>
+                <td><select><option value="✓">✓</option><option value="X">X</option></select></td>
+                <td><select><option value="✓">✓</option><option value="X">X</option></select></td>
+                <td><select><option value="✓">✓</option><option value="X">X</option></select></td>
+                <td><select><option value="✓">✓</option><option value="X">X</option></select></td>
+                <td><select><option value="✓">✓</option><option value="X">X</option></select></td>
+            </tr>
+    </table>
+    <br>
+    <br>
+    <table class="tabla-Mantenimientos" style="border: 1;">
+        <tr>
+            <th colspan="7">(HALLAZGOS DE INSPECCION AL SOSTENIMIENTO MINERO) <BR>Definicion de acciones correctivas preventivas y de mejora</BR></th>
+        </tr>
+        <tr>
+            <th colspan="2">ABSCISA/ZONA A INVERTIR</th>
+            <th colspan="4">MEDIDA DE INTERVECION</th>
+            <th colspan="2">FECHA INTERVENCION</th>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="text"></td>
+            <td colspan="4"><input type="text"></td>
+            <td colspan="2"><input type="date"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="text"></td>
+            <td colspan="4"><input type="text"></td>
+            <td colspan="2"><input type="date"></td>       
+        </tr>
+        <tr>
+            <td colspan="2"><input type="text"></td>
+            <td colspan="4"><input type="text"></td>
+            <td colspan="2"><input type="date"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="text"></td>
+            <td colspan="4"><input type="text"></td>
+            <td colspan="2"><input type="date"></td>
+        </tr>
+        <tr>
+            <th colspan="2">RESPONSABLE</th>
+            <th colspan="2">FECHA DE INTERVECION</th>
+            <th colspan="2">FECHA DE VERIFICACION</th>
+            <th colspan="2">LAS ACCIONES FUERON IMPLEMENTADAS</th>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="text"></td>
+            <td colspan="2"><input type="date"></td>
+            <td colspan="2"><input type="date"></td>
+            <td colspan="2"><select><option value="s">SI</option><option value="n">NO</option></select></td>
+        </tr>
+    </table>
+    </main>
+    <main class="boton-volver">
+        <a href="inicio.html"><button style="font-size: 18px;" class="btn-agregar">Volver</button></a>
+    </main>
+    <main class="boton-agregar">
+        <button style="font-size: 18px;" class="btn-agregar">Agregar</button>
+    </main>
+    <div class="accesibilidad">
+    <button id="botonAccesibilidad">⚙️</button>
+
+    <div id="menuAccesibilidad" class="menu-accesibilidad">
+        <button onclick="toggleOscuro()"> Modo oscuro</button>
+        <button onclick="mayusculas()"> Mayúsculas</button>
+        <button onclick="resetEstilos()"> Restaurar</button>     
+        <button onclick="leerPagina()"> Leer Pagina</button>
+        <button onclick="detenerLectura()"> Detener Lectura</button>
+    </div>
+    </div>
+    <!-- OVERLAY VER PERFIL -->
+<div class="perfil-overlay" id="perfilOverlay">
+    <div class="perfil-box">
+        <span class="cerrar-perfil" onclick="cerrarPerfil()">✖</span>
+        <div class="perfil-contenido">
+            <div class="perfil-foto">
+                <img id="fotoPerfil" src="imagenes/Usuario.webp" alt="Usuario">
+                <h3 id="nombrePerfil"></h3>
+                <p id="rolPerfil">Administrador</p>
+                <button class="btn-editar" onclick="abrirEditarPerfil()">Editar perfil</button>
+            </div>
+            <div class="perfil-info">
+                <h4>Información de contacto</h4>
+                <p><b>Correo:</b> <span id="correoPerfil"></span></p>
+                <p><b>Extensión:</b> <span id="extensionPerfil"></span></p>
+                <p><b>Departamento:</b> <span id="deptoPerfil"></span></p>
+                <p><b>Último acceso:</b> <span id="accesoPerfil"></span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- OVERLAY EDITAR PERFIL -->
+<div class="editar-overlay" id="editarOverlay">
+    <div class="editar-box">
+        <span class="cerrar-perfil" onclick="cerrarEditar()">✖</span>
+        <button class="btn-cerrar-sesion" onclick="cerrarSesion()">Cerrar sesión</button>
+        <label>Foto de perfil</label>
+        <input type="file" id="inputFoto" accept="image/*">
+        <button type="button" onclick="borrarFoto()">Eliminar foto</button>
+        <label>Nombre</label>
+        <input type="text" id="inputNombre">
+        <label>Rol</label>
+        <input type="text" id="inputRol">
+        <label>Correo</label>
+        <input type="email" id="inputCorreo">
+        <label>Extensión</label>
+        <input type="text" id="inputExtension">
+        <label>Departamento</label>
+        <input type="text" id="inputDepto">
+        <button onclick="guardarPerfil()">Guardar cambios</button>
+    </div>
+</div>
+    <footer class="footer">
+        
+        2026 SMAQMINA - Sistema de Mantenimiento de Maquinas Mineras
+    <br>
+        Derechos Reservados.
+    <br>
+        contacto: 3009650139
+        correo: smaqmina23@gmail.com
+    </footer>
+    <script src="perfil.js"></script>
+    <script src="sostenimiento.js"></script>
+</body>
+</html>

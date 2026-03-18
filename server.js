@@ -8,6 +8,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.use(express.static("public"));
 // 🔌 CONEXIÓN MYSQL
 const db = mysql.createConnection({
     host: "localhost",
@@ -82,10 +83,6 @@ app.post("/login", (req, res) => {
     });
 
 });
-
-
-
-
 // POST y GET para sujecion
 app.post("/herramientas/sujecion", (req, res) => {
 
