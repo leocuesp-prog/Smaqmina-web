@@ -7,50 +7,7 @@
 (function () {
 
     // ── 1. INYECTAR HTML DEL OVERLAY EN CADA PÁGINA ──────────────────────────
-    const overlayHTML = `
-    <!-- OVERLAY VER PERFIL -->
-    <div class="perfil-overlay" id="perfilOverlay">
-        <div class="perfil-box">
-            <span class="cerrar-perfil" onclick="cerrarPerfil()">✖</span>
-            <div class="perfil-contenido">
-                <div class="perfil-foto">
-                    <img id="fotoPerfil" src="imagenes/Usuario.webp" alt="Usuario">
-                    <h3 id="nombrePerfil"></h3>
-                    <p id="rolPerfil">Administrador</p>
-                    <button class="btn-editar" onclick="abrirEditarPerfil()">Editar perfil</button>
-                </div>
-                <div class="perfil-info">
-                    <h4>Información de contacto</h4>
-                    <p><b>Correo:</b> <span id="correoPerfil"></span></p>
-                    <p><b>Extensión:</b> <span id="extensionPerfil"></span></p>
-                    <p><b>Departamento:</b> <span id="deptoPerfil"></span></p>
-                    <p><b>Último acceso:</b> <span id="accesoPerfil"></span></p>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- OVERLAY EDITAR PERFIL -->
-    <div class="editar-overlay" id="editarOverlay">
-        <div class="editar-box">
-            <span class="cerrar-perfil" onclick="cerrarEditar()">✖</span>
-            <button class="btn-cerrar-sesion" onclick="cerrarSesion()">Cerrar sesión</button>
-            <label>Foto de perfil</label>
-            <input type="file" id="inputFoto" accept="image/*">
-            <button type="button" onclick="borrarFoto()">Eliminar foto</button>
-            <label>Nombre</label>
-            <input type="text" id="inputNombre">
-            <label>Rol</label>
-            <input type="text" id="inputRol">
-            <label>Correo</label>
-            <input type="email" id="inputCorreo">
-            <label>Extensión</label>
-            <input type="text" id="inputExtension">
-            <label>Departamento</label>
-            <input type="text" id="inputDepto">
-            <button onclick="guardarPerfil()">Guardar cambios</button>
-        </div>
-    </div>`;
 
     document.body.insertAdjacentHTML("beforeend", overlayHTML);
 
@@ -181,7 +138,7 @@
             reader.readAsDataURL(fileInput.files[0]);
         }
 
-        alert("Perfil actualizado correctamente ✅");
+        alert("Perfil actualizado correctamente");
         window.cerrarEditar();
     };
 
@@ -192,12 +149,12 @@
         if (foto)  foto.src  = imagenDefault;
         if (icono) icono.src = imagenDefault;
         localStorage.removeItem("fotoPerfil");
-        alert("Foto eliminada correctamente 🗑️");
+        alert("Foto eliminada correctamente");
     };
 
     window.cerrarSesion = function () {
         localStorage.removeItem("usuarioActivo");
-        alert("Sesión cerrada correctamente 👋");
+        alert("Sesión cerrada correctamente");
         window.location.href = "index.html";
     };
 
