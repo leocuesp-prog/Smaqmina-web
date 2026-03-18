@@ -157,7 +157,30 @@
     position: relative;
 }
 
+.secFooterPrincipal{
+    display: flex;
+    justify-content: justify;
+    align-items: center;
+    border-bottom: 2px solid var(--blanco);
+    padding: 5px;
+}
 
+.secFooterSecundario{
+ font-size: smaller;
+}
+
+.logoSenaFooter{
+    border-right: 5px solid var(--blanco);
+    height: 70px;
+    width: 70px;
+    padding: 20px;
+    
+} 
+.logoSmaqFooter{
+    height: 70px;
+    width: 75px;
+    padding: 20px;
+}
 
 grid-container > * { 
     font-family: "Montserrat", sans-serif;
@@ -486,6 +509,9 @@ grid-container > * {
 
 footer {
     grid-area: footer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
     padding: 20px;
     background: var(--azul-principal);

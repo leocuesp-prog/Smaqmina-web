@@ -115,13 +115,41 @@ h1 {
 /* ---------------- FOOTER ---------------- */
 footer {
     background: var(--azul);
-    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
     padding: 20px;
+    background: var(--azul-principal);
+    color: var(--blanco);
+    font-size: 16px;
     margin-top: 40px;
-    border-top: 6px solid var(--verde);
-    transition: 0.3s;
+    border-top: 3px solid var(--logo-verde);
 }
+.logoSenaFooter{
+    border-right: 5px solid var(--blanco);
+    height: 70px;
+    width: 70px;
+    padding: 20px;
+    
+} 
+.logoSmaqFooter{
+    height: 70px;
+    width: 75px;
+    padding: 20px;
+}
+.secFooterPrincipal{
+    display: flex;
+    justify-content: justify;
+    align-items: center;
+    border-bottom: 2px solid var(--blanco);
+    padding: 5px;
+}
+
+.secFooterSecundario{
+ font-size: smaller;
+}
+
     .topbar {
         grid-area: topbar;
     background: var(--logo-azul);
