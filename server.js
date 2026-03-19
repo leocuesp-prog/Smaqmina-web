@@ -351,6 +351,29 @@ app.delete("/herramientas/medicion/:id", (req, res) => { // DELETE para herramie
     });
 });
 
-app.listen(3000, () => {// Iniciar el servidor en el puerto 3000
-    console.log("Servidor corriendo en puerto 3000");// Log para confirmar que el servidor está activo
+// 🗑️ DELETE para eliminar cuenta de usuario
+app.delete("/usuario", (req, res) => {
+
+    const { correo } = req.body;
+
+    if (!correo) {
+        return res.status(400).json({ mensaje: "Correo requerido" });
+    }
+
+    const sql = "DELETE FROM usuario WHERE correo = ?"
+    ;
+
+    db.query(sql, [correo], (err, result) => {
+        if (err) {
+            return res.status(500).json({ mensaje: "Error al eliminar usuario" });
+        }
+        if (result.affectedRows === 0) {
+            return res.status(404).json({ mensaje: "Usuario no encontrado" });
+        }
+        res.json({ mensaje: "Cuenta eliminada correctamente" });
+    });
+});
+
+app.listen(3000, () => {
+    console.log("Servidor corriendo en puerto 3000");
 });

@@ -106,6 +106,21 @@ form.addEventListener('submit', async function(e) {
 
         if (respuesta.ok) {
             showAlert("✅ Usuario registrado correctamente", "success");
+
+            // Guardar usuario activo en localStorage
+            const nuevoUsuario = {
+                nombre: usuario,
+                correo: correo,
+                telefono: telefono
+            };
+            localStorage.setItem("usuarioActivo", JSON.stringify(nuevoUsuario));
+
+            // Guardar campos del perfil con clave única por correo (igual que perfil.js)
+            const prefijo = correo + "_";
+            localStorage.setItem(prefijo + "nombrePerfil",    usuario);
+            localStorage.setItem(prefijo + "correoPerfil",    correo);
+            localStorage.setItem(prefijo + "extensionPerfil", telefono);
+
         } else {
             showAlert(data.mensaje);
         }

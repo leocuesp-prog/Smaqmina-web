@@ -6,8 +6,80 @@
 
 (function () {
 
-    // ── 1. INYECTAR HTML DEL OVERLAY EN CADA PÁGINA ──────────────────────────
+    // ── HELPER: clave única por usuario ──────────────────────────────────────
+    // Usa el correo del usuario activo como prefijo de cada clave en localStorage
+    // para que cada cuenta tenga sus propios datos guardados.
+    function claveUsuario(campo) {
+        const raw = localStorage.getItem("usuarioActivo");
+        if (!raw) return campo;
+        try {
+            const u = JSON.parse(raw);
+            const id = u.correo || u.id || u.nombre || "default";
+            return id + "_" + campo;
+        } catch (_) {
+            return campo;
+        }
+    }
 
+    function getPerfilItem(campo) {
+        return localStorage.getItem(claveUsuario(campo));
+    }
+
+    function setPerfilItem(campo, valor) {
+        localStorage.setItem(claveUsuario(campo), valor);
+    }
+
+    function removePerfilItem(campo) {
+        localStorage.removeItem(claveUsuario(campo));
+    }
+
+
+    // ── 1. INYECTAR HTML DEL OVERLAY EN CADA PÁGINA ──────────────────────────
+    const overlayHTML = `
+    <!-- OVERLAY VER PERFIL -->
+    <div class="perfil-overlay" id="perfilOverlay">
+        <div class="perfil-box">
+            <span class="cerrar-perfil" onclick="cerrarPerfil()">✖</span>
+            <div class="perfil-contenido">
+                <div class="perfil-foto">
+                    <img id="fotoPerfil" src="imagenes/Usuario.webp" alt="Usuario">
+                    <h3 id="nombrePerfil"></h3>
+                    <p id="rolPerfil">Administrador</p>
+                    <button class="btn-editar" onclick="abrirEditarPerfil()">Editar perfil</button>
+                </div>
+                <div class="perfil-info">
+                    <h4>Información de contacto</h4>
+                    <p><b>Correo:</b> <span id="correoPerfil"></span></p>
+                    <p><b>Extensión:</b> <span id="extensionPerfil"></span></p>
+                    <p><b>Departamento:</b> <span id="deptoPerfil"></span></p>
+                    <p><b>Último acceso:</b> <span id="accesoPerfil"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- OVERLAY EDITAR PERFIL -->
+    <div class="editar-overlay" id="editarOverlay">
+        <div class="editar-box">
+            <span class="cerrar-perfil" onclick="cerrarEditar()">✖</span>
+            <button class="btn-cerrar-sesion" onclick="cerrarSesion()">Cerrar sesión</button>
+            <button class="btn-eliminar-cuenta" onclick="eliminarCuenta()">Eliminar cuenta</button>
+            <label>Foto de perfil</label>
+            <input type="file" id="inputFoto" accept="image/*">
+            <button type="button" onclick="borrarFoto()">Eliminar foto</button>
+            <label>Nombre</label>
+            <input type="text" id="inputNombre">
+            <label>Rol</label>
+            <input type="text" id="inputRol">
+            <label>Correo</label>
+            <input type="email" id="inputCorreo">
+            <label>Extensión</label>
+            <input type="text" id="inputExtension">
+            <label>Departamento</label>
+            <input type="text" id="inputDepto">
+            <button onclick="guardarPerfil()">Guardar cambios</button>
+        </div>
+    </div>`;
 
     document.body.insertAdjacentHTML("beforeend", overlayHTML); // Agregar el HTML del overlay al final del body para que esté disponible en todas las páginas
 
@@ -27,22 +99,22 @@
             if (linkLogin)    linkLogin.style.display    = "none"; // Ocultar enlace de "Iniciar sesión"
             if (perfilNavbar) perfilNavbar.style.display = "block"; // Mostrar ícono de perfil
 
-            // Cargar datos del usuario en el overlay
-            const nombrePerfil    = document.getElementById("nombrePerfil"); // Obtener referencia al elemento que muestra el nombre del perfil en el overlay
-            const correoPerfil    = document.getElementById("correoPerfil"); // Obtener referencia al elemento que muestra el correo del perfil en el overlay
-            const extensionPerfil = document.getElementById("extensionPerfil"); // Obtener referencia al elemento que muestra la extensión del perfil en el overlay
+            // Cargar datos del usuario usando claves únicas por cuenta
+            const nombrePerfil    = document.getElementById("nombrePerfil");
+            const correoPerfil    = document.getElementById("correoPerfil");
+            const extensionPerfil = document.getElementById("extensionPerfil");
 
             if (nombrePerfil)
-                nombrePerfil.textContent = localStorage.getItem("nombrePerfil") || usuario.nombre || ""; // Mostrar el nombre del perfil, dando prioridad al valor guardado en localStorage (en caso de edición), luego al nombre del usuario obtenido del login, y finalmente una cadena vacía si no hay ninguno de los dos
+                nombrePerfil.textContent = getPerfilItem("nombrePerfil") || usuario.nombre || "";
             if (correoPerfil)
-                correoPerfil.textContent = localStorage.getItem("correoPerfil") || usuario.correo || ""; // Mostrar el correo del perfil, dando prioridad al valor guardado en localStorage (en caso de edición), luego al correo del usuario obtenido del login, y finalmente una cadena vacía si no hay ninguno de los dos
+                correoPerfil.textContent = getPerfilItem("correoPerfil") || usuario.correo || "";
             if (extensionPerfil)
-                extensionPerfil.textContent = localStorage.getItem("extensionPerfil") || usuario.telefono || ""; // Mostrar la extensión del perfil, dando prioridad al valor guardado en localStorage (en caso de edición), luego al teléfono del usuario obtenido del login, y finalmente una cadena vacía si no hay ninguno de los dos
+                extensionPerfil.textContent = getPerfilItem("extensionPerfil") || usuario.telefono || "";
 
-            const rolEl   = document.getElementById("rolPerfil"); // Obtener referencia al elemento que muestra el rol del perfil en el overlay
-            const deptoEl = document.getElementById("deptoPerfil"); //  Obtener referencia al elemento que muestra el departamento del perfil en el overlay
-            if (rolEl   && localStorage.getItem("rolPerfil"))   rolEl.textContent   = localStorage.getItem("rolPerfil"); // Mostrar el rol del perfil si hay un valor guardado en localStorage (en caso de edición)
-            if (deptoEl && localStorage.getItem("deptoPerfil")) deptoEl.textContent = localStorage.getItem("deptoPerfil"); // Mostrar el departamento del perfil si hay un valor guardado en localStorage (en caso de edición)
+            const rolEl   = document.getElementById("rolPerfil");
+            const deptoEl = document.getElementById("deptoPerfil");
+            if (rolEl   && getPerfilItem("rolPerfil"))   rolEl.textContent   = getPerfilItem("rolPerfil");
+            if (deptoEl && getPerfilItem("deptoPerfil")) deptoEl.textContent = getPerfilItem("deptoPerfil");
 
             // Fecha de último acceso
             const accesoEl = document.getElementById("accesoPerfil"); // Obtener referencia al elemento que muestra el último acceso del perfil en el overlay
@@ -54,13 +126,13 @@
             if (perfilNavbar) perfilNavbar.style.display = "none"; // Ocultar ícono de perfil
         }
 
-        // Cargar foto guardada
-        const fotoGuardada = localStorage.getItem("fotoPerfil"); // Obtener la foto de perfil guardada en localStorage (en caso de edición)
-        if (fotoGuardada) { // Si hay una foto guardada, actualizar tanto la foto del perfil en el overlay como el ícono de perfil en la navbar
-            const foto  = document.getElementById("fotoPerfil"); // Obtener referencia a la imagen del perfil en el overlay
-            const icono = document.getElementById("iconoNavbar"); // Obtener referencia al ícono de perfil en la navbar
-            if (foto)  foto.src  = fotoGuardada; // Actualizar la imagen del perfil con la foto guardada
-            if (icono) icono.src = fotoGuardada; // Actualizar el ícono de perfil en la navbar con la foto guardada
+        // Cargar foto guardada para ESTE usuario específicamente
+        const fotoGuardada = getPerfilItem("fotoPerfil");
+        if (fotoGuardada) {
+            const foto  = document.getElementById("fotoPerfil");
+            const icono = document.getElementById("iconoNavbar");
+            if (foto)  foto.src  = fotoGuardada;
+            if (icono) icono.src = fotoGuardada;
         }
     });
 
@@ -81,7 +153,7 @@
         const editarOverlay = document.getElementById("editarOverlay"); // Obtener referencia al overlay de edición
         if (!editarOverlay) return;
 
-        window.cerrarPerfil(); // Cierra el overlay de ver perfil primero
+        window.cerrarPerfil();
 
         editarOverlay.style.display = "flex"; // Mostrar el overlay de edición
 
@@ -110,30 +182,39 @@
         const mapa = { // Mapa de IDs para actualizar tanto el overlay como el localStorage
             inputNombre:    "nombrePerfil",
             inputRol:       "rolPerfil",
+            inputCorreo:    "inputCorreo",  // nota: el span de correo tiene id "correoPerfil"
+            inputExtension: "extensionPerfil",
+            inputDepto:     "deptoPerfil"
+        };
+
+        // Mapa corregido input → span
+        const mapaSpans = {
+            inputNombre:    "nombrePerfil",
+            inputRol:       "rolPerfil",
             inputCorreo:    "correoPerfil",
             inputExtension: "extensionPerfil",
             inputDepto:     "deptoPerfil"
         };
 
-        Object.entries(mapa).forEach(([inputId, spanId]) => { // Iterar sobre el mapa para actualizar los spans y localStorage
-            const input = document.getElementById(inputId); //  Obtener referencia al input que contiene el nuevo valor
-            const span  = document.getElementById(spanId); // Obtener referencia al span que muestra el dato en el overlay de ver perfil
-            if (input && span) { // Si ambos elementos existen, actualizar el texto del span y guardar en localStorage
-                span.textContent = input.value; // Actualizar el texto del span con el nuevo valor del input
-                localStorage.setItem(spanId, input.value); // Guardar el nuevo valor en localStorage usando el ID del span como clave
+        Object.entries(mapaSpans).forEach(([inputId, spanId]) => {
+            const input = document.getElementById(inputId);
+            const span  = document.getElementById(spanId);
+            if (input && span) {
+                span.textContent = input.value;
+                setPerfilItem(spanId, input.value); // ← clave única por usuario
             }
         });
 
         // Guardar foto si se seleccionó una nueva
-        const fileInput = document.getElementById("inputFoto"); // Obtener referencia al input de archivo para la foto de perfil
-        if (fileInput && fileInput.files.length > 0) { // Si se seleccionó un archivo, procesarlo para mostrarlo y guardarlo
-            const reader = new FileReader(); // Crear un FileReader para leer el archivo seleccionado
-            reader.onload = function (e) { // Cuando se haya leído el archivo, actualizar la foto en el overlay y el ícono de navbar, y guardar en localStorage
-                const foto  = document.getElementById("fotoPerfil"); // Obtener referencia a la imagen del perfil en el overlay
-                const icono = document.getElementById("iconoNavbar"); // Obtener referencia al ícono de perfil en la navbar
-                if (foto)  foto.src  = e.target.result; // Actualizar la imagen del perfil con el nuevo archivo leído
-                if (icono) icono.src = e.target.result; // Actualizar el ícono de perfil en la navbar con el nuevo archivo leído
-                localStorage.setItem("fotoPerfil", e.target.result); // Guardar la nueva foto en localStorage para que persista en futuras visitas o recargas de página
+        const fileInput = document.getElementById("inputFoto");
+        if (fileInput && fileInput.files.length > 0) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const foto  = document.getElementById("fotoPerfil");
+                const icono = document.getElementById("iconoNavbar");
+                if (foto)  foto.src  = e.target.result;
+                if (icono) icono.src = e.target.result;
+                setPerfilItem("fotoPerfil", e.target.result); // ← clave única por usuario
             };
             reader.readAsDataURL(fileInput.files[0]); // Leer el archivo seleccionado como una URL de datos para poder mostrarlo directamente en la página
         }
@@ -148,7 +229,7 @@
         const icono = document.getElementById("iconoNavbar");
         if (foto)  foto.src  = imagenDefault;
         if (icono) icono.src = imagenDefault;
-        localStorage.removeItem("fotoPerfil");
+        removePerfilItem("fotoPerfil"); // ← elimina solo la foto de ESTE usuario
         alert("Foto eliminada correctamente");
     };
 
@@ -156,6 +237,45 @@
         localStorage.removeItem("usuarioActivo");
         alert("Sesión cerrada correctamente");
         window.location.href = "index.html";
+    };
+
+    window.eliminarCuenta = async function () {
+
+        const raw = localStorage.getItem("usuarioActivo");
+        if (!raw) return;
+
+        const usuario = JSON.parse(raw);
+        const correo = usuario.correo;
+
+        const confirmacion = confirm("¿Estás seguro de que deseas eliminar tu cuenta? Esta acción no se puede deshacer.");
+        if (!confirmacion) return;
+
+        try {
+            const respuesta = await fetch("http://localhost:3000/usuario", {
+                method: "DELETE",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ correo: correo })
+            });
+
+            const data = await respuesta.json();
+
+            if (respuesta.ok) {
+                // Limpiar todos los datos del usuario en localStorage
+                const prefijo = correo + "_";
+                ["nombrePerfil", "correoPerfil", "extensionPerfil", "rolPerfil", "deptoPerfil", "fotoPerfil"].forEach(campo => {
+                    localStorage.removeItem(prefijo + campo);
+                });
+                localStorage.removeItem("usuarioActivo");
+
+                alert("Cuenta eliminada correctamente");
+                window.location.href = "index.html";
+            } else {
+                alert(data.mensaje || "Error al eliminar la cuenta");
+            }
+
+        } catch (error) {
+            alert("Error conectando al servidor");
+        }
     };
 
     // Cerrar overlays al hacer clic en el fondo oscuro
