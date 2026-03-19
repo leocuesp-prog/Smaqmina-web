@@ -81,23 +81,23 @@
         </div>
     </div>`;
 
-    document.body.insertAdjacentHTML("beforeend", overlayHTML);
+    document.body.insertAdjacentHTML("beforeend", overlayHTML); // Agregar el HTML del overlay al final del body para que esté disponible en todas las páginas
 
 
     // ── 2. MOSTRAR/OCULTAR NAVBAR (login vs foto perfil) ─────────────────────
 
-    window.addEventListener("load", function () {
+    window.addEventListener("load", function () { // Esperar a que la página cargue para manipular el DOM
 
-        const usuarioGuardado = localStorage.getItem("usuarioActivo");
-        const linkLogin    = document.getElementById("linkLogin");
-        const perfilNavbar = document.getElementById("perfilNavbar");
+        const usuarioGuardado = localStorage.getItem("usuarioActivo"); // Verificar si hay un usuario activo guardado en localStorage
+        const linkLogin    = document.getElementById("linkLogin"); //   Obtener referencia al enlace de "Iniciar sesión" en la navbar
+        const perfilNavbar = document.getElementById("perfilNavbar"); // Obtener referencia al ícono de perfil en la navbar
 
-        if (usuarioGuardado) {
+        if (usuarioGuardado) { //
             // ✅ Sesión activa → ocultar "Iniciar sesión", mostrar ícono de perfil
             const usuario = JSON.parse(usuarioGuardado);
 
-            if (linkLogin)    linkLogin.style.display    = "none";
-            if (perfilNavbar) perfilNavbar.style.display = "block";
+            if (linkLogin)    linkLogin.style.display    = "none"; // Ocultar enlace de "Iniciar sesión"
+            if (perfilNavbar) perfilNavbar.style.display = "block"; // Mostrar ícono de perfil
 
             // Cargar datos del usuario usando claves únicas por cuenta
             const nombrePerfil    = document.getElementById("nombrePerfil");
@@ -117,13 +117,13 @@
             if (deptoEl && getPerfilItem("deptoPerfil")) deptoEl.textContent = getPerfilItem("deptoPerfil");
 
             // Fecha de último acceso
-            const accesoEl = document.getElementById("accesoPerfil");
-            if (accesoEl) accesoEl.textContent = new Date().toLocaleString("es-CO");
+            const accesoEl = document.getElementById("accesoPerfil"); // Obtener referencia al elemento que muestra el último acceso del perfil en el overlay
+            if (accesoEl) accesoEl.textContent = new Date().toLocaleString("es-CO"); // Mostrar la fecha y hora actual como último acceso (esto se puede mejorar guardando la fecha real del último acceso en el login)
 
         } else {
             // ❌ Sin sesión → mostrar "Iniciar sesión", ocultar ícono de perfil
-            if (linkLogin)    linkLogin.style.display    = "inline-block";
-            if (perfilNavbar) perfilNavbar.style.display = "none";
+            if (linkLogin)    linkLogin.style.display    = "inline-block"; //   Mostrar enlace de "Iniciar sesión"
+            if (perfilNavbar) perfilNavbar.style.display = "none"; // Ocultar ícono de perfil
         }
 
         // Cargar foto guardada para ESTE usuario específicamente
@@ -139,23 +139,23 @@
 
     // ── 3. FUNCIONES DEL OVERLAY ──────────────────────────────────────────────
 
-    window.abrirPerfil = function () {
-        const overlay = document.getElementById("perfilOverlay");
-        if (overlay) overlay.style.display = "flex";
+    window.abrirPerfil = function () { // Abre el overlay de ver perfil
+        const overlay = document.getElementById("perfilOverlay"); // Obtener referencia al overlay
+        if (overlay) overlay.style.display = "flex"; // Mostrar el overlay
     };
 
-    window.cerrarPerfil = function () {
+    window.cerrarPerfil = function () { // Cierra el overlay de ver perfil
         const overlay = document.getElementById("perfilOverlay");
         if (overlay) overlay.style.display = "none";
     };
 
-    window.abrirEditarPerfil = function () {
-        const editarOverlay = document.getElementById("editarOverlay");
+    window.abrirEditarPerfil = function () { // Abre el overlay de edición y pre-rellena los campos con los datos actuales
+        const editarOverlay = document.getElementById("editarOverlay"); // Obtener referencia al overlay de edición
         if (!editarOverlay) return;
 
         window.cerrarPerfil();
 
-        editarOverlay.style.display = "flex";
+        editarOverlay.style.display = "flex"; // Mostrar el overlay de edición
 
         // Pre-rellenar inputs con valores actuales del overlay
         const mapa = {
@@ -166,20 +166,20 @@
             deptoPerfil:     "inputDepto"
         };
 
-        Object.entries(mapa).forEach(([spanId, inputId]) => {
-            const span  = document.getElementById(spanId);
-            const input = document.getElementById(inputId);
-            if (span && input) input.value = span.textContent;
+        Object.entries(mapa).forEach(([spanId, inputId]) => { // Iterar sobre el mapa para asignar valores a los inputs
+            const span  = document.getElementById(spanId); // Obtener referencia al span que muestra el dato actual
+            const input = document.getElementById(inputId); // Obtener referencia al input correspondiente
+            if (span && input) input.value = span.textContent; // Asignar el valor del span al input
         });
     };
 
-    window.cerrarEditar = function () {
-        const editarOverlay = document.getElementById("editarOverlay");
-        if (editarOverlay) editarOverlay.style.display = "none";
+    window.cerrarEditar = function () { // Cierra el overlay de edición
+        const editarOverlay = document.getElementById("editarOverlay"); // Obtener referencia al overlay de edición
+        if (editarOverlay) editarOverlay.style.display = "none"; // Ocultar el overlay de edición
     };
 
-    window.guardarPerfil = function () {
-        const mapa = {
+    window.guardarPerfil = function () { // Guarda los cambios del perfil, actualiza el overlay y localStorage
+        const mapa = { // Mapa de IDs para actualizar tanto el overlay como el localStorage
             inputNombre:    "nombrePerfil",
             inputRol:       "rolPerfil",
             inputCorreo:    "inputCorreo",  // nota: el span de correo tiene id "correoPerfil"
@@ -216,7 +216,7 @@
                 if (icono) icono.src = e.target.result;
                 setPerfilItem("fotoPerfil", e.target.result); // ← clave única por usuario
             };
-            reader.readAsDataURL(fileInput.files[0]);
+            reader.readAsDataURL(fileInput.files[0]); // Leer el archivo seleccionado como una URL de datos para poder mostrarlo directamente en la página
         }
 
         alert("Perfil actualizado correctamente");
@@ -279,11 +279,11 @@
     };
 
     // Cerrar overlays al hacer clic en el fondo oscuro
-    document.addEventListener("click", function (e) {
-        const perfilOverlay = document.getElementById("perfilOverlay");
-        const editarOverlay = document.getElementById("editarOverlay");
-        if (e.target === perfilOverlay)  window.cerrarPerfil();
-        if (e.target === editarOverlay)  window.cerrarEditar();
+    document.addEventListener("click", function (e) { // Agregar un event listener al documento para detectar clics y cerrar los overlays si se hace clic fuera de las cajas de contenido
+        const perfilOverlay = document.getElementById("perfilOverlay"); // Obtener referencia al overlay de ver perfil
+        const editarOverlay = document.getElementById("editarOverlay"); //  Obtener referencia al overlay de edición
+        if (e.target === perfilOverlay)  window.cerrarPerfil(); // Si se hizo clic en el fondo del overlay de ver perfil, cerrarlo
+        if (e.target === editarOverlay)  window.cerrarEditar(); // Si se hizo clic en el fondo del overlay de edición, cerrarlo
     });
 
 })();
