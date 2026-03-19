@@ -99,6 +99,7 @@ novedad_equipo VARCHAR(45) not null,
 id_equipo varchar(11),
 foreign key(id_equipo)references equipo(id_equipo)
 );
+
 INSERT INTO equipo (
 id_equipo,
 nombre_equipo,

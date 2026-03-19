@@ -54,10 +54,10 @@
     <a href="herramientas.html" class="categoria-card">
         <div class="carousel">
             <div class="carousel-track">
-                <img src="imagenes/herramientas-sujecion.jpeg" alt="Imagen 1">
-                <img src="imagenes/herramientas-corte.jpg" alt="Imagen 2">
-                <img src="imagenes/herramientas-impacto.jpeg" alt="Imagen 3">
-                <img src="imagenes/herramientas-edicion.jpeg" alt="Imagen 4">
+                <img src="imagenes/sujecion.jpeg" alt="Imagen 1">
+                <img src="imagenes/corte.jpeg" alt="Imagen 2">
+                <img src="imagenes/impacto.jpeg" alt="Imagen 3">
+           
             </div>
         </div>
 
@@ -71,9 +71,9 @@
     <a href="maquinas.html" class="categoria-card">
         <div class="carousel">
             <div class="carousel-track">
-                <img src="imagenes/bandatrasportadora.jpeg" alt="Imagen 1">
-                <img src="imagenes/ventiladoraxial.jpg" alt="Imagen 2">
-                <img src="imagenes/electrobomba.jpeg" alt="Imagen 3">
+                <img src="imagenes/bandatransportadora.jpeg" alt="Imagen 1">
+                <img src="imagenes/ventiladoraxial.jpeg" alt="Imagen 2">
+                <img src="imagenes/electrobomba.jpg" alt="Imagen 3">
             </div>
         </div>
 
@@ -87,8 +87,8 @@
     <a href="equipos.html" class="categoria-card">
         <div class="carousel">
             <div class="carousel-track">
-                <img src="imagenes/malacatereal.jpg" alt="Imagen 1">
-                <img src="imagenes/pulmon.jpg" alt="Imagen 2">
+                <img src="imagenes/malacateareal.jpeg" alt="Imagen 1">
+                <img src="imagenes/pulmon.jpeg" alt="Imagen 2">
                 <img src="imagenes/vagoneta.jpg" alt="Imagen 3">
             </div>
         </div>
@@ -126,86 +126,52 @@
         <br>smaqminaskls@gmail.com
     </div>
 </footer>
-<!-- PERFIL OVERLAY -->
-<div class="perfil-overlay" id="perfilOverlay">
-
-    <div class="perfil-box">
-
-        <!-- Botón cerrar -->
-        <span class="cerrar-perfil" onclick="cerrarPerfil()">✖</span>
-
-        <div class="perfil-contenido">
-
-            <!-- FOTO -->
-            <div class="perfil-foto">
-                <img id="fotoPerfil" src="imagenes/Usuario.webp" alt="Usuario">
-
-              <h3 id="nombrePerfil"></h3>
-                <p id="rolPerfil">Administrador</p>
-
-                <button class="btn-editar" onclick="abrirEditarPerfil()">
-                    Editar perfil
-                </button>
+<!-- OVERLAY VER PERFIL -->
+    <div class="perfil-overlay" id="perfilOverlay">
+        <div class="perfil-box">
+            <span class="cerrar-perfil" onclick="cerrarPerfil()">✖</span>
+            <div class="perfil-contenido">
+                <div class="perfil-foto">
+                    <img id="fotoPerfil" src="imagenes/Usuario.webp" alt="Usuario">
+                    <h3 id="nombrePerfil"></h3>
+                    <p id="rolPerfil">Administrador</p>
+                    <button class="btn-editar" onclick="abrirEditarPerfil()">Editar perfil</button>
+                </div>
+                <div class="perfil-info">
+                    <h4>Información de contacto</h4>
+                    <p><b>Correo:</b> <span id="correoPerfil"></span></p>
+                    <p><b>Extensión:</b> <span id="extensionPerfil"></span></p>
+                    <p><b>Departamento:</b> <span id="deptoPerfil"></span></p>
+                    <p><b>Último acceso:</b> <span id="accesoPerfil"></span></p>
+                </div>
             </div>
 
-            <!-- INFORMACIÓN -->
-            <div class="perfil-info">
-                <h4>Información de contacto</h4>
-
-                <p><b>Correo:</b> <span id="correoPerfil"></span></p>
-                <p><b>Extensión:</b> <span id="extensionPerfil"></span></p>
-                <p><b>Departamento:</b> <span id="deptoPerfil"></span></p>
-                <p><b>Último acceso:</b> <span id="accesoPerfil"></span></p>
-
-            </div>
- 
         </div>
 
     </div>
 
-</div>
-<!-- EDITAR PERFIL OVERLAY -->
-<div class="editar-overlay" id="editarOverlay">
-
-    <div class="editar-box">
-
-        <span class="cerrar-perfil" onclick="cerrarEditar()">✖</span>
-
-       <button class="btn-editar" onclick="abrirEditarPerfil()">
-    Eliminar perfil
-   </button>
-
-   <button class="btn-cerrar-sesion" onclick="cerrarSesion()">
-    Cerrar sesión
-  </button>
-        <!-- Cambiar foto -->
-        <label>Foto de perfil</label>
-        <input type="file" id="inputFoto" accept="image/*">
-
-        <button type="button" onclick="borrarFoto()">Eliminar foto</button>
-
-        <!-- Campos -->
-        <label>Nombre</label>
-        <input type="text" id="inputNombre">
-
-        <label>Rol</label>
-        <input type="text" id="inputRol">
-
-        <label>Correo</label>
-        <input type="email" id="inputCorreo">
-
-        <label>Extensión</label>
-        <input type="text" id="inputExtension">
-
-        <label>Departamento</label>
-        <input type="text" id="inputDepto">
-
-        <!-- Botón guardar -->
-        <button onclick="guardarPerfil()">Guardar cambios</button>
-
+    <!-- OVERLAY EDITAR PERFIL -->
+    <div class="editar-overlay" id="editarOverlay">
+        <div class="editar-box">
+            <span class="cerrar-perfil" onclick="cerrarEditar()">✖</span>
+            <button class="btn-cerrar-sesion" onclick="cerrarSesion()">Cerrar sesión</button>
+            <button class="btn-eliminar-cuenta" onclick="eliminarCuenta()">Eliminar cuenta</button>
+            <label>Foto de perfil</label>
+            <input type="file" id="inputFoto" accept="image/*">
+            <button type="button" onclick="borrarFoto()">Eliminar foto</button>
+            <label>Nombre</label>
+            <input type="text" id="inputNombre">
+            <label>Rol</label>
+            <input type="text" id="inputRol">
+            <label>Correo</label>
+            <input type="email" id="inputCorreo">
+            <label>Numero</label>
+            <input type="text" id="inputExtension">
+            <label>Departamento</label>
+            <input type="text" id="inputDepto">
+            <button onclick="guardarPerfil()">Guardar cambios</button>
+        </div>
     </div>
-
-</div>
 <script src="perfil.js"></script>
 <script src="scripts.js"></script>
 </body>
