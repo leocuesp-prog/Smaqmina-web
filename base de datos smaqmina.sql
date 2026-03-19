@@ -99,6 +99,15 @@ novedad_equipo VARCHAR(45) not null,
 id_equipo varchar(11),
 foreign key(id_equipo)references equipo(id_equipo)
 );
+create table super_cuenta(
+    id_cuenta int not null primary key auto_increment,
+    nombre_cuenta VARCHAR(100) NOT NULL,
+    correo_cuenta varchar(200) UNIQUE NOT NULL,
+    telefono_cuenta VARCHAR(20),
+    password VARCHAR(255) NOT NULL,
+    id int,
+    foreign key (id)references usuario(id)
+)
 INSERT INTO equipo (
 id_equipo,
 nombre_equipo,
