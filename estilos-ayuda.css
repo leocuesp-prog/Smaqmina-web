@@ -96,7 +96,7 @@ h1 {
 .card a{
     color: var(--negro);
     text-decoration: none;
-    
+
 }
 
 /* ---------------- BOTÓN DESCARGA ---------------- */
@@ -317,6 +317,10 @@ background: #121212 !important;
 
 .dark-mode h2{
     color: white;
+}
+.dark-mode .card a{
+    color: var(--blanco);
+    text-decoration: none;
 }
 
 
