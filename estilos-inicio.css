@@ -1,12 +1,19 @@
 
 :root {
-    --azul-principal: #1D4A7A;
-    --blanco: #FFFFFF;
-    --gris-texto: #6C757D;
+    --blanco-principal : #fffffff0;
+    --blanco-texto: #ededede4;
+    --texto-modo-osc: #DBD3D3;
     --logo-azul: #0D3B66;
     --logo-verde: #54C1A9;
     --verde-barra: #0b7a32;
     --negro: #000;
+    --fondo-modo-osc: radial-gradient(circle,rgba(6, 21, 31, 1) 0%, rgba(4, 13, 20, 1) 22%, rgba(4, 13, 20, 1) 100%);
+    /* --bordes-oscuro: #26544a; */
+    --logo-azul-oscuro:#0a2236;
+    --bordes-oscuro: #393838;
+    --gris-texto: #6C757D;
+    --boton-modo-osc: #333;
+    --hoverbtn-modo-osc:#555
 }
 
 .logo-area {
