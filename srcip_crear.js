@@ -105,22 +105,8 @@ form.addEventListener('submit', async function(e) {
         const data = await respuesta.json();
 
         if (respuesta.ok) {
-            showAlert("✅ Usuario registrado correctamente", "success");
-
-            // Guardar usuario activo en localStorage
-            const nuevoUsuario = {
-                nombre: usuario,
-                correo: correo,
-                telefono: telefono
-            };
-            localStorage.setItem("usuarioActivo", JSON.stringify(nuevoUsuario));
-
-            // Guardar campos del perfil con clave única por correo (igual que perfil.js)
-            const prefijo = correo + "_";
-            localStorage.setItem(prefijo + "nombrePerfil",    usuario);
-            localStorage.setItem(prefijo + "correoPerfil",    correo);
-            localStorage.setItem(prefijo + "extensionPerfil", telefono);
-
+            showAlert("⏳ Solicitud enviada. Tu cuenta está esperando permiso para ser creada. El administrador debe aprobarla antes de que puedas iniciar sesión.", "success");
+            form.reset();
         } else {
             showAlert(data.mensaje);
         }
