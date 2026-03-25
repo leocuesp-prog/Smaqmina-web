@@ -54,44 +54,91 @@ if (form) {
 
   btnVer.addEventListener("click", function (e) {
     e.preventDefault();
-
-    passInput.type =
-      passInput.type === "password" ? "text" : "password";
-
-    btnVer.textContent =
-      passInput.type === "password" ? "👁" : "🙈";
+    passInput.type = passInput.type === "password" ? "text" : "password";
+    btnVer.textContent = passInput.type === "password" ? "👁" : "🙈";
   });
 
   // ============================
-  // BLOQUEO POR INTENTOS
+  // BLOQUEO POR INTENTOS (persiste al recargar)
   // ============================
 
-  function bloquearLogin() {
+  function guardarBloqueo() {
+    localStorage.setItem("loginBloqueo", JSON.stringify({
+      bloqueado: bloqueado,
+      intentos: intentos,
+      tiempoRestante: tiempoRestante,
+      timestamp: Date.now()
+    }));
+  }
 
+  function limpiarBloqueo() {
+    localStorage.removeItem("loginBloqueo");
+    intentos = 0;
+    bloqueado = false;
+    tiempoRestante = 180;
+  }
+
+  function bloquearLogin() {
     bloqueado = true;
     tiempoRestante = 180;
+    guardarBloqueo();
 
     if (intervalo) clearInterval(intervalo);
 
     intervalo = setInterval(() => {
+      tiempoRestante--;
+      guardarBloqueo();
 
       let min = Math.floor(tiempoRestante / 60);
       let seg = tiempoRestante % 60;
+      mostrar(`🚫 Has fallado 3 veces. Espera ${min}:${seg < 10 ? "0" : ""}${seg}...`);
 
-      mostrar(
-        `🚫 Has fallado 3 veces. Espera ${min}:${seg < 10 ? "0" : ""}${seg}...`
-      );
-
-      tiempoRestante--;
-
-      if (tiempoRestante < 0) {
+      if (tiempoRestante <= 0) {
         clearInterval(intervalo);
-        intentos = 0;
-        bloqueado = false;
+        limpiarBloqueo();
         mostrar("✅ Ya puedes intentar nuevamente.", "success");
       }
-
     }, 1000);
+  }
+
+  // Recuperar bloqueo guardado al cargar la página
+  const bloqueoGuardado = localStorage.getItem("loginBloqueo");
+  if (bloqueoGuardado) {
+    const datos = JSON.parse(bloqueoGuardado);
+
+    if (datos.bloqueado) {
+      // Calcular cuánto tiempo pasó desde que se guardó
+      const segundosPasados = Math.floor((Date.now() - datos.timestamp) / 1000);
+      const tiempoRestanteReal = datos.tiempoRestante - segundosPasados;
+
+      if (tiempoRestanteReal > 0) {
+        // Aún está en bloqueo
+        bloqueado = true;
+        intentos = datos.intentos;
+        tiempoRestante = tiempoRestanteReal;
+
+        if (intervalo) clearInterval(intervalo);
+        intervalo = setInterval(() => {
+          tiempoRestante--;
+          guardarBloqueo();
+
+          let min = Math.floor(tiempoRestante / 60);
+          let seg = tiempoRestante % 60;
+          mostrar(`🚫 Has fallado 3 veces. Espera ${min}:${seg < 10 ? "0" : ""}${seg}...`);
+
+          if (tiempoRestante <= 0) {
+            clearInterval(intervalo);
+            limpiarBloqueo();
+            mostrar("✅ Ya puedes intentar nuevamente.", "success");
+          }
+        }, 1000);
+      } else {
+        // Ya pasó el tiempo de bloqueo
+        limpiarBloqueo();
+      }
+    } else {
+      intentos = datos.intentos || 0;
+    }
   }
 
   // ============================
@@ -122,31 +169,30 @@ if (form) {
 
       const respuesta = await fetch("http://localhost:3000/login", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ correo, password })
       });
 
       const data = await respuesta.json();
 
       if (respuesta.ok) {
-
+        limpiarBloqueo();
         localStorage.setItem("usuarioActivo", JSON.stringify(data.usuario));
-
         mostrar("✅ Login correcto", "success");
-
-        setTimeout(() => {
-          window.location.href = "inicio.html";
-        }, 1500);
+        setTimeout(() => { window.location.href = "inicio.html"; }, 1500);
 
       } else {
 
-        intentos++;
-        mostrar(data.mensaje || "❌ Credenciales incorrectas.");
-
-        if (intentos >= 3) {
-          bloquearLogin();
+        // Cuenta pendiente o desactivada: no contar como intento fallido
+        if (respuesta.status === 403) {
+          mostrar("⏳ " + data.mensaje);
+        } else {
+          intentos++;
+          guardarBloqueo();
+          mostrar(data.mensaje || "❌ Credenciales incorrectas.");
+          if (intentos >= 3) {
+            bloquearLogin();
+          }
         }
       }
 
@@ -212,10 +258,9 @@ function guardarConfig(){
 
 window.onload = function(){
   let config = JSON.parse(localStorage.getItem("configAccesibilidad"));
-
-  if(config){
-    if(config.oscuro) document.body.classList.add("dark-mode");
-    if(config.contraste) document.body.classList.add("alto-contraste");
-    if(config.mayuscula) document.body.classList.add("mayusculas");
+  if (config) {
+    if (config.oscuro)    document.body.classList.add("dark-mode");
+    if (config.contraste) document.body.classList.add("alto-contraste");
+    if (config.mayuscula) document.body.classList.add("mayusculas");
   }
 };
