@@ -7,7 +7,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
-/* ── Variables (idénticas al primer archivo) ── */
+/* ── Variables (idénticas al primer archivo) ──
 :root {
     --azul-principal: #1D4A7A;
     --blanco:         #FFFFFF;
@@ -16,7 +16,29 @@
     --logo-verde:     #54C1A9;
     --verde-barra:    #0b7a32;
     --negro:          #000;
-}
+} */
+
+:root {
+  /* colores modo normal */
+    --blanco-principal : #fffffff0;
+    --blanco-texto: #ededede4;
+    --blanco2: rgb(206, 206, 206);
+    --texto-modo-osc: #DBD3D3;
+    --logo-azul: #0D3B66;
+    --logo-verde: #54C1A9;
+    --negro: #000;
+    --gris-texto: #6C757D;
+    --gris-fuerte: #4A4A4A;
+    /* colores modo oscuro */
+    --blanco-accesibilidad : #ffffff93;
+    --fondo-modo-osc: radial-gradient(circle,rgba(6, 21, 31, 1) 0%, rgba(4, 13, 20, 1) 22%, rgba(4, 13, 20, 1) 100%);
+    --contenedores-modo-osc :  #1e1e1e;
+    --fondo-acc-osc: #1e1c1cdb;
+    --logo-azul-oscuro:#0a2236;
+    --gris-texto: #6C757D;
+    --boton-modo-osc: #333;
+    --hoverbtn-modo-osc:#555;
+ }
 
 /* ── Reset base ── */
 *, *::before, *::after {
@@ -27,7 +49,7 @@
 
 body {
     font-family: "Montserrat", sans-serif;
-    background: var(--blanco);
+    background: var(--blanco-principal);
     color: var(--negro);
     min-height: 100vh;
 }
