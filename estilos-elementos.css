@@ -1,17 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 :root {
- --azul-principal: #1D4A7A;
- --blanco-secundario: #d1d9e6dd;
- --blanco: #FFFFFF;
- --gris-texto: #6C757D;
- --gris-fuerte: #4A4A4A;
- --verde-activo: #28A745;
- --logo-azul: #0D3B66;
- --logo-verde: #54C1A9;
- --logo-naranja: #F4A443;
- --verde-barra: #0b7a32;
- --negro: black;
+    /* colores modo normal */
+    --blanco-principal : #fffffff0;
+    --blanco-texto: #ededede4;
+    --texto-modo-osc: #DBD3D3;
+    --logo-azul: #0D3B66;
+    --logo-verde: #54C1A9;
+    --negro: #000;
+    /* colores modo oscuro */
+    --blanco-accesibilidad : #ffffff93;
+    --fondo-modo-osc: radial-gradient(circle,rgba(6, 21, 31, 1) 0%, rgba(4, 13, 20, 1) 22%, rgba(4, 13, 20, 1) 100%);
+    --fondo-acc-osc: #1e1c1cdb;
+    --contenedores-modo-osc :  #1e1e1e;
+    --logo-azul-oscuro:#0a2236;
+    --gris-texto: #6C757D;
+    --boton-modo-osc: #333;
+    --hoverbtn-modo-osc:#555;
 }
+
 /*Selectores de etiquetas*/
 *{
     box-sizing: border-box; 
@@ -21,17 +27,17 @@
 
 
 
-body{ font-family: "Montserrat", sans-serif; padding: 0px; background-color: var(--blanco-secundario); }
+body{ font-family: "Montserrat", sans-serif; padding: 0px; background-color: var(--blanco-principal); }
 
 
 /* .hj1 h1{ background:var(--azul-principal); color:white; padding:10px; border-radius:6px; text-align:center; }/*  */
 
 h1 {
-    background:var(--azul-principal); color:white; padding:10px; border-radius:6px; text-align: center; margin-top: auto; width: 100%; 
+    background:var(--logo-azul); color:var(--blanco-texto); padding:10px; border-radius:6px; text-align: center; margin-top: auto; width: 100%; 
 }
 
 select, option{
-    color: var(--negro); border-radius: 15px;font-size: 15px; background-color:var(--blanco); padding: 14px; font-family: "Montserrat", sans-serif ; font-weight: bold; font-size: 15px;
+    color: var(--negro); border-radius: 15px;font-size: 15px; background-color:var(--blanco-principal); padding: 14px; font-family: "Montserrat", sans-serif ; font-weight: bold; font-size: 15px;
 }
 
  li{
@@ -42,7 +48,7 @@ button{
     padding: 12px 25px;
     font-size: 17px;
     background: var(--logo-verde);
-    color: white;
+    color: var(--blanco-principal);
     border: none;
     border-radius: 6px;
     cursor: pointer;
@@ -50,7 +56,7 @@ button{
 }
 
 button:hover {
-    background-color: var(--blanco);
+    background-color: var(--blanco-principal);
     transform: translateY(-2px);
     box-shadow: 0 8px 40px rgba(29, 74, 122, 0.6);
     color: var(--negro);
@@ -63,7 +69,7 @@ button:hover {
  .grid-container > * { 
     text-align: justify;
     align-items: center;
-    box-shadow: 10px 6px 37px -13px rgba(5, 68, 227, 0.18);
+    /* box-shadow: 10px 6px 37px -13px rgba(5, 68, 227, 0.18); */
     
  } 
 
@@ -80,13 +86,13 @@ height: 55px;
 }
 
 .logo-area .titulo {
-color: white;
+color: var(--blanco-principal);
 font-size: 26px;
 font-weight: bold;
 }
 
 .nav-links a {
-color: white;
+color: var(--blanco-texto);
 text-decoration: none;
 font-size: 16px;
 }
@@ -124,16 +130,16 @@ gap: 25px;
 .datos-hj{
     text-align: justify;
     font-family: "Montserrat", sans-serif; 
-    color: black;
+    color: var(--negro);
     border-radius: 20px;
-    box-shadow: 0 8px 40px rgba(29, 74, 122, 0.6);
+   
 }
 
 .secFooterPrincipal{
     display: flex;
     justify-content: justify;
     align-items: center;
-    border-bottom: 2px solid var(--blanco);
+    border-bottom: 2px solid var(--blanco-principal);
     padding: 5px;
 }
 
@@ -142,21 +148,21 @@ gap: 25px;
 }
 
 .logoSenaFooter{
-    border-right: 5px solid var(--blanco);
-    height: 70px;
-    width: 70px;
+    border-right: 5px solid var(--blanco-principal);
+    height: 100px;
+    width: 100px;
     padding: 20px;
     
 } 
 .logoSmaqFooter{
-    height: 70px;
-    width: 75px;
+    height: 100px;
+    width: 100px;
     padding: 20px;
 }
 
 /* BOTÓN FLOTANTE ACCESIBILIDAD */
 .accesibilidad > button {
-    background: #1f3b57;
+    background: var(--logo-azul);
     color: white;
     border: none;
     padding: 12px;
@@ -188,7 +194,7 @@ gap: 25px;
 
 /* MODOS */
 .dark-mode {
-    background: #121212 !important;
+    background: var(--fondo-modo-osc) !important;
 }
 
 
@@ -196,44 +202,73 @@ gap: 25px;
     text-transform: uppercase;
 }
 .dark-mode {
-    background-color: #121212 !important;
-    color: #ffffff !important;
+   background: var(--fondo-modo-osc)!important;
 }
-
+.dark-mode h1{
+    background: var(--logo-azul-oscuro);
+}
 /* Cambiar todas las cajas internas */
 .dark-mode .img,
 .dark-mode .hj1,
 .dark-mode .hj2,
 .dark-mode .descripcion,
 .dark-mode .menu-accesibilidad {
-    background-color: #1e1e1e !important;
-    color: white !important;
+    background-color: var(--contenedores-modo-osc) !important;
+    color: var(--blanco-principal) !important;
 }
 
 /* Navbar */
 .dark-mode .topbar {
-    background: #0a2236 !important;
+    background: var(--logo-azul-oscuro) !important;
+}
+.dark-mode .nav-links a:hover {
+    color: var(--hoverbtn-modo-osc) !important;
+
+}
+
+.dark-mode .dropdown:hover .dropbtn:hover {
+    color: var(--boton-modo-osc) !important;
+}
+.dark-mode .topbar{
+    border-bottom: 10px var(--boton-modo-osc) solid !important;
+}
+
+.dark-mode .dropdown-content a{
+    color: var(--blanco-texto) !important;
+    background: var(--logo-azul-oscuro) !important;
+    
+}
+
+.dark-mode .dropdown-content  a:hover {
+    background-color: var(--hoverbtn-modo-osc)!important ;
+    color: var(--blanco-texto) !important;
+    
+}
+
+.dark-mode .dropbtn{
+    color: var(--blanco-texto) !important;
 }
 
 /* Footer */
 .dark-mode footer {
-    background: #0a2236 !important;
-}
+    background: var(--logo-azul-oscuro) !important;
+    border-top: 5px solid var(--boton-modo-osc) !important;
 
+}
 /* Botones */
 .dark-mode button {
-    background-color: #333 !important;
-    color: white !important;
+    background-color: var(--boton-modo-osc) !important;
+    color: var(--blanco-principal) !important;
 }
 
 .dark-mode button:hover {
-    background-color: #555 !important;
-    color: white !important;
+    background-color: var(--hoverbtn-modo-osc) !important;
+    color: var(--blanco-principal) !important;
 }
 .dark-mode .menu-accesibilidad{
     background-color: var(--negro);
 }
-.icon{
+.dark-mode .icon{
     background-color: transparent;
 }
 /* ========================= */
@@ -292,7 +327,7 @@ gap: 25px;
 
 .img { 
     grid-area: img;
-    background-color: #F5F7FA; 
+    background-color: var(--blanco-texto); 
     box-shadow: 0 8px 40px rgba(29, 74, 122, 0.6);
     border-radius: 20px;
     padding: 10px;
@@ -301,7 +336,7 @@ gap: 25px;
 
 .hj1 { 
     grid-area: hj1; 
-    background-color: #F5F7FA; 
+    background-color: var(--blanco-texto); 
     border-radius: 20px;
     box-shadow: 0 8px 40px rgba(29, 74, 122, 0.6);
     padding: 10px;
@@ -310,7 +345,7 @@ gap: 25px;
 
 .hj2 { 
     grid-area: hj2;
-    background-color: #F5F7FA;
+   background-color: var(--blanco-texto);
     border-radius: 20px;
     box-shadow: 0 8px 40px rgba(29, 74, 122, 0.6);
     padding: 10px;
@@ -320,7 +355,7 @@ gap: 25px;
     grid-area: descripcion;
     display: flex;
     flex-direction: column;
-    background-color: #F5F7FA;
+   background-color: var(--blanco-texto);
     box-shadow: 0 8px 40px rgba(29, 74, 122, 0.6);
     border-radius: 20px;
     padding: 10px;
@@ -342,9 +377,8 @@ gap: 25px;
 }
 
 .dropbtn {
-    background-color: transparent;
     border: none;
-    color: white;
+    color: var(--blanco-texto);
     font-size: 16px;
     padding: 10px;
     cursor: pointer;
@@ -355,25 +389,27 @@ gap: 25px;
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: white;
+    background-color: var(--logo-azul);
     min-width: 170px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--blanco-principal);
     border-radius: 3px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     /* clave para que quede encima del contenido */
     z-index: 2000;
+    
 }
 
 .dropdown-content a {
-    color: black;
+    color: var(--blanco-texto);
     padding: 12px 16px;
     display: block;
     text-decoration: none;
 }
 
 .dropdown-content a:hover {
-    background-color: #f1f1f1;
-}
+    background-color: var(--blanco-principal);
+    color: var(--logo-verde);
+}   
 
 .dropdown:hover .dropdown-content {
     display: block;
@@ -398,11 +434,11 @@ footer {
     align-items: center;
     text-align: center;
     padding: 20px;
-    background: var(--azul-principal);
-    color: var(--blanco);
+    background: var(--logo-azul);
+    color: var(--blanco-principal);
     font-size: 16px;
     margin-top: 40px;
-    border-top: 3px solid var(--logo-verde);
+    border-top: 5px solid var(--logo-verde);
 }
 
 
