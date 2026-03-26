@@ -1,13 +1,23 @@
-
 :root {
-    --azul-principal: #1D4A7A;
-    --blanco: #FFFFFF;
-    --gris-texto: #6C757D;
+    /* colores modo normal */
+    --blanco-principal : #fffffff0;
+    --blanco-texto: #ededede4;
+    --texto-modo-osc: #DBD3D3;
     --logo-azul: #0D3B66;
     --logo-verde: #54C1A9;
-    --verde-barra: #0b7a32;
     --negro: #000;
+    /* colores modo oscuro */
+    --blanco-accesibilidad : #ffffff93;
+    --fondo-modo-osc: radial-gradient(circle,rgba(6, 21, 31, 1) 0%, rgba(4, 13, 20, 1) 22%, rgba(4, 13, 20, 1) 100%);
+    --fondo-acc-osc: #1e1c1cdb;
+    --logo-azul-oscuro:#0a2236;
+    --gris-texto: #6C757D;
+    --boton-modo-osc: #333;
+    --hoverbtn-modo-osc:#555;
 }
+
+    
+
 
 .logo-area {
     display: flex;
@@ -20,7 +30,7 @@
 }
 
 .logo-area .titulo {
-    color: white;
+    color: var(--blanco-principal);
     font-size: 24px;
     font-weight: bold;
 }
@@ -32,7 +42,7 @@
 }
 
 .nav-links a {
-    color: white;
+    color: var(--blanco-texto);
     text-decoration: none;
     font-size: 16px;
 }
@@ -85,7 +95,7 @@
 }
 
 .icon-box {
-    background: var(--azul-principal);
+    background: var(--logo-azul);
     padding: 25px;
     border-radius: 5px;
 }
@@ -109,9 +119,9 @@
     color: var(--gris-texto);
 }
 .accesibilidad > button {
-    background: #1f3b57;
-    color: white;
-    border: none;
+    background: var(--logo-azul);
+    color: var(--blanco-texto);
+    border: 5px double var(--logo-verde);
     padding: 12px;
     border-radius: 50%;
     font-size: 18px;
@@ -123,20 +133,23 @@
     display: none;
     flex-direction: column;
     margin-top: 10px;
-    background: white;
+    background: var(--blanco-texto);
     padding: 10px;
     border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    border: 2px solid var(--logo-verde)
 }
+
+
 
 .menu-accesibilidad button {
     margin: 5px 0;
     padding: 6px;
     border: none;
     cursor: pointer;
-    background:#eee;
+    background: var(--blanco-principal);
     color:black;
-    border-radius:6px;
+    border-radius:6px ;
+    border:1px var(--logo-verde) solid 
 }
 
 
@@ -165,7 +178,7 @@
     display: flex;
     justify-content: justify;
     align-items: center;
-    border-bottom: 2px solid var(--blanco);
+    border-bottom: 2px solid var(--blanco-principal);
     padding: 5px;
 }
 
@@ -174,7 +187,7 @@
 }
 
 .logoSenaFooter{
-    border-right: 5px solid var(--blanco);
+    border-right: 5px solid var(--blanco-principal);
     height: 70px;
     width: 70px;
     padding: 20px;
@@ -186,7 +199,7 @@
     padding: 20px;
 }
 .dropbtn{
-    color: white;
+    color: var(--blanco-texto);
     font-size: 16px;
     padding: 10px;
     cursor: pointer;
@@ -197,7 +210,7 @@
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: white;
+    background-color: var(--logo-azul);
     min-width: 170px;
     border: 1px solid #ccc;
     border-radius: 3px;
@@ -205,30 +218,34 @@
     z-index: 2000;
 }
 .dropdown-content a {
-    color: black;
+    color: var(--blanco-texto);
     padding: 12px 16px;
     display: block;
     text-decoration: none;
 }
 
+
 .dropdown-content a:hover {
-    background-color: #f1f1f1;
+    background-color: var(--blanco-principal);
+    color: var(--logo-verde);
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
 }
 
-.dropdown:hover .dropbtn {
+.dropdown:hover .dropbtn:hover {
     color: var(--logo-verde);
 }
 grid-container > * { 
     font-family: "Montserrat", sans-serif;
+    
 }
     .grid-container{
     margin: 0;
     font-family: "Montserrat", sans-serif;
-    background: var(--blanco);
+    background-color: var(--blanco-principal);
+    /* background: var(--blanco); */
         grid-template: 
         "topbar"auto
         "bienvenida"auto
@@ -236,14 +253,14 @@ grid-container > * {
         "boton"auto
         "footer"auto;
     .topbar {
-        grid-area: topbar;
+    grid-area: topbar;
     background: var(--logo-azul);
     height: 80px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 30px;
-    border-bottom: 8px solid var(--logo-verde);
+    border-bottom: 5px solid var(--logo-verde);
 }
 .bienvenida {
     grid-area: bienvenida;
@@ -402,7 +419,7 @@ grid-container > * {
     cursor: pointer;
 
     background: var(--logo-azul);
-    color: white;
+    color: var(--blanco-principal);
     font-weight: bold;
     transition: 0.3s;
 }
@@ -467,7 +484,7 @@ grid-container > * {
     width: 100%;
     padding: 10px;
     border-radius: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--blanco-principal);
     margin-top: 5px;
     font-size: 15px;
 }
@@ -495,7 +512,7 @@ grid-container > * {
     height: 45px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid white;
+    border: 2px solid var(--blanco-texto);
     cursor: pointer;
 }
 
@@ -504,7 +521,7 @@ grid-container > * {
     height: 42px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid white;
+    border: 2px solid var(--blanco-texto);
 }
 
 #perfilNavbar {
@@ -519,7 +536,7 @@ grid-container > * {
     cursor: pointer;
 
     background: crimson;
-    color: white;
+    color: var(--blanco-texto);
     font-weight: bold;
 }
 
@@ -531,7 +548,6 @@ grid-container > * {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    z-index: 2000;
 }
 
 
@@ -554,11 +570,11 @@ footer {
     align-items: center;
     text-align: center;
     padding: 20px;
-    background: var(--azul-principal);
-    color: var(--blanco);
+    background: var(--logo-azul);
+    color: var(--blanco-principal);
     font-size: 16px;
     margin-top: 40px;
-    border-top: 3px solid var(--logo-verde);
+    border-top: 5px solid var(--logo-verde);
 }
 
 @media(min-width: 768px){
@@ -583,38 +599,99 @@ footer {
 }
 /* MODOS */
 
+
 .dark-mode 
 {
-    background: #121212 !important;
-    color: var(--blanco);
+   background: var(--fondo-modo-osc)!important;
+    
 }
-.dark-mode h1,
+
+.dark-mode .nav-links a:hover {
+    color: var(--hoverbtn-modo-osc);
+}
+
+.dark-mode .dropdown:hover .dropbtn:hover {
+    color: var(--hoverbtn-modo-osc);
+}
+
+body.dark-mode .bienvenida .linea-verde{
+    background-color: var(--boton-modo-osc) !important; 
+    color: var(--blanco-principal);
+    width: 100%;
+    height: 10px;
+    margin: 2px 0;
+}
+
+body.dark-mode .topbar{
+     border-bottom:10px solid var(--boton-modo-osc);
+}
+body.dark-mode footer {
+    
+     border-top: 5px solid var(--boton-modo-osc);
+
+}
+
+.dark-mode .dropdown-content{
+    color: var(--blanco-texto)!important;
+    background: var(--logo-azul-oscuro);
+}
+
+.dark-mode .dropdown-content a:hover {
+    background-color: var(--hoverbtn-modo-osc) !important;
+    color: var(--blanco-texto)
+    
+}
+
 .dark-mode h2,
-.dark-mode h3,
 .dark-mode p,
 .dark-mode a {
-    color: var(--blanco);
+    color: var(--texto-modo-osc);
 }
+
+.dark-mode h1{
+    color: var(--blanco-principal);
+}
+.dark-mode h3{
+    color: var(--blanco-texto);
+}
+
 .dark-mode footer,
 .dark-mode th,
 .dark-mode .topbar {
-    background: #0a2236 !important;
+    background: var(--logo-azul-oscuro)!important;
 }
+
 .dark-mode button {
-    background-color: #333 !important;
-    color: white !important;
+    background-color: var(--boton-modo-osc) !important;
+    color: var(--blanco-texto) !important;
 }
 
 .dark-mode button:hover {
-    background-color: #555 !important;
-    color: white !important;
+    background-color: var(--hoverbtn-modo-osc) !important;
+    color: var(--blanco-texto) !important;
+}
+
+.dark-mode   .accesibilidad > button{
+    background: var(--logo-azul-oscuro) !important;
+    color: var(--blanco-texto) !important;
+    border: 5px double var(--boton-modo-osc);
+    padding: 12px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
 }
 
 .dark-mode .menu-accesibilidad {
-    background-color: #1e1e1e !important;
-    color: white !important;
-    border: 2px solid #0a2236  !important
+    background-color: var(--fondo-acc-osc) !important;
+    color: var(--blanco-texto) !important;
+    border: 2px var(--logo-azul-oscuro) solid !important;
 }
+
+.dark-mode .menu-accesibilidad button {
+    background: var(--boton-modo-osc) !important;
+    border: 2px var(--logo-azul-oscuro) solid;
+}
+
 .dark-mode .negro{
     color: var(--negro);
 }
