@@ -10,7 +10,7 @@
  --logo-naranja: #F4A443;
  --verde-barra: #0b7a32;
  --negro: black;
- --blanco2: rgb(206, 206, 206);
+ --blanco2: rgb(25, 14, 14);
 }
 body{
     background: var(--blanco);
