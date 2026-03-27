@@ -37,16 +37,15 @@ h1 {
 }
 
 select, option{
-    color: var(--negro); border-radius: 15px;font-size: 15px; background-color:var(--blanco-principal); padding: 14px; font-family: "Montserrat", sans-serif ; font-weight: bold; font-size: 15px;
+    color: var(--negro); border-radius: 15px; background-color:var(--blanco-principal); padding: 14px; font-family: "Montserrat", sans-serif ; font-weight: bold; font-size: 15px;
 }
 
  li{
-    padding: 5px;  font-size: 15px; list-style-type: none;
+    padding: 5px; list-style-type: none;
 }
 
 button{
     padding: 12px 25px;
-    font-size: 17px;
     background: var(--logo-verde);
     color: var(--blanco-principal);
     border: none;
@@ -87,14 +86,12 @@ height: 55px;
 
 .logo-area .titulo {
 color: var(--blanco-principal);
-font-size: 26px;
 font-weight: bold;
 }
 
 .nav-links a {
 color: var(--blanco-texto);
 text-decoration: none;
-font-size: 16px;
 }
 
 .nav-links a.active,
