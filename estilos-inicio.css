@@ -89,17 +89,25 @@
 
 
 
-
 .categoria-card {
     display: block;
     text-decoration: none;
     color: inherit;
+    
 }
 
 .categoria-card {
     width: 280px;
     text-align: center;
+
+    
 }
+
+.contorno-cards{
+    border-radius: 10px;
+    box-shadow: 0 8px 40px rgba(29, 74, 122, 0.3);
+}
+
 
 .icon-box {
     background: var(--logo-azul);
@@ -124,45 +132,6 @@
     margin-top: 8px;
     line-height: 1.4;
     color: var(--gris-texto);
-}
-.accesibilidad > button {
-    background: var(--logo-azul);
-    color: var(--blanco-texto);
-    border: 5px double var(--logo-verde);
-    padding: 12px;
-    border-radius: 50%;
-    font-size: 18px;
-    cursor: pointer;
-}
-
-/* MENÚ */
-.menu-accesibilidad {
-    display: none;
-    flex-direction: column;
-    margin-top: 10px;
-    background: var(--blanco-texto);
-    padding: 10px;
-    border-radius: 10px;
-    border: 2px solid var(--logo-verde)
-}
-
-
-
-.menu-accesibilidad button {
-    margin: 5px 0;
-    padding: 6px;
-    border: none;
-    cursor: pointer;
-    background: var(--blanco-principal);
-    color:black;
-    border-radius:6px ;
-    border:1px var(--logo-verde) solid 
-}
-
-
-
-.mayusculas{
-    text-transform: uppercase;
 }
 
 .cerrar-perfil {
@@ -251,7 +220,7 @@ grid-container > * {
     .grid-container{
     margin: 0;
     font-family: "Montserrat", sans-serif;
-    background-color: var(--blanco-principal);
+    /* background-color: var(--blanco-principal); */
     /* background: var(--blanco); */
         grid-template: 
         "topbar"auto
@@ -283,6 +252,7 @@ grid-container > * {
     gap: 50px;
     margin-top: 40px;
     padding: 20px 0;
+   
 }
 
 .carousel {
@@ -555,6 +525,7 @@ grid-container > * {
     position: fixed;
     bottom: 20px;
     right: 20px;
+    font-family: "Montserrat", sans-serif;
 }
 
 
@@ -684,20 +655,10 @@ body.dark-mode footer {
     border: 5px double var(--boton-modo-osc);
     padding: 12px;
     border-radius: 50%;
-    font-size: 18px;
     cursor: pointer;
 }
 
-.dark-mode .menu-accesibilidad {
-    background-color: var(--fondo-acc-osc) !important;
-    color: var(--blanco-texto) !important;
-    border: 2px var(--logo-azul-oscuro) solid !important;
-}
 
-.dark-mode .menu-accesibilidad button {
-    background: var(--boton-modo-osc) !important;
-    border: 2px var(--logo-azul-oscuro) solid;
-}
 
 .dark-mode .negro{
     color: var(--negro);
@@ -829,7 +790,6 @@ body.dark-mode footer {
 .sa-tab {
     padding: 10px 22px;
     font-size: 15px;
-    font-family: "Montserrat", sans-serif;
     font-weight: bold;
     background: transparent;
     color: var(--logo-azul);
@@ -896,7 +856,7 @@ body.dark-mode footer {
     font-size: 14px;
     line-height: 1.9;
     color: var(--gris-fuerte);
-    font-family: "Montserrat", sans-serif;
+   
 }
 .sa-card-info b {
     font-size: 15px;
