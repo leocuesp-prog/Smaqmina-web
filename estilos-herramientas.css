@@ -6,7 +6,7 @@
     padding: 0;
  }
 
- :root {
+ /* :root {
  --azul-principal: #1D4A7A;
  --blanco-secundario: #d1d9e6dd;
  --blanco: #FFFFFF;
@@ -18,9 +18,28 @@
  --logo-naranja: #F4A443;
  --verde-barra: #0b7a32;
  --negro:black
-}
-
-  body{ font-family: "Montserrat", sans-serif; padding: 0px; background-color: var(--blanco); }
+} */
+ :root {
+  /* colores modo normal */
+    --blanco-principal : #fffffff0;
+    --blanco-texto: #ededede4;
+    --texto-modo-osc: #DBD3D3;
+    --logo-azul: #0D3B66;
+    --logo-verde: #54C1A9;
+    --negro: #000;
+    --gris-texto: #6C757D;
+    --gris-fuerte: #4A4A4A;
+    /* colores modo oscuro */
+    --blanco-accesibilidad : #ffffff93;
+    --fondo-modo-osc: radial-gradient(circle,rgba(6, 21, 31, 1) 0%, rgba(4, 13, 20, 1) 22%, rgba(4, 13, 20, 1) 100%);
+    --contenedores-modo-osc :  #1e1e1e;
+    --fondo-acc-osc: #1e1c1cdb;
+    --logo-azul-oscuro:#0a2236;
+    --gris-texto: #6C757D;
+    --boton-modo-osc: #333;
+    --hoverbtn-modo-osc:#555;
+ }
+  body{ font-family: "Montserrat", sans-serif; padding: 0px; background-color: var(--blanco-principal); }
 
 
 
@@ -42,7 +61,7 @@
     cursor: pointer;
  }
  button:hover{
-        background-color: var(--blanco);
+        background-color: var(--blanco-principal);
     transform: translateY(-2px);
     box-shadow: 0 7px 20px rgba(0,0,0,0.4);
     color: var(--negro);
@@ -60,13 +79,13 @@ height: 55px;
 }
 
 .logo-area .titulo {
-color: white;
+color: var(--blanco-principal);
 font-size: 26px;
 font-weight: bold;
 }
 
 .nav-links a {
-color: white;
+color: var(--blanco-texto);
 text-decoration: none;
 font-size: 16px;
 }
@@ -95,19 +114,45 @@ padding: 12px;
 
 .tabla td {
     padding: 12px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid var(--blanco-texto);
     color: var(--gris-fuerte);
     font-size: 16px;
 }
 
 
     th,td{
-        border: 1px solid var(--azul-principal);
+        border: 1px solid var(--logo-azul);
         padding: 8px;
     }
+
+.secFooterPrincipal{
+    display: flex;
+    justify-content: justify;
+    align-items: center;
+    border-bottom: 2px solid var(--blanco-principal);
+    padding: 5px;
+}
+
+.secFooterSecundario{
+ font-size: smaller;
+}
+
+.logoSenaFooter{
+    border-right: 5px solid var(--blanco-principal);
+    height: 70px;
+    width: 70px;
+    padding: 20px;
+    
+} 
+.logoSmaqFooter{
+    height: 70px;
+    width: 75px;
+    padding: 20px;
+}
+
 .accesibilidad > button {
-    background: #1f3b57;
-    color: white;
+    background: var(--logo-azul);
+    color: var(--blanco-principal);
     border: none;
     padding: 12px;
     border-radius: 50%;
@@ -159,7 +204,7 @@ padding: 12px;
     align-items: center;
     padding: 0 30px;
     justify-content: space-between;
-    border-bottom: 8px solid var(--logo-verde);
+    border-bottom: 10px solid var(--logo-verde);
     position: relative;
     z-index: 1000;
     }
@@ -187,9 +232,9 @@ padding: 12px;
 }
 
 .dropbtn {
-    background-color: transparent;
+    
     border: none;
-    color: white;
+    color: var(--blanco-texto);
     font-size: 16px;
     padding: 10px;
     cursor: pointer;
@@ -200,9 +245,9 @@ padding: 12px;
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: white;
+    background-color: var(--logo-azul);
     min-width: 170px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--blanco-texto);
     border-radius: 3px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     /* clave para que quede encima del contenido */
@@ -210,14 +255,15 @@ padding: 12px;
 }
 
 .dropdown-content a {
-    color: black;
+    color: var(--blanco-texto);
     padding: 12px 16px;
     display: block;
     text-decoration: none;
 }
 
 .dropdown-content a:hover {
-    background-color: #f1f1f1;
+    background-color: var(--blanco-principal);
+    color: var(--logo-verde);
 }
 
 .dropdown:hover .dropdown-content {
@@ -236,14 +282,17 @@ padding: 12px;
     z-index: 2000;
 }
     footer { 
-        grid-area: footer;
-        text-align: center;
-        padding: 20px 10px;
-        background: var(--azul-principal);
-        color: var(--blanco);
-        font-size: 16px;
-        border-top: 3px solid var(--logo-verde);
-        border-bottom: 8px solid var(--azul-principal);
+     grid-area: footer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    background: var(--logo-azul);
+    color: var(--blanco-principal);
+    font-size: 16px;
+    margin-top: 40px;
+    border-top: 5px solid var(--logo-verde);
     }
 
 
@@ -255,7 +304,7 @@ padding: 12px;
    border-radius: 6px;
 }
     select, option{
-    color: var(--negro); border-radius: 15px; background-color:var(--blanco);  font-family: "Montserrat", sans-serif ; font-weight: bold;
+    color: var(--negro); border-radius: 15px; background-color:var(--blanco-principal);  font-family: "Montserrat", sans-serif ; font-weight: bold;
 }
 
 @media (min-width: 768px) {
@@ -288,41 +337,71 @@ padding: 12px;
     }
 }
 .dark-mode {
-    background: black !important;
-    color: var(--blanco);
+    background: var(--fondo-modo-osc) !important;
+    color: var(--blanco-principal);
 }
-.dark-mode 
-{
-    background: #121212 !important;
-}
+
 .dark-mode h1,
 .dark-mode h2{
-    color: var(--blanco);
+    color: var(--blanco-principal);
 }
 
 
 .dark-mode .menu-accesibilidad,
 .dark-mode input,
 .dark-mode td {
-    background-color: #1e1e1e !important;
-    color: white !important;
-    border: 2px solid #0a2236  !important
+    background-color: var(--contenedores-modo-osc) !important;
+    color: var(--blanco-principal) !important;
+    border: 2px solid var(--logo-azul-oscuro)  !important;
+}
+
+.dark-mode .nav-links a:hover {
+    color: var(--hoverbtn-modo-osc) !important;
+
+}
+
+
+.dark-mode .dropdown:hover .dropbtn:hover {
+    color: var(--boton-modo-osc) !important;
+}
+.dark-mode .topbar{
+    border-bottom: 10px var(--boton-modo-osc) solid !important;
+}
+
+.dark-mode .dropdown-content a{
+    color: var(--blanco-texto);
+    background: var(--logo-azul-oscuro);
+    
+}
+
+.dark-mode .dropdown-content  a:hover {
+    background-color: var(--hoverbtn-modo-osc) ;
+    color: var(--blanco-texto) !important;
+    
+}
+
+.dark-mode .dropbtn{
+    color: var(--blanco-texto) !important;
 }
 
 .dark-mode footer,
 .dark-mode th,
 .dark-mode .topbar {
-    background: #0a2236 !important;
+    background: var(--logo-azul-oscuro) !important;
+    
+}
+.dark-mode footer{
+    border-top: 5px solid var(--boton-modo-osc);
 }
 
 .dark-mode button {
-    background-color: #333 !important;
-    color: white !important;
+    background-color: var(--boton-modo-osc) !important;
+    color: var(--blanco-principal) !important;
 }
 
 .dark-mode button:hover {
-    background-color: #555 !important;
-    color: white !important;
+    background-color: var(--hoverbtn-modo-osc) !important;
+    color: var(--blanco-principal) !important;
 }
 
 

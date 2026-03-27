@@ -46,6 +46,10 @@ function cargarMantenimientos() {
 
 cargarMantenimientos()
 /* Abrir / cerrar menú */
+let menu = document.getElementById("menuAccesibilidad");
+let boton = document.getElementById("botonAccesibilidad");
+
+/* Abrir / cerrar menú */
 boton.addEventListener("click", () => {
     menu.style.display = menu.style.display === "flex" ? "none" : "flex";
 });
@@ -104,4 +108,5 @@ window.onload = function(){
         if(config.mayuscula) document.body.classList.add("mayusculas");
     }
 }
+
 

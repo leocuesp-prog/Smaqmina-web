@@ -1,4 +1,4 @@
-:root {
+/* :root {
  --azul-principal: #1D4A7A;
 --azul-claro: #F5F7FA;
 --blanco: #FFFFFF;
@@ -11,9 +11,30 @@
  --verde-barra: #0b7a32;
  --negro: black;
  --blanco2: rgb(206, 206, 206);
-}
+} */
+ :root {
+  /* colores modo normal */
+    --blanco-principal : #fffffff0;
+    --blanco-texto: #ededede4;
+    --blanco2: rgb(206, 206, 206);
+    --texto-modo-osc: #DBD3D3;
+    --logo-azul: #0D3B66;
+    --logo-verde: #54C1A9;
+    --negro: #000;
+    --gris-texto: #6C757D;
+    --gris-fuerte: #4A4A4A;
+    /* colores modo oscuro */
+    --blanco-accesibilidad : #ffffff93;
+    --fondo-modo-osc: radial-gradient(circle,rgba(6, 21, 31, 1) 0%, rgba(4, 13, 20, 1) 22%, rgba(4, 13, 20, 1) 100%);
+    --contenedores-modo-osc :  #1e1e1e;
+    --fondo-acc-osc: #1e1c1cdb;
+    --logo-azul-oscuro:#0a2236;
+    --gris-texto: #6C757D;
+    --boton-modo-osc: #333;
+    --hoverbtn-modo-osc:#555;
+ }
 body {
-background: var(--blanco);
+background: var(--blanco-principal);
 margin: 0;
 font-family: "Montserrat", sans-serif;;
 }
@@ -29,7 +50,7 @@ th, td {
     padding: 8px;
 }
 .btn-agregar:hover {
-    background-color: var(--blanco);
+    background-color: var(--blanco-principal);
     transform: translateY(-2px);
     box-shadow: 0 7px 20px rgba(0,0,0,0.4);
     color: var(--negro);
@@ -38,12 +59,12 @@ th, td {
 height: 55px;
 }
 .logo-area .titulo {
-color: white;
+color: var(--blanco-principal);
 font-size: 26px;
 font-weight: bold;
 }
 .nav-links a {
-color: white;
+color: var(--blanco-texto);
 text-decoration: none;
 font-size: 16px;
 }
@@ -53,14 +74,17 @@ font-size: 16px;
 color: var(--logo-verde);
 }
 .dropdown-content a {
-    color: black;
+    color: var(--blanco-texto);
     padding: 12px 16px;
     display: block;
     text-decoration: none;
 }
+.dropdown-content{
+    border: 1px var(--blanco-texto) solid;
+}
 
 .dropdown-content a:hover {
-    background-color: #f1f1f1;
+    background-color: var(--blanco-principal);
 }
 
 .dropdown:hover .dropdown-content {
@@ -85,10 +109,10 @@ gap: 10px;
 .subtitulo-box {
     width: 50%;
     margin: 50px auto;
-    background-color: var(--blanco);
+    background-color: var(--blanco-principal);
     padding: 30px ;
     border-radius: 20px;
-    border:3px solid var(--azul-principal);
+    border:3px solid var(--logo-azul);
 }
 
 
@@ -97,7 +121,7 @@ gap: 10px;
  padding: 12px 25px;
 font-size: 17px;
  background: var(--logo-verde);
- color: white;
+ color: var(--blanco-principal);
  border: none;
 border-radius: 6px;
 cursor: pointer;
@@ -111,7 +135,7 @@ cursor: pointer;
 .dropbtn {
     background-color: transparent;
     border: none;
-    color: var(--blanco);
+    color: var(--blanco-texto);
     font-size: 16px;
     padding: 10px;
     cursor: pointer;
@@ -122,9 +146,9 @@ cursor: pointer;
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: white;
+    background-color: var(--logo-azul);
     min-width: 170px;
-    border: 1px solid #ccc;
+    
     border-radius: 3px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 2000;
@@ -138,14 +162,40 @@ gap: 25px;
     grid-area:subtitulo-box ;
     width: 50%;
     margin: 50px auto;
-    background-color: var(--blanco);
+    background-color: var(--blanco-principal);
     padding: 30px ;
     border-radius: 20px;
-    border:3px solid var(--azul-principal);
+    border:3px solid var(--logo-azul);
 }
 .subtitulo-box div {
     text-align: center;
 }
+
+.secFooterPrincipal{
+    display: flex;
+    justify-content: justify;
+    align-items: center;
+    border-bottom: 2px solid var(--blanco-principal);
+    padding: 5px;
+}
+
+.secFooterSecundario{
+ font-size: smaller;
+}
+
+.logoSenaFooter{
+    border-right: 5px solid var(--blanco-principal);
+    height: 70px;
+    width: 70px;
+    padding: 20px;
+    
+} 
+.logoSmaqFooter{
+    height: 70px;
+    width: 75px;
+    padding: 20px;
+}
+
 .accesibilidad > button {
     background: #1f3b57;
     color: white;
@@ -216,13 +266,16 @@ hgroup {
 }
 footer { 
     grid-area: footer;
+   display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    padding: 20px 10px;
-    background: var(--azul-principal);
-    color: var(--blanco);
+    padding: 20px;
+    background: var(--logo-azul);
+    color: var(--blanco-principal);
     font-size: 16px;
+    margin-top: 40px;
     border-top: 3px solid var(--logo-verde);
-    border-bottom: 8px solid var(--azul-principal);
 }
 @media(min-width: 768px){
         grid-template: 
@@ -245,38 +298,69 @@ footer {
 }
 /* MODOS */
 .dark-mode {
-background: #121212 !important;
+background: var(--fondo-modo-osc) !important;
 }
 
+.dark-mode .nav-links a:hover {
+    color: var(--hoverbtn-modo-osc) !important;
+}
+
+
+.dark-mode .dropdown:hover .dropbtn:hover {
+    color: var(--boton-modo-osc) !important;
+}
+.dark-mode .topbar{
+    border-bottom: 10px var(--boton-modo-osc) solid !important;
+}
+
+.dark-mode .dropdown-content a{
+    color: var(--blanco-texto);
+    background: var(--logo-azul-oscuro);
+    
+}
+
+.dark-mode .dropdown-content  a:hover {
+    background-color: var(--hoverbtn-modo-osc) ;
+    color: var(--blanco-texto) !important;
+    
+}
+
+.dark-mode .dropbtn{
+    color: var(--blanco-texto) !important;
+}
 .dark-mode footer,
 .dark-mode .topbar {
-    background: #0a2236 !important;
+    background: var(--logo-azul-oscuro) !important;
+}
+
+.dark-mode footer{
+    border-top: 5px solid var(--boton-modo-osc);
 }
 
 .dark-mode .menu-accesibilidad,
 .dark-mode .subtitulo-box{
-    background-color: #1e1e1e !important;
-    color: white !important;
-    border: 2px solid #0a2236  !important
+    background-color: var(--contenedores-modo-osc) !important;
+    color: var(--blanco-principal) !important;
+    border: 2px solid var(--logo-azul-oscuro) !important
 }
 
 .dark-mode input,
 .dark-mode button,
 .dark-mode select,
 .dark-mode option{
-     background-color: #333 !important;
-     color: white !important;
+     background-color: var(--boton-modo-osc) !important;
+     color: var(--blanco-principal) !important;
    
 }
 
 .dark-mode button:hover {
-    background-color: #555 !important;
-    color: white !important;
+    background-color: var(--hoverbtn-modo-osc) !important;
+    color: var(--blanco-principal) !important;
 }
 
 
 .dark-mode .titulo-principal{
-    color: white;
+    color: var(--blanco-principal);
 }
 
 .mayusculas{

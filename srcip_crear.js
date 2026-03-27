@@ -86,7 +86,7 @@ form.addEventListener('submit', async function(e) {
         return;
     }
 
-    // 🔵 AQUÍ VA EL FETCH 🔵
+    // 🔵 AQUÍ VA EL FETCH 🔵 
     try {
 
         const respuesta = await fetch("http://localhost:3000/register", {
@@ -105,7 +105,8 @@ form.addEventListener('submit', async function(e) {
         const data = await respuesta.json();
 
         if (respuesta.ok) {
-            showAlert("✅ Usuario registrado correctamente", "success");
+            showAlert("⏳ Solicitud enviada. Tu cuenta está esperando permiso para ser creada. El administrador debe aprobarla antes de que puedas iniciar sesión.", "success");
+            form.reset();
         } else {
             showAlert(data.mensaje);
         }

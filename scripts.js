@@ -107,20 +107,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 // =============================
-// CERRAR SESIÓN
-// =============================
-function cerrarSesion() {
-
-    localStorage.removeItem("usuarioActivo");
-
-    alert("Sesión cerrada correctamente 👋");
-
-    window.location.href = "index.html";
-
-}
-
-
-// =============================
 // ACCESIBILIDAD
 // =============================
 let menu = document.getElementById("menuAccesibilidad");
@@ -178,5 +164,3 @@ function guardarConfig() {
     }));
 
 }
-
-

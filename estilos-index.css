@@ -1,3 +1,24 @@
+:root {
+ --blanco-principal : #fffffff0;
+    --blanco-texto: #ededede4;
+    --blanco2: rgb(206, 206, 206);
+    --texto-modo-osc: #DBD3D3;
+    --logo-azul: #0D3B66;
+    --logo-verde: #54C1A9;
+    --negro: #000;
+    --gris-texto: #6C757D;
+    --gris-fuerte: #4A4A4A;
+    /* colores modo oscuro */
+    --blanco-accesibilidad : #ffffff93;
+    --fondo-modo-osc: radial-gradient(circle,rgba(6, 21, 31, 1) 0%, rgba(4, 13, 20, 1) 22%, rgba(4, 13, 20, 1) 100%);
+    --contenedores-modo-osc :  #1e1e1e;
+    --fondo-acc-osc: #1e1c1cdb;
+    --logo-azul-oscuro:#0a2236;
+    --gris-texto: #6C757D;
+    --boton-modo-osc: #333;
+    --hoverbtn-modo-osc:#555;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -9,12 +30,13 @@ body {
     height: 100vh;
     position: relative;
     overflow: hidden;
+    
 }
 
 
 .topbar {
-    background: #1f3b57;
-    color: white;
+    background: var(--logo-azul);
+    color: var(--blanco-principal);
     padding: 15px 40px;
     font-weight: bold;
 }
@@ -23,7 +45,7 @@ body {
     top: 90px;   
     left: 20px;
     background: rgba(255,255,255,0.9);
-    color: #1f3b57;
+    color: var(--logo-azul);
     padding: 8px 14px;
     border-radius: 8px;
     text-decoration: none;
@@ -35,8 +57,8 @@ body {
 
 
 .btn-volver:hover {
-    background: #1f3b57;
-    color: white;
+    background: var(--logo-azul);
+    color: var(--blanco-principal);
 }
 
 
@@ -51,7 +73,7 @@ body {
 }
 
 .logo-area .titulo {
-    color: white;
+    color: var(--blanco-principal);
     font-size: 19px;
     font-weight: bold;
 }
@@ -66,7 +88,7 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: url("imagenes/fondo2.jpg") no-repeat center center/cover;
+    background:var(--blanco-principal);
     filter: blur(6px);
     z-index: -1;
 }
@@ -90,20 +112,20 @@ body {
 }
 
 .login-box h1 {
-    color: #1f3b57;
+    color: var(--logo-azul);
     margin-bottom: 10px;
 }
 
 .login-box p {
     margin-bottom: 25px;
-    color: #555;
+    color: var(--gris-texto);
 }
 
 
 .input-group {
     display: flex;
     align-items: center;
-    background: #f0f0f0;
+    background: var(--blanco-texto);
     padding: 10px;
     margin-bottom: 15px;
     border-radius: 8px;
@@ -131,7 +153,7 @@ body {
 
 .opciones a {
     text-decoration: none;
-    color: #1f3b57;
+    color: var(--logo-azul);
 }
 
 
@@ -141,7 +163,7 @@ body {
     border: none;
     border-radius: 8px;
     background: linear-gradient(to right, #1f3b57, #2e8b8b);
-    color: white;
+    color: var(--blanco-principal);
     font-size: 16px;
     cursor: pointer;
     transition: 0.3s;
@@ -164,7 +186,7 @@ body {
 }
 
 .boton-inicio:hover {
-    background-color: var(--blanco);
+    background-color: var(--blanco-principal);
     transform: translateY(-2px);
     box-shadow: 0 8px 40px rgba(29, 74, 122, 0.6);
     color: var(--negro);
@@ -175,7 +197,7 @@ body {
 }
 
 .ayuda a {
-    color: #1f3b57;
+    color: var(--logo-azul);
     text-decoration: none;
 }
 
@@ -192,7 +214,7 @@ body {
     bottom: 10px;
     width: 100%;
     text-align: center;
-    color: white;
+    color: var(--blanco-principal);
     font-size: 13px;
 }
 
@@ -278,41 +300,6 @@ body {
     color:black;
     border-radius:6px;
 }
-
-/* MODOS */
-.dark-mode {
-    background-color: #121212 !important;
-    color: #ffffff !important;
-}
-.dark-mode .menu-accesibilidad,
-.dark-mode .login-box {
-    background-color: #1e1e1e !important;
-    color: white !important;
-    border: 2px solid #0a2236  !important
-}
-.dark-mode .topbar {
-    background: #0a2236 !important;
-}
-.dark-mode h1{
-    color: var(--blanco);
-}
-.dark-mode .btn-volver,
-.dark-mode .input-group {
-    background-color: #333 !important;
-    color: white !important;
-}
-.dark-mode .btn-volver:hover{
-    background-color: #555 !important;
-    color: white !important;
-}
-.dark-mode .login-box{
-    background: black;
-    color: white;
-}
-
-.mayusculas{
-    text-transform: uppercase;
-}
 .alert-error {
     display: none;
     padding: 10px;
@@ -333,7 +320,57 @@ body {
     cursor: pointer;
     font-size: 18px;
     }
+
+/* MODOS */
+.dark-mode {
+    background-color: var(--fondo-modo-osc) !important;
+    color: var(--blanco-principal) !important;
+}
+.dark-mode .fondo{
+    background: var(--fondo-modo-osc) !important;
+    filter: blur(6px);
+
+}
+
+.dark-mode .menu-accesibilidad,
+.dark-mode .login-box {
+    background-color: var(--contenedores-modo-osc)!important;
+    color: var(--blanco-principal) !important;
+    border: 2px solid var(--logo-azul-oscuro)  !important
+}
+.dark-mode .topbar {
+    background: var(--logo-azul-oscuro) !important;
+}
+.dark-mode h1{
+    color: var(--blanco-principal);
+}
+.dark-mode .btn-volver,
+.dark-mode .input-group {
+    color: var(--blanco-texto);
+    background-color: var(--boton-modo-osc) !important;
+}
+ .dark-mode input{
+    color: var(--blanco-texto);
+ }
+
+
+.dark-mode .btn-volver:hover{
+    background-color: var(--hoverbtn-modo-osc) !important;
+    color: var(--blanco-principal) !important;
+}
+.dark-mode .login-box{
+    background: black;
+    color: var(--blanco-principal);
+}
+.dark-mode .alert-error{
+    background: var(--blanco-texto)!important;
+}
+
+.mayusculas{
+    text-transform: uppercase;
+}
+
 .dark-mode button {
-    background-color: #333 !important;
-    color: white !important;
+    background-color: var(--boton-modo-osc) !important;
+    color: var(--blanco-texto) !important;
 }

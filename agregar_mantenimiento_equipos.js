@@ -86,9 +86,6 @@ async function guardar3() {
         novedad_equipo: novedad,
         id_equipo: id_equipo
     };
-
-    console.log('📤 Enviando datos:', datosEnvio);
-
     try {
         // Enviar datos al servidor
         const response = await fetch('http://localhost:3000/mantenimiento/equipo', {
