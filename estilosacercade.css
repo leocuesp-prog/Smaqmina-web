@@ -478,5 +478,16 @@ background: var(--fondo-modo-osc) !important;
 .btn-cerrar-sesion {
     background: crimson !important;
     margin-bottom: 16px;
+
 }
 .btn-cerrar-sesion:hover { background: darkred !important; color: white !important; }
+/* ALTO CONTRASTE — header/topbar */
+.alto-contraste .topbar {
+    background: #000000 !important;
+    border-color: #ffff00 !important;
+}
+
+/* DARK MODE — header/topbar */
+.dark-mode .topbar {
+    background: #0a2236 !important;
+}
