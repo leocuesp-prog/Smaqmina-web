@@ -24,7 +24,6 @@ body{
 /* ---------------- HEADER ---------------- */
 
 .titulo-header {
-    font-size: 22px;
     font-weight: bold;
 }
 
@@ -118,7 +117,6 @@ footer {
     text-align: center;
     padding: 20px;
     color: var(--blanco-principal);
-    font-size: 16px;
     margin-top: 40px;
     border-top: 3px solid var(--logo-verde);
 }
@@ -168,7 +166,6 @@ footer {
 
 .logo-area .titulo {
     color: var(--blanco-principal);
-    font-size: 24px;
     font-weight: bold;
 }
 
@@ -181,7 +178,6 @@ footer {
 .nav-links a {
     color: var(--blanco-principal);
     text-decoration: none;
-    font-size: 16px;
 }
 
 .nav-links a:hover {
@@ -196,7 +192,6 @@ footer {
     background-color: transparent;
     border: none;
     color: var(--blanco-texto);
-    font-size: 16px;
     padding: 10px;
     cursor: pointer;
 }
@@ -246,7 +241,6 @@ footer {
     border: none;
     padding: 12px;
     border-radius: 50%;
-    font-size: 18px;
     cursor: pointer;
 }
 

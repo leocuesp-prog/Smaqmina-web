@@ -38,7 +38,6 @@
 
 .logo-area .titulo {
     color: var(--blanco-principal);
-    font-size: 24px;
     font-weight: bold;
 }
 
@@ -51,7 +50,6 @@
 .nav-links a {
     color: var(--blanco-texto);
     text-decoration: none;
-    font-size: 16px;
 }
 
 .nav-links a:hover {
@@ -59,14 +57,9 @@
 }
 
 
-
-
-
-
  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
  .bienvenida h1 {
-    font-size: 40px;
     font-weight: 900;
     color: var(--logo-azul);
     font-family: "Inter", sans-serif;
@@ -80,7 +73,6 @@
 }
 
 .categoria-titulo {
-    font-size: 25px;
     font-weight: 900;
     color: var(--negro);
     letter-spacing: 2px;
@@ -113,14 +105,12 @@
 }
 
 .categoria-card h3 {
-    font-size: 22px;
     font-weight: 900;
     margin-top: 12px;
     color: var(--negro);
 }
 
 .categoria-card p {
-    font-size: 15px;
     margin-top: 8px;
     line-height: 1.4;
     color: var(--gris-texto);
@@ -131,7 +121,6 @@
     border: 5px double var(--logo-verde);
     padding: 12px;
     border-radius: 50%;
-    font-size: 18px;
     cursor: pointer;
 }
 
@@ -169,7 +158,6 @@
     position: absolute;
     top: 15px;
     right: 20px;
-    font-size: 20px;
     cursor: pointer;
     font-weight: bold;
 }
@@ -207,7 +195,6 @@
 }
 .dropbtn{
     color: var(--blanco-texto);
-    font-size: 16px;
     padding: 10px;
     cursor: pointer;
 }
@@ -343,7 +330,6 @@ grid-container > * {
     position: absolute;
     top: 18px;
     right: 25px;
-    font-size: 20px;
     cursor: pointer;
     color: gray;
 }
@@ -354,7 +340,6 @@ grid-container > * {
 
 /* Encabezado */
 .perfil-header h2 {
-    font-size: 26px;
     font-weight: 900;
     color: var(--logo-azul);
     margin-bottom: 25px;
@@ -382,13 +367,11 @@ grid-container > * {
 }
 
 .perfil-foto h3 {
-    font-size: 20px;
     font-weight: 800;
     color: var(--logo-azul);
 }
 
 .perfil-foto p {
-    font-size: 14px;
     color: var(--gris-texto);
 }
 
@@ -473,7 +456,6 @@ grid-container > * {
 }
 
 .editar-box h2 {
-    font-size: 24px;
     font-weight: 900;
     color: var(--logo-azul);
     margin-bottom: 20px;
@@ -481,7 +463,6 @@ grid-container > * {
 
 .editar-box label {
     font-weight: bold;
-    font-size: 14px;
     color: var(--logo-azul);
     display: block;
     margin-top: 12px;
@@ -493,7 +474,6 @@ grid-container > * {
     border-radius: 10px;
     border: 1px solid var(--blanco-principal);
     margin-top: 5px;
-    font-size: 15px;
 }
 
 .editar-box button {
@@ -579,7 +559,6 @@ footer {
     padding: 20px;
     background: var(--logo-azul);
     color: var(--blanco-principal);
-    font-size: 16px;
     margin-top: 40px;
     border-top: 5px solid var(--logo-verde);
 }

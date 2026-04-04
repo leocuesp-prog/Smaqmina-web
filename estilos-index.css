@@ -74,7 +74,6 @@ body {
 
 .logo-area .titulo {
     color: var(--blanco-principal);
-    font-size: 19px;
     font-weight: bold;
 }
 
@@ -140,14 +139,12 @@ body {
     background: none;
     outline: none;
     width: 100%;
-    font-size: 14px;
 }
 
 
 .opciones {
     display: flex;
     justify-content: space-between;
-    font-size: 13px;
     margin-bottom: 20px;
 }
 
@@ -164,7 +161,6 @@ body {
     border-radius: 8px;
     background: linear-gradient(to right, #1f3b57, #2e8b8b);
     color: var(--blanco-principal);
-    font-size: 16px;
     cursor: pointer;
     transition: 0.3s;
 }
@@ -176,7 +172,6 @@ body {
 .boton-inicio{
     
     padding: 12px 25px;
-    font-size: 17px;
     background: var(--logo-verde);
     color: white;
     border: none;
@@ -193,7 +188,6 @@ body {
 }
 .ayuda {
     margin-top: 20px;
-    font-size: 13px;
 }
 
 .ayuda a {
@@ -204,7 +198,6 @@ body {
 
 .footer-box {
     margin-top: 25px;
-    font-size: 12px;
     color: #666;
 }
 
@@ -215,7 +208,6 @@ body {
     width: 100%;
     text-align: center;
     color: var(--blanco-principal);
-    font-size: 13px;
 }
 
 .footer-bottom a {
@@ -235,7 +227,6 @@ body {
     border: 1px solid #cbd5e1;
     border-radius: 12px;
 
-    font-size: 15px;
     font-weight: 600;
     color: #0f172a;
 

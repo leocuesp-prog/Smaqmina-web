@@ -51,12 +51,7 @@ th, td {
     border: 1px solid var(--negro);
     padding: 8px;
 }
-.btn-agregar:hover {
-    background-color: var(--blanco-principal);
-    transform: translateY(-2px);
-    box-shadow: 0 7px 20px rgba(0,0,0,0.4);
-    color: var(--negro);
-}
+
 .logo-area img {
 height: 55px;
 }
@@ -157,7 +152,12 @@ transform: rotate(180deg);
 align-items: center;
 gap: 10px;
 }
-
+.btn-agregar:hover {
+    background-color: var(--blanco-principal);
+    transform: translateY(-2px);
+    box-shadow: 0 7px 20px rgba(0,0,0,0.4);
+    color: var(--negro);
+}
 .dropdown {
     position: relative;
     display: inline-block;
@@ -166,8 +166,6 @@ gap: 10px;
 .dropbtn {
     background-color: transparent;
     border: none;
-   
-    font-size: 16px;
     padding: 10px;
     cursor: pointer;
 }
@@ -191,7 +189,7 @@ gap: 25px;
 
  .btn-agregar {
  margin-top: 20px;
- padding: 12px 25px;
+ padding: 0px 20px;
  background: var(--logo-verde);
  color: white;
  border: none;

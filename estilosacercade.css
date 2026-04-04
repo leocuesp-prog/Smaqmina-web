@@ -60,13 +60,11 @@ height: 55px;
 }
 .logo-area .titulo {
 color: var(--blanco-principal);
-font-size: 26px;
 font-weight: bold;
 }
 .nav-links a {
 color: var(--blanco-texto);
 text-decoration: none;
-font-size: 16px;
 }
 
 .nav-links a.active,
@@ -119,7 +117,6 @@ gap: 10px;
 .btn-agregar {
  margin-top: 20px;
  padding: 12px 25px;
-font-size: 17px;
  background: var(--logo-verde);
  color: var(--blanco-principal);
  border: none;
@@ -136,7 +133,6 @@ cursor: pointer;
     background-color: transparent;
     border: none;
     color: var(--blanco-texto);
-    font-size: 16px;
     padding: 10px;
     cursor: pointer;
 }
@@ -202,7 +198,6 @@ gap: 25px;
     border: none;
     padding: 12px;
     border-radius: 50%;
-    font-size: 18px;
     cursor: pointer;
 }
 
@@ -273,7 +268,6 @@ footer {
     padding: 20px;
     background: var(--logo-azul);
     color: var(--blanco-principal);
-    font-size: 16px;
     margin-top: 40px;
     border-top: 3px solid var(--logo-verde);
 }

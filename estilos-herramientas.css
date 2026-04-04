@@ -53,7 +53,6 @@
 
  button{
     padding: 12px 25px;
-    font-size: 17px;
     background: var(--logo-verde);
     color: white;
     border: none;
@@ -80,14 +79,12 @@ height: 55px;
 
 .logo-area .titulo {
 color: var(--blanco-principal);
-font-size: 26px;
 font-weight: bold;
 }
 
 .nav-links a {
 color: var(--blanco-texto);
 text-decoration: none;
-font-size: 16px;
 }
 
 .nav-links a.active,
@@ -109,14 +106,12 @@ background: var(--logo-azul);
 color: white;
 padding: 12px;
  text-align: left;
- font-size: 18px;
 }
 
 .tabla td {
     padding: 12px;
     border-bottom: 1px solid var(--blanco-texto);
     color: var(--gris-fuerte);
-    font-size: 16px;
 }
 
 
@@ -156,7 +151,6 @@ padding: 12px;
     border: none;
     padding: 12px;
     border-radius: 50%;
-    font-size: 18px;
     cursor: pointer;
 }
 
@@ -212,7 +206,6 @@ padding: 12px;
     h2{
     grid-area: h2;
     text-align: center;
-    font-size: 30px; 
     color: var(--logo-azul);
 }
 
@@ -235,7 +228,6 @@ padding: 12px;
     
     border: none;
     color: var(--blanco-texto);
-    font-size: 16px;
     padding: 10px;
     cursor: pointer;
 }
@@ -290,7 +282,6 @@ padding: 12px;
     padding: 20px;
     background: var(--logo-azul);
     color: var(--blanco-principal);
-    font-size: 16px;
     margin-top: 40px;
     border-top: 5px solid var(--logo-verde);
     }
@@ -300,7 +291,7 @@ padding: 12px;
 .btn {
     grid-area: boton-volver;
  margin-top: 20px;
- padding: 25px;
+ padding: 0px 20px;
    border-radius: 6px;
 }
     select, option{
