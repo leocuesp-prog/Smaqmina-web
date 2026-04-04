@@ -191,7 +191,7 @@ gap: 25px;
  margin-top: 20px;
  padding: 0px 20px;
  background: var(--logo-verde);
- color: white;
+ color: var(--blanco-principal);
  border: none;
 border-radius: 6px;
 cursor: pointer;
@@ -224,6 +224,8 @@ cursor: pointer;
     width: 75px;
     padding: 20px;
 }
+<<<<<<< HEAD
+=======
 .accesibilidad > button {
     background: #1f3b57;
     color: white;
@@ -232,29 +234,9 @@ cursor: pointer;
     border-radius: 50%;
     cursor: pointer;
 }
+>>>>>>> 72f6dd1d77c0fc6512a5778d0956513958ec019b
 
-/* MENÚ */
-.menu-accesibilidad {
-    display: none;
-    flex-direction: column;
-    margin-top: 10px;
-    background: white;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-}
 
-.menu-accesibilidad button {
-    margin: 5px 0;
-    padding: 6px;
-    border: none;
-    cursor: pointer;
-    background:#eee;
-    color:black;
-    border-radius:6px;
-}
-
-/* MODOS */
 
 
 grid-container > * { 
@@ -360,7 +342,7 @@ footer {
 .dark-mode .titulo-principal{
     color: var(--blanco-principal);
 }
-.dark-mode .menu-accesibilidad,
+
 
 .dark-mode td {
     background-color: var(--contenedores-modo-osc) !important;
@@ -420,6 +402,16 @@ footer {
 .dark-mode button:hover {
     background-color: var(--hoverbtn-modo-osc) !important;
     color: var(--blanco-principal) !important;
+}
+
+.dark-mode   .accesibilidad > button{
+    background: var(--logo-azul-oscuro) !important;
+    color: var(--blanco-texto) !important;
+    border: 5px double var(--boton-modo-osc);
+    padding: 12px;
+    border-radius: 50%;
+   
+    cursor: pointer;
 }
 .mayusculas{
     text-transform: uppercase;

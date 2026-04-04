@@ -207,8 +207,7 @@ gap: 25px;
 .dark-mode .img,
 .dark-mode .hj1,
 .dark-mode .hj2,
-.dark-mode .descripcion,
-.dark-mode .menu-accesibilidad {
+.dark-mode .descripcion{
     background-color: var(--contenedores-modo-osc) !important;
     color: var(--blanco-principal) !important;
 }
@@ -245,6 +244,15 @@ gap: 25px;
     color: var(--blanco-texto) !important;
 }
 
+.dark-mode   .accesibilidad > button{
+    background: var(--logo-azul-oscuro) !important;
+    color: var(--blanco-texto) !important;
+    border: 5px double var(--boton-modo-osc);
+    padding: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
 /* Footer */
 .dark-mode footer {
     background: var(--logo-azul-oscuro) !important;
@@ -261,9 +269,7 @@ gap: 25px;
     background-color: var(--hoverbtn-modo-osc) !important;
     color: var(--blanco-principal) !important;
 }
-.dark-mode .menu-accesibilidad{
-    background-color: var(--negro);
-}
+
 .dark-mode .icon{
     background-color: transparent;
 }

@@ -1,3 +1,5 @@
+ /* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap'); */
+
 :root {
     /* colores modo normal */
     --blanco-principal : #fffffff0;
@@ -16,4 +18,65 @@
     --hoverbtn-modo-osc:#555;
 }
 
-    
+
+
+/* MENÚ */
+.accesibilidad button:hover{
+     transform: scale(1.05);
+    transition: 0.2s;
+}
+
+.accesibilidad  button {
+    background: var(--logo-azul);
+    color: var(--blanco-texto);
+    border: 5px double var(--logo-verde);
+    padding: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 12px;
+}
+.menu-accesibilidad button {
+    margin: 5px 0;
+    padding: 6px;
+    border: none;
+    cursor: pointer;
+    background: var(--blanco-principal);
+    color:black;
+    border-radius:6px ;
+    border:1px var(--logo-verde) solid 
+}
+
+.menu-accesibilidad {
+    display: none;
+    flex-direction: column;
+    margin-top: 10px;
+    background: var(--blanco-texto);
+    padding: 10px;
+    border-radius: 10px;
+    border: 2px solid var(--logo-verde)
+}
+
+
+.dark-mode .menu-accesibilidad {
+    background-color: var(--fondo-acc-osc) !important;
+    color: var(--blanco-texto) !important;
+    border: 2px var(--logo-azul-oscuro) solid !important;
+}
+
+.dark-mode .menu-accesibilidad button {
+    background: var(--boton-modo-osc) !important;
+    border: 2px var(--logo-azul-oscuro) solid;
+   
+}
+
+
+
+
+
+
+
+
+.mayusculas{
+    text-transform: uppercase;
+}
+ 

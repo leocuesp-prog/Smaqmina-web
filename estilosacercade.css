@@ -331,7 +331,7 @@ background: var(--fondo-modo-osc) !important;
     border-top: 5px solid var(--boton-modo-osc);
 }
 
-.dark-mode .menu-accesibilidad,
+
 .dark-mode .subtitulo-box{
     background-color: var(--contenedores-modo-osc) !important;
     color: var(--blanco-principal) !important;
@@ -357,6 +357,14 @@ background: var(--fondo-modo-osc) !important;
     color: var(--blanco-principal);
 }
 
+.dark-mode   .accesibilidad > button{
+    background: var(--logo-azul-oscuro) !important;
+    color: var(--blanco-texto) !important;
+    border: 5px double var(--boton-modo-osc);
+    padding: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+}
 .mayusculas{
     text-transform: uppercase;
 }
@@ -496,5 +504,16 @@ background: var(--fondo-modo-osc) !important;
 .btn-cerrar-sesion {
     background: crimson !important;
     margin-bottom: 16px;
+
 }
 .btn-cerrar-sesion:hover { background: darkred !important; color: white !important; }
+/* ALTO CONTRASTE — header/topbar */
+.alto-contraste .topbar {
+    background: #000000 !important;
+    border-color: #ffff00 !important;
+}
+
+/* DARK MODE — header/topbar */
+.dark-mode .topbar {
+    background: #0a2236 !important;
+}
