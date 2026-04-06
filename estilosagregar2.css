@@ -34,6 +34,8 @@
     --boton-modo-osc: #333;
     --hoverbtn-modo-osc:#555;
  }
+
+ 
 body {
 background: var(--blanco-principal);
 margin: 0;
@@ -215,38 +217,6 @@ cursor: pointer;
     padding: 20px;
 }
 
-.accesibilidad > button {
-    background: #1f3b57;
-    color: white;
-    border: none;
-    padding: 12px;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-/* MENÚ */
-.menu-accesibilidad {
-    display: none;
-    flex-direction: column;
-    margin-top: 10px;
-    background: white;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-}
-
-.menu-accesibilidad button {
-    margin: 5px 0;
-    padding: 6px;
-    border: none;
-    cursor: pointer;
-    background:#eee;
-    color:black;
-    border-radius:6px;
-}
-
-/* MODOS */
-
 
 
 grid-container > * { 
@@ -392,7 +362,6 @@ footer {
     border-top: 5px solid var(--boton-modo-osc);
 }
 
-.dark-mode .menu-accesibilidad,
 .dark-mode .formulario-container1,
 .dark-mode .formulario-container2
 {
@@ -419,15 +388,6 @@ footer {
 
 .dark-mode .titulo-principal{
     color: var(--blanco-principal);
-}
-
-.dark-mode   .accesibilidad > button{
-    background: var(--logo-azul-oscuro) !important;
-    color: var(--blanco-texto) !important;
-    border: 5px double var(--boton-modo-osc);
-    padding: 12px;
-    border-radius: 50%;
-    cursor: pointer;
 }
 
 .mayusculas{

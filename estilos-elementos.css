@@ -157,36 +157,6 @@ gap: 25px;
     padding: 20px;
 }
 
-/* BOTÓN FLOTANTE ACCESIBILIDAD */
-.accesibilidad > button {
-    background: var(--logo-azul);
-    color: white;
-    border: none;
-    padding: 12px;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-/* MENÚ */
-.menu-accesibilidad {
-    display: none;
-    flex-direction: column;
-    margin-top: 10px;
-    background: white;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-}
-
-.menu-accesibilidad button {
-    margin: 5px 0;
-    padding: 6px;
-    border: none;
-    cursor: pointer;
-    background:#eee;
-    color:black;
-    border-radius:6px;
-}
 
 /* MODOS */
 .dark-mode {
@@ -242,15 +212,6 @@ gap: 25px;
 
 .dark-mode .dropbtn{
     color: var(--blanco-texto) !important;
-}
-
-.dark-mode   .accesibilidad > button{
-    background: var(--logo-azul-oscuro) !important;
-    color: var(--blanco-texto) !important;
-    border: 5px double var(--boton-modo-osc);
-    padding: 12px;
-    border-radius: 50%;
-    cursor: pointer;
 }
 
 /* Footer */

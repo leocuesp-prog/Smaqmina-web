@@ -23,7 +23,9 @@
     --hoverbtn-modo-osc:#555
 }
 
-    
+* {
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
 
 
 .logo-area {
@@ -123,44 +125,10 @@
     line-height: 1.4;
     color: var(--gris-texto);
 }
-.accesibilidad > button {
-    background: var(--logo-azul);
-    color: var(--blanco-texto);
-    border: 5px double var(--logo-verde);
-    padding: 12px;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-/* MENÚ */
-.menu-accesibilidad {
-    display: none;
-    flex-direction: column;
-    margin-top: 10px;
-    background: var(--blanco-texto);
-    padding: 10px;
-    border-radius: 10px;
-    border: 2px solid var(--logo-verde)
-}
 
 
 
-.menu-accesibilidad button {
-    margin: 5px 0;
-    padding: 6px;
-    border: none;
-    cursor: pointer;
-    background: var(--blanco-principal);
-    color:black;
-    border-radius:6px ;
-    border:1px var(--logo-verde) solid 
-}
 
-
-
-.mayusculas{
-    text-transform: uppercase;
-}
 
 .cerrar-perfil {
     position: absolute;
@@ -244,6 +212,7 @@ grid-container > * {
     
 }
     .grid-container{
+        
     margin: 0;
     font-family: "Montserrat", sans-serif;
     /* background-color: var(--blanco-principal); */
@@ -262,7 +231,7 @@ grid-container > * {
     align-items: center;
     justify-content: space-between;
     padding: 0 30px;
-    border-bottom: 5px solid var(--logo-verde);
+    border-bottom: 10px solid var(--logo-verde);
 }
 .bienvenida {
     grid-area: bienvenida;
@@ -666,17 +635,6 @@ body.dark-mode footer {
     background-color: var(--hoverbtn-modo-osc) !important;
     color: var(--blanco-texto) !important;
 }
-
-.dark-mode   .accesibilidad > button{
-    background: var(--logo-azul-oscuro) !important;
-    color: var(--blanco-texto) !important;
-    border: 5px double var(--boton-modo-osc);
-    padding: 12px;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-
 
 .dark-mode .negro{
     color: var(--negro);

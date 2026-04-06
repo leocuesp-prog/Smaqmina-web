@@ -145,15 +145,6 @@ padding: 12px;
     padding: 20px;
 }
 
-.accesibilidad > button {
-    background: var(--logo-azul);
-    color: var(--blanco-principal);
-    border: none;
-    padding: 12px;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
 
 /* MODOS */
 
@@ -373,14 +364,6 @@ padding: 12px;
     color: var(--blanco-principal) !important;
 }
 
-.dark-mode   .accesibilidad > button{
-    background: var(--logo-azul-oscuro) !important;
-    color: var(--blanco-texto) !important;
-    border: 5px double var(--boton-modo-osc);
-    padding: 12px;
-    border-radius: 50%;
-    cursor: pointer;
-}
 
 .mayusculas{
     text-transform: uppercase;

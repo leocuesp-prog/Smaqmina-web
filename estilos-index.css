@@ -333,11 +333,3 @@ body {
 }
 
 
-.dark-mode   .accesibilidad > button{
-    background: var(--logo-azul-oscuro) !important;
-    color: var(--blanco-texto) !important;
-    border: 5px double var(--boton-modo-osc);
-    padding: 12px;
-    border-radius: 50%;
-    cursor: pointer;
-}

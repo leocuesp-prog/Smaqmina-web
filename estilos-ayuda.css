@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
+
 :root {
      --blanco-principal : #fffffff0;
     --blanco-texto: #ededede4;
@@ -145,8 +146,17 @@ footer {
  font-size: smaller;
 }
 
-    .topbar {
+    .topbar {        
         grid-area: topbar;
+    }
+body {
+    font-family: "Montserrat", sans-serif;
+    background: var(--blanco);
+}
+
+/* ============ TOPBAR ============ */
+/* CORREGIDO: fuera de .grid-container, aplica directo al <header class="topbar"> */
+.topbar {
     background: var(--logo-azul);
     height: 80px;
     display: flex;
@@ -234,20 +244,6 @@ footer {
 
 .dropdown:hover .dropbtn {
     color: var(--logo-verde);
-}
-.accesibilidad {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 2000;
-}
-.accesibilidad > button {
-    background: #1f3b57;
-    color: var(--blanco-texto);
-    border: none;
-    padding: 12px;
-    border-radius: 50%;
-    cursor: pointer;
 }
 
 
@@ -479,6 +475,88 @@ background: var(--fondo-modo-osc) !important;
 .btn-cerrar-sesion:hover { background: darkred !important; color: white !important; }
 /* ===== PERFIL OVERLAY ===== */
 
+/* ============ ICONO PERFIL ============ */
+.icon img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+    cursor: pointer;
+}
+.dropdown button.icon {
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+.dropdown button.icon img:hover {
+    transform: scale(1.05);
+    transition: 0.2s;
+}
+#perfilNavbar { display: none; }
+
+/* ============ CONTENEDOR ============ */
+.contenedor {
+    padding: 40px 70px;
+    font-family: "Inter", sans-serif;
+}
+
+h1 {
+    background: var(--azul);
+    color: white;
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 25px;
+}
+
+/* ============ CARDS ============ */
+.card {
+    background: white;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+.card h2 {
+    color: var(--azul);
+    margin-bottom: 10px;
+}
+
+.card p {
+    text-align: justify;
+    line-height: 1.6;
+}
+
+/* ============ BOTÓN DESCARGA ============ */
+.btn-descarga {
+    display: inline-block;
+    padding: 12px 20px;
+    background: var(--verde);
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.btn-descarga:hover {
+    background: #3a9b7e;
+}
+
+/* ============ FOOTER ============ */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: var(--azul);
+    color: white;
+    font-size: 16px;
+    margin-top: 40px;
+    border-top: 6px solid var(--verde);
+}
+
+
 .perfil-overlay {
     position: fixed;
     top: 0; left: 0;
@@ -595,44 +673,4 @@ background: var(--fondo-modo-osc) !important;
     margin-bottom: 16px;
 }
 .btn-cerrar-sesion:hover { background: darkred !important; color: white !important; }
-
-/* ============ MODOS ============ */
-.dark-mode {
-    background: #121212 !important;
-}
-
-.dark-mode .topbar,
-.dark-mode footer,
-.dark-mode h1 {
-    background: #0a2236 !important;
-}
-
-.dark-mode .menu-accesibilidad,
-.dark-mode .card {
-    background-color: #1e1e1e !important;
-    color: white !important;
-    border: 2px solid #0a2236 !important;
-}
-
-.dark-mode .card h2 {
-    color: white !important;
-}
-
-.dark-mode input,
-.dark-mode button,
-.dark-mode .btn-descarga,
-.dark-mode select,
-.dark-mode option {
-    background-color: #333 !important;
-    color: white !important;
-}
-
-.dark-mode button:hover {
-    background-color: #555 !important;
-    color: white !important;
-}
-
-.mayusculas {
-    text-transform: uppercase;
-}
 

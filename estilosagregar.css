@@ -33,6 +33,8 @@
     --boton-modo-osc: #333;
     --hoverbtn-modo-osc:#555;
  }
+
+ 
 body {
 background: var(--blanco-principal);
 margin: 0;
@@ -199,36 +201,6 @@ cursor: pointer;
     padding: 20px;
 }
 
-.accesibilidad > button {
-    background: #1f3b57;
-    color: white;
-    border: none;
-    padding: 12px;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-/* MENÚ */
-.menu-accesibilidad {
-    display: none;
-    flex-direction: column;
-    margin-top: 10px;
-    background: white;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-}
-
-.menu-accesibilidad button {
-    margin: 5px 0;
-    padding: 6px;
-    border: none;
-    cursor: pointer;
-    background:#eee;
-    color:black;
-    border-radius:6px;
-}
-
 
 grid-container > * { 
     text-align: center
@@ -330,7 +302,7 @@ background: var(--fondo-modo-osc) !important;
     background: var(--logo-azul-oscuro) !important;
 }
 
-.dark-mode .menu-accesibilidad,
+
 .dark-mode .formulario-container{
     background-color: var(--contenedores-modo-osc) !important;
     color: var(--blanco-principal) !important;
@@ -394,18 +366,8 @@ background: var(--fondo-modo-osc) !important;
     color: var(--blanco-texto);
 }
 
-.dark-mode   .accesibilidad > button{
-    background: var(--logo-azul-oscuro) !important;
-    color: var(--blanco-texto) !important;
-    border: 5px double var(--boton-modo-osc);
-    padding: 12px;
-    border-radius: 50%;
-    cursor: pointer;
-}
 
-.mayusculas{
-    text-transform: uppercase;
-}
+
 /* ===== PERFIL OVERLAY ===== */
 
 .perfil-overlay {

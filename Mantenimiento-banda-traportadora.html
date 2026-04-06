@@ -72,18 +72,21 @@
     <main class="boton-agregar">
         <a href="Agregar_mantenimiento_maquinas.html"><button class="btn-agregar"><h3>Agregar</h3></button></a>
     </main>
-    <div class="accesibilidad">
-    <button id="botonAccesibilidad">⚙️</button>
-
-    <div id="menuAccesibilidad" class="menu-accesibilidad">
-        <button onclick="toggleOscuro()"> Modo oscuro</button>
-        <button onclick="mayusculas()"> Mayúsculas</button>
-        <button onclick="resetEstilos()"> Restaurar</button>     
-        <button onclick="leerPagina()"> Leer Pagina</button>
-        <button onclick="detenerLectura()"> Detener Lectura</button>
+     <div class="accesibilidad">
+        <button id="botonAccesibilidad">⚙️</button>
+            <div id="menuAccesibilidad" class="menu-accesibilidad">
+                <section class="au-dis">
+                    <button>A+</button><button>A-</button>
+                </section>
+                    <button onclick="toggleOscuro()"> Modo oscuro</button>
+                    <button onclick="mayusculas()"> Mayúsculas</button>
+                    <button onclick="resetEstilos()"> Restaurar</button>   
+                <section class="au-dis">
+                    <button onclick="leerPagina()">Lectura</button>
+                    <button onclick="detenerLectura()">Detener</button>
+                </section>  
+            </div>
     </div>
-    </div>
-   
    
    <footer>
     <div class="secFooterPrincipal">

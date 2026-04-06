@@ -144,23 +144,8 @@ function toggleOscuro() {
     guardarConfig();
 }
 
-function toggleContraste() {
-    document.body.classList.toggle("alto-contraste");
-    guardarConfig();
-}
-
-function mayusculas() {
-    document.body.classList.toggle("mayusculas");
-    guardarConfig();
-}
-
-function resetEstilos() {
-    document.body.classList.remove("dark-mode", "alto-contraste", "mayusculas");
-    localStorage.removeItem("configAccesibilidad");
-}
-
 function leerPagina() {
-
+    
     if (speechSynthesis.speaking) return;
 
     let texto = document.body.innerText.substring(0, 5000);
@@ -173,12 +158,22 @@ function leerPagina() {
 function detenerLectura() {
     speechSynthesis.cancel();
 }
+function mayusculas() {
+    document.body.classList.toggle("mayusculas");
+    guardarConfig();
+}
+
+function resetEstilos() {
+    document.body.classList.remove("dark-mode", "mayusculas");
+    localStorage.removeItem("configAccesibilidad");
+}
+
+
 
 function guardarConfig() {
 
     localStorage.setItem("configAccesibilidad", JSON.stringify({
         oscuro: document.body.classList.contains("dark-mode"),
-        contraste: document.body.classList.contains("alto-contraste"),
         mayuscula: document.body.classList.contains("mayusculas"),
     }));
 
