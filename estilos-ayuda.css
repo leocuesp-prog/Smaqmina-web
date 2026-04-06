@@ -247,7 +247,6 @@ body {
 }
 
 
-
 /* MODOS */
 .dark-mode {
 background: var(--fondo-modo-osc) !important;
@@ -558,7 +557,6 @@ footer {
 }
 
 
-/* ============ PERFIL OVERLAY ============ */
 .perfil-overlay {
     position: fixed;
     top: 0; left: 0;
