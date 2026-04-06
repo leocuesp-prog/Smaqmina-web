@@ -14,9 +14,10 @@ app.use(express.json());
 const db = mysql.createConnection({
     host:     "localhost",
     user:     "root",
-    password: "1055313199",
+    password: "1234567",
     database: "smaqmina1"
 });
+
 
 db.connect(err => {
     if (err) console.log("Error de conexión:", err);
@@ -336,7 +337,7 @@ app.delete("/superadmin/usuario/:correo", soloSuperadmin, (req, res) => {
     });
 });
 
-// 🔑 Cambiar contraseña de cualquier usuario
+//  Cambiar contraseña de cualquier usuario
 app.put("/superadmin/password/:correo", soloSuperadmin, async (req, res) => {
     const { nueva_password } = req.body;
     if (!nueva_password) return res.status(400).json({ mensaje: "Contraseña requerida" });
@@ -347,33 +348,8 @@ app.put("/superadmin/password/:correo", soloSuperadmin, async (req, res) => {
     });
 });
 
-// 💾 Backup de la base de datos
-app.get("/superadmin/backup", soloSuperadmin, (req, res) => {
-    const fecha   = new Date().toISOString().slice(0, 19).replace(/[T:]/g, "-");
-    const archivo = `backup_smaqmina1_${fecha}.sql`;
-    const ruta    = `./${archivo}`;
-    const cmd     = `mysqldump -u root -p1234567 smaqmina1 > "${ruta}"`;
 
-    exec(cmd, (err) => {
-        if (err) { console.error(err); return res.status(500).json({ mensaje: "Error al generar backup" }); }
-        res.download(ruta, archivo, () => fs.unlink(ruta, () => {}));
-    });
-});
 
-// ♻️ Restaurar backup
-app.post("/superadmin/restaurar", soloSuperadmin, (req, res) => {
-    const { sql_content } = req.body;
-    if (!sql_content) return res.status(400).json({ mensaje: "Contenido SQL requerido" });
-
-    const rutaTmp = `./restore_tmp_${Date.now()}.sql`;
-    fs.writeFileSync(rutaTmp, sql_content);
-
-    exec(`mysql -u root -p1234567 smaqmina1 < "${rutaTmp}"`, (err) => {
-        fs.unlink(rutaTmp, () => {});
-        if (err) { console.error(err); return res.status(500).json({ mensaje: "Error al restaurar backup" }); }
-        res.json({ mensaje: "Base de datos restaurada correctamente" });
-    });
-});
 
 // ── SERVIDOR ──────────────────────────────────────────────────────────────────
 app.listen(3000, () => {
