@@ -3,13 +3,9 @@
     <head> 
         <meta charset="UTF-8"> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-<<<<<<< HEAD
         <link rel="stylesheet" href="estilos-elementos.css">
         <link rel="stylesheet" href="estilos-accesibilidad.css"> 
-=======
-        <link rel="stylesheet" href="estilos-elementos.css"> 
         <link rel="stylesheet" href="estilos-overlay.css">
->>>>>>> 72f6dd1d77c0fc6512a5778d0956513958ec019b
          <script src="perfil.js" defer></script>
         <script src="modificarHj.js" defer></script>
         <title>MAQUINAS-ELECTROBOMBA</title> 
@@ -106,21 +102,25 @@
                 </h1>
         </main>
           <main class="boton-volver">
-         <a href="maquinas.html"> <button>VOLVER</button></a>
+         <a href="maquinas.html"> <button><h3>VOLVER</h3></button></a>
         </main>
         <main class="boton-mantenimientos">
-          <a href="Mantenimiento-Electrobomba.html"><button>MANTENIMIENTOS</button></a>
+          <a href="Mantenimiento-Electrobomba.html"><button><h3>MANTENIMIENTOS</h3></button></a>
          </main>
-            <div class="accesibilidad">
-    <button id="botonAccesibilidad">⚙️</button>
-
-    <div id="menuAccesibilidad" class="menu-accesibilidad">
-        <button onclick="toggleOscuro()"> Modo oscuro</button>
-        <button onclick="mayusculas()"> Mayúsculas</button>
-        <button onclick="resetEstilos()"> Restaurar</button>     
-        <button onclick="leerPagina()"> Leer Pagina</button>
-        <button onclick="detenerLectura()"> Detener Lectura</button>
-    </div>
+     <div class="accesibilidad">
+        <button id="botonAccesibilidad">⚙️</button>
+            <div id="menuAccesibilidad" class="menu-accesibilidad">
+                <section class="au-dis">
+                    <button>A+</button><button>A-</button>
+                </section>
+                    <button onclick="toggleOscuro()"> Modo oscuro</button>
+                    <button onclick="mayusculas()"> Mayúsculas</button>
+                    <button onclick="resetEstilos()"> Restaurar</button>   
+                <section class="au-dis">
+                    <button onclick="leerPagina()">Lectura</button>
+                    <button onclick="detenerLectura()">Detener</button>
+                </section>  
+            </div>
     </div>
        
     <footer>

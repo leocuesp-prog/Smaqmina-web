@@ -64,13 +64,11 @@ height: 55px;
 }
 .logo-area .titulo {
 color: var(--blanco-principal);
-font-size: 26px;
 font-weight: bold;
 }
 .nav-links a {
 color: var(--blanco-texto);
 text-decoration: none;
-font-size: 16px;
 }
 
 .nav-links a.active,
@@ -82,14 +80,12 @@ background: var(--logo-azul);
 color: var(--blanco-principal);
 padding: 12px;
  text-align: left;
- font-size: 18px;
 }
 
 .tabla-Mantenimientos td {
  padding: 12px;
 border-bottom: 1px solid var(--blanco-principal);
 color: var(--gris-fuerte);
-font-size: 16px;
 }
 .dropdown-content a {
     color: var(--blanco-texto);
@@ -139,7 +135,6 @@ border: 2px solid var(--logo-azul);
 .dropbtn {
     border: none;
     color: var(--blanco-texto);
-    font-size: 16px;
     padding: 10px;
     cursor: pointer;
 }
@@ -161,8 +156,7 @@ gap: 25px;
 
  .btn-agregar {
  margin-top: 20px;
- padding: 12px 25px;
-font-size: 17px;
+ padding: 0px 20px;
  background: var(--logo-verde);
  color: var(--blanco-principal);
  border: none;
@@ -198,9 +192,6 @@ cursor: pointer;
     padding: 20px;
 }
 
-
-
-
 grid-container > * { 
     text-align: center
     ;
@@ -232,7 +223,6 @@ z-index: 1000;
 .titulo-principal {
     grid-area:titulo-principal ;
 text-align: center;
-font-size: 30px;
 margin-bottom: 25px;
 color: var(--logo-azul);
 }
@@ -270,7 +260,6 @@ footer {
     padding: 20px;
     background: var(--logo-azul);
     color: var(--blanco-principal);
-    font-size: 16px;
     margin-top: 40px;
     border-top: 3px solid var(--logo-verde);
 }
@@ -306,7 +295,7 @@ footer {
 .dark-mode .titulo-principal{
     color: var(--blanco-principal);
 }
-.dark-mode .menu-accesibilidad,
+
 .dark-mode input,
 .dark-mode td {
     background-color: var(--contenedores-modo-osc) !important;

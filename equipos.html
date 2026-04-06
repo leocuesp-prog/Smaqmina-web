@@ -98,25 +98,29 @@
     </table>
 </main>
     <main class="btn-volver">
-    <a href="inicio.html"><button>Volver</button></a>
+    <a href="inicio.html"><button><h3>Volver</h3></button></a>
 </main>
 
 <main class="btn-agregar">
-    <a href="Agregar-Equipos.html"><button>Agregar</button></a>
+    <a href="Agregar-Equipos.html"><button><h3>Agregar</h3></button></a>
 </main>
 
 
-<div class="accesibilidad">
-    <button id="botonAccesibilidad">⚙️</button>
-
-    <div id="menuAccesibilidad" class="menu-accesibilidad">
-        <button onclick="toggleOscuro()">Modo oscuro</button>
-        <button onclick="mayusculas()">Mayúsculas</button>
-        <button onclick="resetEstilos()">Restaurar</button>
-        <button onclick="leerPagina()">Leer página</button>
-        <button onclick="detenerLectura()">Detener lectura</button>
+ <div class="accesibilidad">
+        <button id="botonAccesibilidad">⚙️</button>
+            <div id="menuAccesibilidad" class="menu-accesibilidad">
+                <section class="au-dis">
+                    <button>A+</button><button>A-</button>
+                </section>
+                    <button onclick="toggleOscuro()"> Modo oscuro</button>
+                    <button onclick="mayusculas()"> Mayúsculas</button>
+                    <button onclick="resetEstilos()"> Restaurar</button>   
+                <section class="au-dis">
+                    <button onclick="leerPagina()">Lectura</button>
+                    <button onclick="detenerLectura()">Detener</button>
+                </section>  
+            </div>
     </div>
-</div>
 
 
 

@@ -6,6 +6,7 @@
     <title>INICIO - SMAQMINA</title>
     <link rel="stylesheet" href="estilos-inicio.css">
     <link rel="stylesheet" href="estilos-accesibilidad.css">
+    <link rel="stylesheet" href="estilos-overlay.css">
     
 </head>
 
@@ -18,7 +19,6 @@
     </div>
 
     <nav class="nav-links">
-        <a href="index.html" id="linkLogin">Inicio sesión</a>
         <a href="ayuda.html">Ayuda</a>
         <a href="Acerca-nosotros.html">Acerca de Nosotros</a>
 
@@ -28,13 +28,10 @@
         <a href="sostenimiento.html">Sostenimiento</a>
         <a href="formato_de_gases.html">Medición de Gases</a>
     </div>
-</div>
-        </div>
-
-        </a>
-
-<div class="dropdown" id="perfilNavbar">
-<button class="icon" onclick="abrirPerfil()">
+    </div>
+        <a href="index.html" id="linkLogin">Inicio sesión</a>        
+ <div class="dropdown" id="perfilNavbar">
+  <button class="icon" onclick="abrirPerfil()">
     <img id="iconoNavbar" src="imagenes/Usuario.webp" alt="Usuario">
 </button>
 </div>
@@ -102,20 +99,19 @@
 
 </section>
     <div class="accesibilidad">
-    <button id="botonAccesibilidad">⚙️</button>
-
-    <div id="menuAccesibilidad" class="menu-accesibilidad">
-         <section class="au-dis">
-            <button>A+</button><button>A-</button>
-        </section>
-        <button onclick="toggleOscuro()"> Modo oscuro</button>
-        <button onclick="mayusculas()"> Mayúsculas</button>
-        <button onclick="resetEstilos()"> Restaurar</button>   
-        <section class="au-dis">
-        <button onclick="leerPagina()">Lectura</button>
-        <button onclick="detenerLectura()">Detener</button>
-        </section>  
-    </div>
+        <button id="botonAccesibilidad">⚙️</button>
+            <div id="menuAccesibilidad" class="menu-accesibilidad">
+                <section class="au-dis">
+                    <button>A+</button><button>A-</button>
+                </section>
+                    <button onclick="toggleOscuro()"> Modo oscuro</button>
+                    <button onclick="mayusculas()"> Mayúsculas</button>
+                    <button onclick="resetEstilos()"> Restaurar</button>   
+                <section class="au-dis">
+                    <button onclick="leerPagina()">Lectura</button>
+                    <button onclick="detenerLectura()">Detener</button>
+                </section>  
+            </div>
     </div>
 <footer>
     <div class="secFooterPrincipal">

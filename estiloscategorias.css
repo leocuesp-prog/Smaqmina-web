@@ -41,7 +41,6 @@ body {
 
 button {
     padding: 12px 25px;
-    font-size: 17px;
     background: var(--logo-verde);
     color: var(--blanco-principal);
     border: none;
@@ -68,7 +67,6 @@ button:hover {
 
 .logo-area .titulo {
     color: var(--blanco-principal);
-    font-size: 26px;
     font-weight: bold;
 }
 
@@ -81,7 +79,6 @@ button:hover {
 .nav-links a {
     color: var(--blanco-texto);
     text-decoration: none;
-    font-size: 16px;
 }
 
 .nav-links a.active,
@@ -100,7 +97,6 @@ button:hover {
     background-color: transparent;
     border: none;
     color: var(--blanco-principal);
-    font-size: 16px;
     padding: 10px;
     cursor: pointer;
 }
@@ -403,7 +399,6 @@ button:hover {
 
 .titulo-principal {
     text-align: center;
-    font-size: 30px;
     margin-bottom: 25px;
     color: var(--logo-azul);
 }
@@ -450,7 +445,6 @@ button:hover {
     padding: 10px;
     border: 2px solid var(--logo-azul);
     border-radius: 5px;
-    font-size: 15px;
 }
 
 .btn-buscar {
@@ -480,14 +474,12 @@ button:hover {
     color: white;
     padding: 12px;
     text-align: left;
-    font-size: 18px;
 }
 
 .tabla-equipos td {
     padding: 12px;
     border-bottom: 1px solid var(--gris-fuerte);
     color: var(--gris-texto);
-    font-size: 16px;
 }
 
 .acciones {
@@ -498,13 +490,11 @@ button:hover {
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 20px;
 }
 
 .list {
     margin-top: 10px;
     padding: 10px 10px;
-    font-size: 15px;
     background: var(--logo-verde);
     color: var(--blanco-principal);
     border: none;
@@ -513,8 +503,14 @@ button:hover {
 }
 
 
-/* ===== GRID ===== */
 
+/* ===== GRID ===== */
+.btn-agregar button{
+    padding: 0px 20px;
+}
+.btn-volver button{
+    padding: 0px 20px;
+}
 
 .grid-container {
     display: grid;
@@ -578,7 +574,6 @@ footer {
     padding: 20px;
     background: var(--logo-azul);
     color: var(--blanco-principal);
-    font-size: 16px;
     margin-top: 40px;
     border-top: 3px solid var(--logo-verde);
 }
@@ -594,8 +589,8 @@ footer {
         grid-template:
             "topbar     topbar"     auto
             "contenedor contenedor" auto
-            "boton      boton"      auto
             "btn-volver btn-agregar" auto
+            "boton      boton"      auto            
             "footer     footer"     auto
             / auto auto;
     
@@ -606,8 +601,8 @@ footer {
         grid-template:
             "topbar     topbar"     auto
             "contenedor contenedor" auto
-            "boton      boton"      auto
             "btn-volver btn-agregar" auto
+            "boton      boton"      auto            
             "footer     footer"     auto
             / auto auto;
     }
@@ -627,7 +622,7 @@ footer {
     color: var(--blanco-principal);
 }
 
-.dark-mode .menu-accesibilidad,
+
 .dark-mode input,
 .dark-mode td {
     background-color: var(--contenedores-modo-osc) !important;
@@ -688,14 +683,7 @@ footer {
     background-color: transparent !important;
 }
 
-.dark-mode   .accesibilidad > button{
-    background: var(--logo-azul-oscuro) !important;
-    color: var(--blanco-texto) !important;
-    border: 5px double var(--boton-modo-osc);
-    padding: 12px;
-    border-radius: 50%;
-    cursor: pointer;
-}
+
 
 /* ================================================
    SUPERADMIN — estilos consistentes con el sitio

@@ -34,6 +34,12 @@ body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
+}  
+/* ---------------- HEADER ---------------- */
+
+.titulo-header {
+    font-weight: bold;
 }
 
 
@@ -113,7 +119,6 @@ footer {
     text-align: center;
     padding: 20px;
     color: var(--blanco-principal);
-    font-size: 16px;
     margin-top: 40px;
     border-top: 3px solid var(--logo-verde);
 }
@@ -174,8 +179,7 @@ body {
 }
 
 .logo-area .titulo {
-    color: white;
-    font-size: 26px;
+    color: var(--blanco-principal);
     font-weight: bold;
 }
 
@@ -188,7 +192,6 @@ body {
 .nav-links a {
     color: var(--blanco-principal);
     text-decoration: none;
-    font-size: 16px;
 }
 
 .nav-links a.active,
@@ -205,8 +208,7 @@ body {
 .dropbtn {
     background-color: transparent;
     border: none;
-    color: var(--blanco);
-    font-size: 16px;
+    color: var(--blanco-texto);
     padding: 10px;
     cursor: pointer;
     text-decoration: none;
@@ -474,6 +476,89 @@ background: var(--fondo-modo-osc) !important;
 .btn-cerrar-sesion:hover { background: darkred !important; color: white !important; }
 /* ===== PERFIL OVERLAY ===== */
 
+/* ============ ICONO PERFIL ============ */
+.icon img {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+    cursor: pointer;
+}
+.dropdown button.icon {
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+.dropdown button.icon img:hover {
+    transform: scale(1.05);
+    transition: 0.2s;
+}
+#perfilNavbar { display: none; }
+
+/* ============ CONTENEDOR ============ */
+.contenedor {
+    padding: 40px 70px;
+    font-family: "Inter", sans-serif;
+}
+
+h1 {
+    background: var(--azul);
+    color: white;
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 25px;
+}
+
+/* ============ CARDS ============ */
+.card {
+    background: white;
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+.card h2 {
+    color: var(--azul);
+    margin-bottom: 10px;
+}
+
+.card p {
+    text-align: justify;
+    line-height: 1.6;
+}
+
+/* ============ BOTÓN DESCARGA ============ */
+.btn-descarga {
+    display: inline-block;
+    padding: 12px 20px;
+    background: var(--verde);
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.btn-descarga:hover {
+    background: #3a9b7e;
+}
+
+/* ============ FOOTER ============ */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: var(--azul);
+    color: white;
+    font-size: 16px;
+    margin-top: 40px;
+    border-top: 6px solid var(--verde);
+}
+
+
+/* ============ PERFIL OVERLAY ============ */
 .perfil-overlay {
     position: fixed;
     top: 0; left: 0;
@@ -590,44 +675,4 @@ background: var(--fondo-modo-osc) !important;
     margin-bottom: 16px;
 }
 .btn-cerrar-sesion:hover { background: darkred !important; color: white !important; }
-
-/* ============ MODOS ============ */
-.dark-mode {
-    background: #121212 !important;
-}
-
-.dark-mode .topbar,
-.dark-mode footer,
-.dark-mode h1 {
-    background: #0a2236 !important;
-}
-
-.dark-mode .menu-accesibilidad,
-.dark-mode .card {
-    background-color: #1e1e1e !important;
-    color: white !important;
-    border: 2px solid #0a2236 !important;
-}
-
-.dark-mode .card h2 {
-    color: white !important;
-}
-
-.dark-mode input,
-.dark-mode button,
-.dark-mode .btn-descarga,
-.dark-mode select,
-.dark-mode option {
-    background-color: #333 !important;
-    color: white !important;
-}
-
-.dark-mode button:hover {
-    background-color: #555 !important;
-    color: white !important;
-}
-
-.mayusculas {
-    text-transform: uppercase;
-}
 

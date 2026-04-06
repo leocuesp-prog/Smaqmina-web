@@ -4,11 +4,8 @@
     <meta charset="UTF-8">
     <title>Crear Cuenta - SMAQMINA</title>
     <link rel="stylesheet" href="estilos-index.css">
-<<<<<<< HEAD
     <link rel="stylesheet" href="estilos-accesibilidad.css">
-=======
     
->>>>>>> 72f6dd1d77c0fc6512a5778d0956513958ec019b
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
@@ -80,17 +77,21 @@
     </div>
     
 
-<div class="accesibilidad">
-    <button id="botonAccesibilidad">⚙️</button>
-
-    <div id="menuAccesibilidad" class="menu-accesibilidad">
-        <button onclick="toggleOscuro()">Modo oscuro</button>
-        <button onclick="mayusculas()">Mayúsculas</button>
-        <button onclick="resetEstilos()">Restaurar</button>     
-        <button onclick="leerPagina()">Leer Página</button>
-        <button onclick="detenerLectura()">Detener Lectura</button>
+ <div class="accesibilidad">
+        <button id="botonAccesibilidad">⚙️</button>
+            <div id="menuAccesibilidad" class="menu-accesibilidad">
+                <section class="au-dis">
+                    <button>A+</button><button>A-</button>
+                </section>
+                    <button onclick="toggleOscuro()"> Modo oscuro</button>
+                    <button onclick="mayusculas()"> Mayúsculas</button>
+                    <button onclick="resetEstilos()"> Restaurar</button>   
+                <section class="au-dis">
+                    <button onclick="leerPagina()">Lectura</button>
+                    <button onclick="detenerLectura()">Detener</button>
+                </section>  
+            </div>
     </div>
-</div>
 </main>
 
 <script src="srcip_crear.js"></script>

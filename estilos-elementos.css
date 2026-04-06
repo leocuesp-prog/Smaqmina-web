@@ -37,7 +37,7 @@ h1 {
 }
 
 select, option{
-    color: var(--negro); border-radius: 15px; background-color:var(--blanco-principal); padding: 14px; font-family: "Montserrat", sans-serif ; font-weight: bold; font-size: 15px;
+    color: var(--negro); border-radius: 15px; background-color:var(--blanco-principal); padding: 14px; font-family: "Montserrat", sans-serif ; font-weight: bold; 
 }
 
  li{
@@ -214,15 +214,6 @@ gap: 25px;
     color: var(--blanco-texto) !important;
 }
 
-.dark-mode   .accesibilidad > button{
-    background: var(--logo-azul-oscuro) !important;
-    color: var(--blanco-texto) !important;
-    border: 5px double var(--boton-modo-osc);
-    padding: 12px;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
 /* Footer */
 .dark-mode footer {
     background: var(--logo-azul-oscuro) !important;
@@ -351,7 +342,6 @@ gap: 25px;
 .dropbtn {
     border: none;
     color: var(--blanco-texto);
-    font-size: 16px;
     padding: 10px;
     cursor: pointer;
 }
@@ -408,7 +398,6 @@ footer {
     padding: 20px;
     background: var(--logo-azul);
     color: var(--blanco-principal);
-    font-size: 16px;
     margin-top: 40px;
     border-top: 5px solid var(--logo-verde);
 }

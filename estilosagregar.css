@@ -61,13 +61,11 @@ height: 55px;
 }
 .logo-area .titulo {
 color: var(--blanco-principal);
-font-size: 26px;
 font-weight: bold;
 }
 .nav-links a {
 color: var(--blanco-texto);
 text-decoration: none;
-font-size: 16px;
 }
 
 .nav-links a.active,
@@ -101,7 +99,6 @@ color: var(--logo-verde);
     border-radius: 7px;
     border: 2px solid var(--logo-azul);
     background:var(--blanco-principal);
-    font-size: 18px;
     outline: none;
     transition: 0.3s ease;
     font-family: "Inter", sans-serif; 
@@ -125,7 +122,6 @@ color: var(--logo-verde);
     border-radius: 7px;
     border: 2px solid var(--logo-azul);
     background:var(--blanco-principal);
-    font-size: 18px;
     outline: none;
     transition: 0.3s ease;
     font-family: "Inter", sans-serif; 
@@ -139,18 +135,6 @@ align-items: center;
 gap: 10px;
 }
 
-
-.btn-agregar {
- margin-top: 20px;
- padding: 12px 25px;
-font-size: 17px;
- background: var(--logo-verde);
- color: white;
- border: none;
-border-radius: 6px;
-cursor: pointer;
-}
-
 .dropdown {
     position: relative;
     display: inline-block;
@@ -160,7 +144,6 @@ cursor: pointer;
     background-color: transparent;
     border: none;
     color: var(--blanco-principal);
-    font-size: 16px;
     padding: 10px;
     cursor: pointer;
 }
@@ -184,10 +167,8 @@ align-items: center;
 gap: 25px;
 }
 .btn-agregar {
-    grid-area:btn-agregar ;
  margin-top: 20px;
- padding: 12px 25px;
-font-size: 17px;
+ padding: 0px 20px;
  background: var(--logo-verde);
  color: var(--blanco-principal);
  border: none;
@@ -221,7 +202,6 @@ cursor: pointer;
 }
 
 
-
 grid-container > * { 
     text-align: center
     ;
@@ -252,7 +232,6 @@ z-index: 1000;
 .titulo-principal {
     grid-area:titulo-principal ;
 text-align: center;
-font-size: 30px;
 margin-bottom: 25px;
 color: var(--logo-azul);
 }
@@ -289,7 +268,6 @@ footer {
     padding: 20px;
     background: var(--logo-azul);
     color: var(--blanco-principal);
-    font-size: 16px;
     margin-top: 40px;
     border-top: 3px solid var(--logo-verde);
 }
@@ -324,7 +302,7 @@ background: var(--fondo-modo-osc) !important;
     background: var(--logo-azul-oscuro) !important;
 }
 
-.dark-mode .menu-accesibilidad,
+
 .dark-mode .formulario-container{
     background-color: var(--contenedores-modo-osc) !important;
     color: var(--blanco-principal) !important;
@@ -388,18 +366,8 @@ background: var(--fondo-modo-osc) !important;
     color: var(--blanco-texto);
 }
 
-.dark-mode   .accesibilidad > button{
-    background: var(--logo-azul-oscuro) !important;
-    color: var(--blanco-texto) !important;
-    border: 5px double var(--boton-modo-osc);
-    padding: 12px;
-    border-radius: 50%;
-    cursor: pointer;
-}
 
-.mayusculas{
-    text-transform: uppercase;
-}
+
 /* ===== PERFIL OVERLAY ===== */
 
 .perfil-overlay {

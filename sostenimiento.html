@@ -5,11 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SOSTENIMIENTO</title>
     <link rel="stylesheet" href="estilos_sostenimiento.css">
-<<<<<<< HEAD
     <link rel="stylesheet" href="estilos-accesibilidad.css">
-=======
     <link rel="stylesheet" href="estilos-overlay.css">
->>>>>>> 72f6dd1d77c0fc6512a5778d0956513958ec019b
 </head>
 <body class="grid-container">
     <header class="topbar">
@@ -181,21 +178,25 @@
     </table>
     </main>
     <main class="boton-volver">
-        <a href="inicio.html"><button style="font-size: 18px;" class="btn-agregar">Volver</button></a>
+        <a href="inicio.html"><button  class="btn-agregar"><h3>Volver</h3></button></a>
     </main>
     <main class="boton-agregar">
-        <button style="font-size: 18px;" class="btn-agregar">Agregar</button>
+        <button  class="btn-agregar"><h3>Agregar</h3></button>
     </main>
     <div class="accesibilidad">
-    <button id="botonAccesibilidad">⚙️</button>
-
-    <div id="menuAccesibilidad" class="menu-accesibilidad">
-        <button onclick="toggleOscuro()"> Modo oscuro</button>
-        <button onclick="mayusculas()"> Mayúsculas</button>
-        <button onclick="resetEstilos()"> Restaurar</button>     
-        <button onclick="leerPagina()"> Leer Pagina</button>
-        <button onclick="detenerLectura()"> Detener Lectura</button>
-    </div>
+        <button id="botonAccesibilidad">⚙️</button>
+            <div id="menuAccesibilidad" class="menu-accesibilidad">
+                <section class="au-dis">
+                    <button>A+</button><button>A-</button>
+                </section>
+                    <button onclick="toggleOscuro()"> Modo oscuro</button>
+                    <button onclick="mayusculas()"> Mayúsculas</button>
+                    <button onclick="resetEstilos()"> Restaurar</button>   
+                <section class="au-dis">
+                    <button onclick="leerPagina()">Lectura</button>
+                    <button onclick="detenerLectura()">Detener</button>
+                </section>  
+            </div>
     </div>
  <footer>
     <div class="secFooterPrincipal">
