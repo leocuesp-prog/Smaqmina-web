@@ -37,7 +37,7 @@ h1 {
 }
 
 select, option{
-    color: var(--negro); border-radius: 15px; background-color:var(--blanco-principal); padding: 14px; font-family: "Montserrat", sans-serif ; font-weight: bold; font-size: 15px;
+    color: var(--negro); border-radius: 15px; background-color:var(--blanco-principal); padding: 14px; font-family: "Montserrat", sans-serif ; font-weight: bold; 
 }
 
  li{
@@ -164,7 +164,6 @@ gap: 25px;
     border: none;
     padding: 12px;
     border-radius: 50%;
-    font-size: 18px;
     cursor: pointer;
 }
 
@@ -208,8 +207,7 @@ gap: 25px;
 .dark-mode .img,
 .dark-mode .hj1,
 .dark-mode .hj2,
-.dark-mode .descripcion,
-.dark-mode .menu-accesibilidad {
+.dark-mode .descripcion{
     background-color: var(--contenedores-modo-osc) !important;
     color: var(--blanco-principal) !important;
 }
@@ -246,6 +244,15 @@ gap: 25px;
     color: var(--blanco-texto) !important;
 }
 
+.dark-mode   .accesibilidad > button{
+    background: var(--logo-azul-oscuro) !important;
+    color: var(--blanco-texto) !important;
+    border: 5px double var(--boton-modo-osc);
+    padding: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
 /* Footer */
 .dark-mode footer {
     background: var(--logo-azul-oscuro) !important;
@@ -262,9 +269,7 @@ gap: 25px;
     background-color: var(--hoverbtn-modo-osc) !important;
     color: var(--blanco-principal) !important;
 }
-.dark-mode .menu-accesibilidad{
-    background-color: var(--negro);
-}
+
 .dark-mode .icon{
     background-color: transparent;
 }
@@ -376,7 +381,6 @@ gap: 25px;
 .dropbtn {
     border: none;
     color: var(--blanco-texto);
-    font-size: 16px;
     padding: 10px;
     cursor: pointer;
 }
@@ -433,7 +437,6 @@ footer {
     padding: 20px;
     background: var(--logo-azul);
     color: var(--blanco-principal);
-    font-size: 16px;
     margin-top: 40px;
     border-top: 5px solid var(--logo-verde);
 }
