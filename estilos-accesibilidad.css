@@ -18,11 +18,18 @@
     --hoverbtn-modo-osc:#555;
 }
 
-
+ * {
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
 
 /* MENÚ */
+.au-dis{
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+}
 .accesibilidad button:hover{
-     transform: scale(1.05);
+     transform: scale(1.10);
     transition: 0.2s;
 }
 
@@ -33,9 +40,10 @@
     padding: 12px;
     border-radius: 50%;
     cursor: pointer;
-    font-size: 12px;
+    font-size: 15px;
 }
 .menu-accesibilidad button {
+   
     margin: 5px 0;
     padding: 6px;
     border: none;
@@ -47,6 +55,7 @@
 }
 
 .menu-accesibilidad {
+    text-align: center;
     display: none;
     flex-direction: column;
     margin-top: 10px;

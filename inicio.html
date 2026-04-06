@@ -5,12 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>INICIO - SMAQMINA</title>
     <link rel="stylesheet" href="estilos-inicio.css">
-<<<<<<< HEAD
     <link rel="stylesheet" href="estilos-accesibilidad.css">
     
-=======
-
->>>>>>> 72f6dd1d77c0fc6512a5778d0956513958ec019b
 </head>
 
 <body class="grid-container">
@@ -55,11 +51,7 @@
 
 <section class="categorias-container">
 
-<<<<<<< HEAD
     
-=======
-
->>>>>>> 72f6dd1d77c0fc6512a5778d0956513958ec019b
     <a href="herramientas.html" class="categoria-card">
         <div class="carousel">
             <div class="carousel-track">
@@ -75,13 +67,8 @@
             Son objetos, dispositivos o instrumentos creados para facilitar la realización de tareas específicas.
         </p>
     </a>
-<<<<<<< HEAD
     </div>
   
-=======
-
-
->>>>>>> 72f6dd1d77c0fc6512a5778d0956513958ec019b
     <a href="maquinas.html" class="categoria-card">
         <div class="carousel">
             <div class="carousel-track">
@@ -118,18 +105,32 @@
     <button id="botonAccesibilidad">⚙️</button>
 
     <div id="menuAccesibilidad" class="menu-accesibilidad">
+         <section class="au-dis">
+            <button>A+</button><button>A-</button>
+        </section>
         <button onclick="toggleOscuro()"> Modo oscuro</button>
         <button onclick="mayusculas()"> Mayúsculas</button>
-        <button onclick="resetEstilos()"> Restaurar</button>     
-        <button onclick="leerPagina()"> Leer Pagina</button>
-        <button onclick="detenerLectura()"> Detener Lectura</button>
+        <button onclick="resetEstilos()"> Restaurar</button>   
+        <section class="au-dis">
+        <button onclick="leerPagina()">Lectura</button>
+        <button onclick="detenerLectura()">Detener</button>
+        </section>  
     </div>
     </div>
 <footer>
-    2026 SMAQMINA. - Sistema de Mantenimiento de Maquinas Mineras <br>
-    Derechos Reservados. <br>
-    contacto: 3009650139 <br>
-    correo: smaqmina23@gmail.com
+    <div class="secFooterPrincipal">
+        <img class="logoSenaFooter" src="imagenes/logo-sena-blanco.png">
+        <img class="logoSmaqFooter" src="imagenes/smaqmina-footer.png">
+        <br> SMAQMINA - Sistema de Mantenimiento de Maquinas Mineras
+        <br> Copyright © 2026
+          
+        
+    </div>
+    <div class="secFooterSecundario">
+        
+    <br><strong>CONTACTANOS</strong>
+        <br>smaqminaskls@gmail.com
+    </div>
 </footer>
 <!-- PERFIL OVERLAY -->
 <div class="perfil-overlay" id="perfilOverlay">

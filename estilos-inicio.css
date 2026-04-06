@@ -23,7 +23,9 @@
     --hoverbtn-modo-osc:#555
 }
 
-    
+* {
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
 
 
 .logo-area {
@@ -218,6 +220,7 @@ grid-container > * {
     
 }
     .grid-container{
+        
     margin: 0;
     font-family: "Montserrat", sans-serif;
     /* background-color: var(--blanco-principal); */
@@ -236,7 +239,7 @@ grid-container > * {
     align-items: center;
     justify-content: space-between;
     padding: 0 30px;
-    border-bottom: 5px solid var(--logo-verde);
+    border-bottom: 10px solid var(--logo-verde);
 }
 .bienvenida {
     grid-area: bienvenida;
