@@ -105,7 +105,7 @@ function resetTamañoTexto() {
     localStorage.removeItem("tamañoTexto");
 }
 function aumentarTexto() {
-    if (tamañoActual < 20) {
+    if (tamañoActual < 22) {
     tamañoActual = parseInt(tamañoActual) + 2;
     document.body.style.fontSize = tamañoActual + "px";
     localStorage.setItem("tamañoTexto", tamañoActual);
