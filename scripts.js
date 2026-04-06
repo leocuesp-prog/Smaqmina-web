@@ -119,7 +119,26 @@ if (menu && boton) {
     });
 
 }
+let tamañoActual = localStorage.getItem("tamañoTexto") || 16;
 
+document.body.style.fontSize = tamañoActual + "px";
+
+function aumentarTexto() {
+    if (tamañoActual < 25) {
+    tamañoActual = parseInt(tamañoActual) + 2;
+    document.body.style.fontSize = tamañoActual + "px";
+    localStorage.setItem("tamañoTexto", tamañoActual);
+    }
+}
+
+function disminuirTexto() {
+    tamañoActual = parseInt(tamañoActual) - 2;
+
+    if (tamañoActual < 15) ;
+
+    document.body.style.fontSize = tamañoActual + "px";
+    localStorage.setItem("tamañoTexto", tamañoActual);
+}
 function toggleOscuro() {
     document.body.classList.toggle("dark-mode");
     guardarConfig();
