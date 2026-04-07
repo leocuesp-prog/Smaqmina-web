@@ -1,4 +1,3 @@
-
 let tabla5=document.getElementById("tableman5")
 const usuarioActivo = localStorage.getItem("usuarioActivo");
 function cargetable(){
