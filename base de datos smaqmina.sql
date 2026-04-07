@@ -2,13 +2,25 @@ drop database if exists smaqmina1;
 create database  smaqmina1;
 use smaqmina1;
 CREATE TABLE usuario (
-id INT AUTO_INCREMENT PRIMARY KEY,
-nombre VARCHAR(100) NOT NULL,
-correo varchar(200) UNIQUE NOT NULL,
-telefono VARCHAR(20),
-password VARCHAR(255) NOT NULL,
-fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100)  NOT NULL,
+    correo VARCHAR(200)  UNIQUE NOT NULL,
+    telefono VARCHAR(20),
+    password  VARCHAR(255)  NOT NULL,
+    estado ENUM('pendiente', 'activo', 'inactivo') DEFAULT 'pendiente' NOT NULL,
+    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    ultimo_acceso DATETIME  DEFAULT NULL
 );
+
+create table super_cuenta(
+    id_cuenta int not null primary key auto_increment,
+    nombre_cuenta VARCHAR(100) NOT NULL,
+    correo_cuenta varchar(200) UNIQUE NOT NULL,
+    telefono_cuenta VARCHAR(20),
+    password VARCHAR(255) NOT NULL
+    
+);
+
 create table herramienta_sujecion (
 id_herramienta_sujecion int(20) primary key  unique auto_increment,
 nombre_herramienta_sujecion varchar(45) not null,
@@ -99,15 +111,10 @@ novedad_equipo VARCHAR(45) not null,
 id_equipo varchar(11),
 foreign key(id_equipo)references equipo(id_equipo)
 );
-create table super_cuenta(
-    id_cuenta int not null primary key auto_increment,
-    nombre_cuenta VARCHAR(100) NOT NULL,
-    correo_cuenta varchar(200) UNIQUE NOT NULL,
-    telefono_cuenta VARCHAR(20),
-    password VARCHAR(255) NOT NULL,
-    id int,
-    foreign key (id)references usuario(id)
-)
+
+ INSERT INTO super_cuenta (nombre_cuenta,correo_cuenta, telefono_cuenta, password)
+ values ('Jorge Estupiñan','jorge123@gmail.com','31015181921','elpapu1468');
+ 
 INSERT INTO equipo (
 id_equipo,
 nombre_equipo,
