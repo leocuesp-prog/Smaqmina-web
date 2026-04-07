@@ -98,3 +98,26 @@ function guardarConfig() {
         mayuscula: document.body.classList.contains("mayusculas"),
         }));
 }
+function closeMenu() {
+    let menu = document.getElementById("menuAccesibilidad");
+    if (menu) menu.style.display = "none";
+}
+
+function openMenu() {
+    let menu = document.getElementById("menuAccesibilidad");
+    if (menu) menu.style.display = "flex";
+}
+
+// En el botón que abre el menú, detén la propagación
+document.getElementById("botonAccesibilidad").addEventListener("click", function (e) {
+    e.stopPropagation(); // evita que el clic llegue al document y cierre el menú
+    openMenu();
+});
+
+// Cierra solo si el clic fue fuera del menú
+document.addEventListener("click", function (e) {
+    let menu = document.getElementById("menuAccesibilidad");
+    if (menu && menu.style.display === "flex" && !menu.contains(e.target)) {
+        closeMenu();
+    }
+});

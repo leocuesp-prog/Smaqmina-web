@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-
     const lapices = document.querySelectorAll(".icon");
     const usuarioActivo = localStorage.getItem("usuarioActivo");
     const options = document.getElementById("opciones");
