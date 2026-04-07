@@ -1,21 +1,32 @@
-
 document.addEventListener("DOMContentLoaded", function () {
 
-    // 1️⃣ CONTROL DE LÁPICES
-    const lapices = document.querySelectorAll(".icon"); // todos los botones de edición
+    const lapices = document.querySelectorAll(".icon");
     const usuarioActivo = localStorage.getItem("usuarioActivo");
+    const options = document.getElementById("opciones");
+    const estadoSeleccionado = localStorage.getItem("estadoSeleccionado");
 
-    if (usuarioActivo) {
-        lapices.forEach(btn => btn.style.display = "inline-block"); // mostrar lápices
-    } else {
-        lapices.forEach(btn => btn.style.display = "none"); // ocultar lápices
+    // Cargar el estado guardado siempre, haya o no usuario
+    if (estadoSeleccionado) {
+        options.value = estadoSeleccionado;
     }
 
+    if (usuarioActivo) {
+        // Usuario activo: puede editar
+        lapices.forEach(btn => btn.style.display = "inline-block");
+        options.disabled = false;
 
+        // Guardar en localStorage cada vez que cambie
+        options.addEventListener("change", function () {
+            localStorage.setItem("estadoSeleccionado", this.value);
+            alert("Estado guardado: " + this.value);
+        });
 
+    } else {
+        // Sin usuario: solo lectura
+        lapices.forEach(btn => btn.style.display = "none");
+        options.disabled = true;
+    }
 });
-
-
 // Espera a que la página cargue completamente
 document.addEventListener("DOMContentLoaded", function () {
 
